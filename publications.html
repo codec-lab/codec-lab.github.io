@@ -1,0 +1,198 @@
+    <h2>Publications</h2>
+        <div
+            x-data="{
+                 papers: [],
+                 tag_list: [
+                    'Reviews', 'Planning', 'Reinforcement Learning',
+                    'Theory of Mind', 'Language', 
+                ],
+                active_tags: [
+                    'Planning', 'Reviews', 'Reinforcement Learning',
+                    'Language', 'Theory of Mind'
+                ],
+                styles: {
+                    'tag': {
+                        'margin-right': '5px',
+                        'padding': '5px',
+                        'padding-left': '10px',
+                        'padding-right': '10px',
+                        'border-radius': '10px',
+                        'cursor': 'pointer',
+                        'font-size': '85%',
+                        '-webkit-user-select': 'none', /* Safari */
+                        '-ms-user-select': 'none', /* IE 10 and IE 11 */
+                        'user-select': 'none', /* Standard syntax */
+                    },
+                    'paper': {
+                        'margin-bottom': '20px'
+                    }
+                },
+                tag_style: {
+                    'Reviews': {'background-color': '#40d464', 'border-color': '#40d464'},
+                    'Planning': {'background-color': '#ffa200', 'border-color': '#ffa200'},
+                    'Reinforcement Learning': {'background-color': '#ffa200', 'border-color': '#ffa200'},
+                    'Language': {'background-color': '#3cbaff', 'border-color': '#3cbaff'},
+                    'Theory of Mind': {'background-color': '#3cbaff', 'border-color': '#3cbaff'},
+                },
+                paper_order: [
+                    'ho0000rational',
+                    'arumugam0000bayesian',
+                    'dubey0000aha',
+                    'sumers0000reconciling',
+                    'allen0000games',
+                    
+                    'correa2023task',
+                    'peng2023diagnosis',
+                    'sumers2023show',
+
+                    'ho2022people',
+                    'ho2022planning',
+                    'ho2022cognitive',
+                    'abel2022express',
+                    'arumugam2022rate',
+                    'sumers2022talk',
+
+                    'ho2021communication',
+                    'sarin2021punishment',
+                    'cushman2021punishment',
+                    'abel2021expressivity',
+                    'gates2021rational',
+                    'wu2021specialization',
+                    'correa2020resource',
+                    'sumers2021extending',
+                    'sumers2021learning',
+
+                    'ho2020efficiency',
+                    'sumers2020show',
+                    'wang2020teaching',
+
+                    'ho2019value',
+                    'ho2019people',
+                    'ho2019computational',
+                    'carroll2019utility',
+
+                    'vazquez2018learning',
+                    'ho_effectively_2018',
+
+                    'ho_teaching_2017',
+                    'ho2017social',
+                    'macglashan2017interactive',
+
+                    'ho2016showing',
+                    'ho_feature-based_2016',
+                    'kleimanweiner2016coordinate',
+                    'ho_teaching_2015',
+                ]
+            }"
+            x-init="
+                papers = await (await fetch('./papers.json')).json()
+                papers = Object.fromEntries(
+                    paper_order.map(key => [key, papers[key]])
+                )
+            "
+            style="min-height: 70vh;"
+        >
+        <div style="margin-bottom: 20px;">
+            <span 
+                :style="{
+                    ...styles.tag,
+                    ...(
+                        active_tags.length === tag_list.length ? 
+                        {'background-color': 'black'} :
+                        {'background-color': 'gainsboro'}
+                    ),
+                    color: 'white'
+                }"
+                x-on:click="
+                    if (active_tags.length !== tag_list.length) {
+                        active_tags = tag_list
+                    }
+                "
+            >
+                All
+            </span>
+            <template x-for="tag in tag_list">
+                <span
+                    :style="{
+                        ...styles.tag,
+                        ...tag_style[tag],
+                        ...(active_tags.includes(tag) ? {} : {'background-color': 'gainsboro'})
+                    }"
+                    x-on:click="
+                        if (active_tags.length === tag_list.length) {
+                            active_tags = [tag]
+                        } else {
+                            if (active_tags.includes(tag)) {
+                                active_tags = active_tags.filter(t => t !== tag)
+                            }
+                            else{
+                                active_tags.push(tag)
+                            }
+                        }
+                        if (active_tags.length === 0) {
+                            active_tags = tag_list
+                        }
+                    "
+                >
+                    <span x-text="tag"></span>
+            </span>
+            </template>
+        </div>
+
+        <ol>
+            <template x-for="(paper_data, key) in papers">
+              <li 
+                :style="
+                    {
+                        ...styles['paper'],
+                        display: 
+                            paper_data.hasOwnProperty('tags') && 
+                            paper_data['tags'].filter(
+                                t => tag_list.includes(t)
+                            ).some(t => active_tags.includes(t)) ? 
+                            '' : 'none'
+                    }
+                "
+              >
+                <template x-if="paper_data.hasOwnProperty('URL')">
+                    <b><a x-bind:href="paper_data['URL']" target="_blank"><span style="color: black;" x-text="paper_data['title']"></span></a></b>
+                </template>
+                <template x-if ="!paper_data.hasOwnProperty('URL')">
+                    <b><span style="color: black;" x-text="paper_data['title']"></span></b>
+                </template>
+                <div>
+                    <i><span x-text="paper_data['container-title']"></span></i>
+                    <template
+                      x-if="paper_data['issued'].hasOwnProperty('date-parts')"
+                    >
+                    <span>
+                    (<span x-text="paper_data['issued']['date-parts'][0][0]"></span>)
+                    </span>
+                </template>
+                </div>
+                <div>
+                    <span x-text="paper_data['author'].map(a => `${a['given']} ${a['family']}`).join(', ')"></span>
+                </div>
+                    <div>
+                    <template x-for="(url, name) in paper_data['links']">
+                        <span>
+                        [<a x-bind:href="url" x-text="name" target="_blank"></a>]
+                        </span>
+                    </template>
+                    </div>
+                    <div>
+                    <template x-for="tag in paper_data['tags']">
+                        <span 
+                            x-show="tag_list.includes(tag)" 
+                            x-text="tag" 
+                            :style="{
+                                ...styles['tag'],
+                                ...tag_style[tag]
+                            }"
+                        ></span> 
+                    </template>
+                    </div>
+              </li>
+            </template>
+        </ol>
+    </div>
