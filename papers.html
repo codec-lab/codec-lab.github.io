@@ -13,6 +13,11 @@
                     'Resource Rationality'
                 ],
                 styles: {
+                    'noselect': {
+                        '-webkit-user-select': 'none', /* Safari */
+                        '-ms-user-select': 'none', /* IE 10 and IE 11 */
+                        'user-select': 'none', /* Standard syntax */
+                    },
                     'tag': {
                         'margin-right': '5px',
                         'padding': '5px',
@@ -21,16 +26,11 @@
                         'border-radius': '10px',
                         'cursor': 'pointer',
                         'font-size': '85%',
-                        '-webkit-user-select': 'none', /* Safari */
-                        '-ms-user-select': 'none', /* IE 10 and IE 11 */
-                        'user-select': 'none', /* Standard syntax */
                         'background-color': '#3cbaff',
                     },
                     'paper': {
                         'margin-bottom': '20px',
-                        '-webkit-user-select': 'none', /* Safari */
-                        '-ms-user-select': 'none', /* IE 10 and IE 11 */
-                        'user-select': 'none', /* Standard syntax */
+                        'max-height': '500px',
                     },
                     'link': {
                         'margin-right': '4px',
@@ -55,6 +55,43 @@
                     'Theory of Mind': {'background-color': '#3cbaff'},
                     'Interactive ML': {'background-color': '#3cbaff'},
                     'Cooperation': {'background-color': '#3cbaff'}
+                },
+                to_bibtex: (paper_data) => {
+                    let author_list = (paper_data['author'] || []).map((a) => a['family'] + ', ' + a['given']).join(' AND ')
+                    let editors_list = (paper_data['editor'] || []).map((a) => a['family'] + ', ' + a['given']).join(' AND ')
+                    let entry = {
+                        'title': paper_data['title'] || '',
+                        'author': author_list,
+                        'year': paper_data['year'] || '',
+                        'volume': paper_data['volume'] || '',
+                        'pages': paper_data['page'] || '',
+                        'publisher': paper_data['publisher'] || '',
+                        'address': paper_data['publisher-place'] || '',
+                    }
+
+                    if (paper_data['type'] === 'article-journal') {
+                        entry['journal'] = paper_data['container-title'] || ''
+                        return [
+                            `@article{${paper_data['id']}`,
+                            ...Object.keys(entry).map((k) => k+'={'+entry[k]+'}')
+                        ].join(',\n  ') + '\n}'
+                    }
+                    if (paper_data['type'] === 'paper-conference') {
+                        entry['booktitle'] = paper_data['container-title']
+                        entry['editor'] = editors_list 
+                        return [
+                            `@inproceedings{${paper_data['id']}`,
+                            ...Object.keys(entry).map((k) => k+'={'+entry[k]+'}')
+                        ].join(',\n  ') + '\n}'
+                    }
+                    if (paper_data['type'] === 'chapter') {
+                        entry['booktitle'] = paper_data['container-title']
+                        entry['editor'] = editors_list 
+                        return [
+                            `@incollection{${paper_data['id']}`,
+                            ...Object.keys(entry).map((k) => k+'={'+entry[k]+'}')
+                        ].join(',\n  ') + '\n}'
+                    }
                 },
                 paper_order: [
                     'ho0000rational',
@@ -129,6 +166,19 @@
                 clicktag = (tag) => {
                     active_tags = [tag]
                 }
+                paper_is_visible = (paper_data) =>
+                    (
+                        paper_data.hasOwnProperty('tags') && 
+                        (
+                            (
+                                paper_data['tags'].length == 0 &&
+                                active_tags.length === tag_list.length
+                            ) ||
+                            paper_data['tags'].filter(
+                                t => tag_list.includes(t)
+                            ).some(t => active_tags.includes(t))
+                        )
+                    )
             "
             style="min-height: 70vh;"
         >
@@ -136,6 +186,7 @@
             <span 
                 :style="{
                     ...styles.tag,
+                    ...styles.noselect,
                     ...(
                         active_tags.length === tag_list.length ? 
                         {'background-color': 'black'} :
@@ -155,6 +206,7 @@
                 <span
                     :style="{
                         ...styles.tag,
+                        ...styles.noselect,
                         ...(active_tags.includes(tag) ? {} : {'background-color': 'gainsboro'})
                     }"
                     x-on:click="clicktag(tag)"
@@ -167,27 +219,34 @@
         <ol>
             <template x-for="(paper_data, key) in papers">
               <li 
+                x-bind:id="key"
                 :style="
-                    {
-                        ...styles['paper'],
-                        display: 
-                            (
-                                paper_data.hasOwnProperty('tags') && 
-                                (
-                                    (
-                                        paper_data['tags'].length == 0 &&
-                                        active_tags.length === tag_list.length
-                                    ) ||
-                                    paper_data['tags'].filter(
-                                        t => tag_list.includes(t)
-                                    ).some(t => active_tags.includes(t))
-                                )
-                            ) ?
-                            '' : 'none'
-                    }
+                    (
+                        paper_is_visible(paper_data) ? 
+                        {
+                            ...styles['paper'],
+                            transitionProperty: 'max-height, opacity, margin-bottom, visibility',
+                            transitionDuration: '0.4s, 0.5s, 0.4s, 0.5s',
+                            transitionTimingFunction: 'ease',
+                            transitionDelay: '0s, 0.2s, 0s, 0.2s',
+                        } :
+                        {
+                            'max-height': '0px',
+                            opacity:'0',
+                            'visibility': 'hidden',
+                            transitionProperty: 'max-height, opacity, margin-bottom, visibility',
+                            transitionDuration: '0.4s, 0.4s, 0.4s, 0.4s',
+                            transitionTimingFunction: 'ease',
+                            transitionDelay: '.2s, 0s, .2s, 0s',
+                        }
+                    )
                 "
               >
-                <a x-bind:href="paper_data['URL']" target="_blank" style="color: black;" >
+                <a 
+                    x-bind:href="paper_data['URL']" 
+                    target="_blank" 
+                    style="color: black; cursor: pointer;" 
+                >
                     <b>
                         <span x-text="paper_data['title']"></span>
                     </b>
@@ -202,23 +261,52 @@
                 <div>
                     <b><span x-text="paper_data['acceptance_note']" style="color:rgb(197, 0, 0)"></span></b>
                 </div>
-                    <div>
-                    <template x-for="(url, name) in paper_data['links']">
-                        <span :style="styles['link']">
-                            <a x-bind:href="url" x-text="name" target="_blank" style="color: white"></a>
-                        </span>
-                    </template>
+                <template x-for="tag in paper_data['tags']">
+                    <span 
+                        x-show="tag_list.includes(tag)" 
+                        x-text="tag" 
+                        x-on:click="
+                            clicktag(tag);
+                            this_paper = document.getElementById(paper_data['id']);
+                            setTimeout(() => this_paper.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start',
+                            }), 800);
+                        "
+                        :style="{
+                            ...styles['tag'],
+                            ...styles['noselect'],
+                            ...(active_tags.includes(tag) ? {} : {'background-color': 'gainsboro'})
+                        }"
+                    ></span> 
+                </template>
+                <div>
+                <template x-for="(url, name) in paper_data['links']">
+                    <span :style="styles['link']">
+                        <a x-bind:href="url" x-text="name" target="_blank" style="color: white"></a>
+                    </span>
+                </template>
+                    <span 
+                        :style="styles['link']"
+                        x-on:click="
+                            (e) => {
+                                bibtex = document.getElementById(paper_data['id']+'_bibtex')
+                                bibtex.style.display = bibtex.style.display === 'block' ? 'none' : 'block'
+                            }
+                        "
+                    >
+                    BibTex
+                    </span>
+                    <div
+                        x-bind:id="paper_data['id']+'_bibtex'" 
+                        style="display:none" 
+                    >
+                        <pre 
+                            x-text="to_bibtex(paper_data)"
+                        >
+                        </pre>
                     </div>
-                    <template x-for="tag in paper_data['tags']">
-                        <span 
-                            x-show="tag_list.includes(tag)" 
-                            x-text="tag" 
-                            x-on:click="clicktag(tag)"
-                            :style="{
-                                ...styles['tag'],
-                            }"
-                        ></span> 
-                    </template>
+                </div>
               </li>
             </template>
         </ol>
