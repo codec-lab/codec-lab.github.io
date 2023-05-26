@@ -179,10 +179,24 @@
                             ).some(t => active_tags.includes(t))
                         )
                     )
+                download_bibtex_list = () => {
+                    const bib_string = Object.keys(papers).map(
+                        k => to_bibtex(papers[k])
+                    ).join('\n\n')
+                    const dataURI = 'data:text/plain;charset=utf-8,' + encodeURIComponent(bib_string);
+                    const anchor = document.createElement('a');
+                    anchor.href = dataURI;
+                    anchor.download = 'references.bib';
+                    anchor.style.display = 'none';
+                    document.body.appendChild(anchor);
+                    anchor.click();
+                    document.body.removeChild(anchor);
+                }
             "
             style="min-height: 70vh;"
         >
         <div style="margin-bottom: 20px;">
+            <div style="max-width: 90%">
             <span 
                 :style="{
                     ...styles.tag,
@@ -214,8 +228,16 @@
                     <span x-text="tag"></span>
             </span>
             </template>
+            </div>
+            <div style="text-align: right;">
+                <span 
+                    :style="styles['link']"
+                    x-on:click="download_bibtex_list()"
+                >
+                Download as .bib file 
+                </span>
+            </div>
         </div>
-
         <ol>
             <template x-for="(paper_data, key) in papers">
               <li 
