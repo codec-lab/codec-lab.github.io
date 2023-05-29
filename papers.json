@@ -27,8 +27,8 @@
        "links":{
        },
        "tags":[
-          "Planning",
-          "Resource Rationality"
+          "Planning / Problem Solving",
+          "Mental Effort / Resource Rationality"
        ],
        "URL":"https://psyarxiv.com/aqxws"
     },
@@ -225,7 +225,7 @@
        "type":"article-journal",
        "tags":[
           "Reinforcement Learning",
-          "Resource Rationality"
+          "Mental Effort / Resource Rationality"
        ],
        "URL": "https://arxiv.org/abs/2305.03263"
     },
@@ -301,8 +301,8 @@
        },
        "type":"article-journal",
        "tags":[
-          "Planning",
-          "Resource Rationality"
+          "Planning / Problem Solving",
+          "Mental Effort / Resource Rationality"
        ]
     },
     "sumers2022talk":{
@@ -440,8 +440,8 @@
        "id":"ho2022people",
        "title":"People construct simplified mental representations to plan",
        "tags":[
-          "Planning",
-          "Resource Rationality"
+          "Planning / Problem Solving",
+          "Mental Effort / Resource Rationality"
        ],
        "author":[
           {
@@ -489,7 +489,7 @@
        "title":"Planning with Theory of Mind",
        "tags":[
           "Review",
-          "Planning",
+          "Planning / Problem Solving",
           "Theory of Mind"
        ],
        "author":[
@@ -597,7 +597,7 @@
        "URL": "./documents/ho_griffiths_annual_review_2022.pdf",
        "tags":[
           "Review",
-          "Interactive ML",
+          "Interactive Machine Learning",
           "Theory of Mind"
        ],
        "author":[
@@ -625,7 +625,7 @@
        "title":"Communication in action: Planning and interpreting communicative demonstrations",
        "URL": "https://psyarxiv.com/a8sxk/",
        "tags":[
-          "Planning",
+          "Planning / Problem Solving",
           "Theory of Mind",
           "Communication"
        ],
@@ -788,7 +788,7 @@
        "title":"Diagnosis, feedback, adaptation: A human-in-the-loop framework for test-time policy adaptation",
        "tags":[
           "Reinforcement Learning",
-          "Interactive ML"
+          "Interactive Machine Learning"
        ],
        "author":[
           {
@@ -970,7 +970,7 @@
        "tags":[
           "Review",
           "Reinforcement Learning",
-          "Planning"
+          "Planning / Problem Solving"
        ],
        "author":[
           {
@@ -1009,8 +1009,8 @@
        "title":"Resource-rational task decomposition to minimize planning costs",
        "URL": "https://arxiv.org/abs/2007.13862",
        "tags":[
-          "Planning",
-          "Resource Rationality"
+          "Planning / Problem Solving",
+          "Mental Effort / Resource Rationality"
        ],
        "author":[
           {
@@ -1120,8 +1120,8 @@
          "arXiv": "https://arxiv.org/abs/2002.05769"
        },
        "tags":[
-          "Planning",
-          "Resource Rationality"
+          "Planning / Problem Solving",
+          "Mental Effort / Resource Rationality"
        ],
        "author":[
           {
@@ -1165,7 +1165,7 @@
        "title":"Teaching a robot tasks of arbitrary complexity via human feedback",
        "tags":[
           "Reinforcement Learning",
-          "Interactive ML"
+          "Interactive Machine Learning"
        ],
        "author":[
           {
@@ -1206,7 +1206,7 @@
        "URL": "https://arxiv.org/abs/1910.05789",
        "tags":[
           "Cooperation",
-          "Interactive ML"
+          "Interactive Machine Learning"
        ],
        "author":[
           {
@@ -1399,7 +1399,7 @@
        "title":"Effectively learning from pedagogical demonstrations",
        "tags":[
           "Communication",
-          "Planning",
+          "Planning / Problem Solving",
           "Theory of Mind",
           "Inverse RL"
        ],
@@ -1459,7 +1459,7 @@
        "tags":[
           "Reinforcement Learning",
           "Communication",
-          "Interactive ML"
+          "Interactive Machine Learning"
        ],
        "author":[
           {
@@ -1511,7 +1511,7 @@
        "id":"macglashan2017interactive",
        "title":"Interactive learning from policy-dependent human feedback",
        "tags":[
-          "Interactive ML",
+          "Interactive Machine Learning",
           "Reinforcement Learning"
        ],
        "author":[
@@ -1566,7 +1566,7 @@
        "title":"Showing versus doing: Teaching by demonstration",
        "tags":[
           "Theory of Mind",
-          "Planning"
+          "Planning / Problem Solving"
        ],
        "author":[
           {
@@ -1634,7 +1634,7 @@
        "title":"Feature-based Joint Planning and Norm Learning in Collaborative Games",
        "tags":[
           "Cooperation",
-          "Planning"
+          "Planning / Problem Solving"
        ],
        "links": {
          "Code": "https://github.com/markkho/norms-cogsci2016"
@@ -1718,7 +1718,7 @@
        "title":"Coordinate to cooperate or compete: Abstract goals and joint intentions in social interaction",
        "tags":[
           "Cooperation",
-          "Planning"
+          "Planning / Problem Solving"
        ],
        "author":[
           {

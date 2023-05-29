@@ -3,14 +3,14 @@
             x-data="{
                  papers: [],
                  tag_list: [
-                    'Planning', 'Reinforcement Learning',
-                    'Theory of Mind', 'Interactive ML', 'Language', 
-                    'Cooperation', 'Resource Rationality'
+                    'Planning / Problem Solving', 'Reinforcement Learning',
+                    'Interactive Machine Learning', 'Theory of Mind', 'Language', 
+                    'Cooperation', 'Mental Effort / Resource Rationality'
                 ],
                 active_tags: [
-                    'Planning', 'Reinforcement Learning',
-                    'Language', 'Theory of Mind', 'Cooperation', 'Interactive ML',
-                    'Resource Rationality'
+                    'Planning / Problem Solving', 'Reinforcement Learning',
+                    'Language', 'Theory of Mind', 'Cooperation', 'Interactive Machine Learning',
+                    'Mental Effort / Resource Rationality'
                 ],
                 styles: {
                     'noselect': {
@@ -49,11 +49,11 @@
                 },
                 tag_style: {
                     'Review': {'background-color': '#3cbaff'},
-                    'Planning': {'background-color': '#3cbaff'},
+                    'Planning / Problem Solving': {'background-color': '#3cbaff'},
                     'Reinforcement Learning': {'background-color': '#3cbaff'},
                     'Language': {'background-color': '#3cbaff'},
                     'Theory of Mind': {'background-color': '#3cbaff'},
-                    'Interactive ML': {'background-color': '#3cbaff'},
+                    'Interactive Machine Learning': {'background-color': '#3cbaff'},
                     'Cooperation': {'background-color': '#3cbaff'}
                 },
                 to_bibtex: (paper_data) => {
@@ -225,7 +225,7 @@
                     }"
                     x-on:click="clicktag(tag)"
                 >
-                    <span x-text="tag"></span>
+                    <span x-text="tag.replace(/\s/g, '&nbsp;')"></span>
             </span>
             </template>
             </div>
