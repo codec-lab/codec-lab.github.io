@@ -18,9 +18,10 @@
     <nav>
         <ul>
             <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
             <li><a href="#people">People</a></li>
             <li><a href="#papers">Papers</a></li>
-            <li><a href="#links">Links</a></li>
+            <!-- <li><a href="#links">Links</a></li> -->
         </ul>
     </nav>
     </header>
@@ -29,9 +30,7 @@
   <section id="about" x-data x-html="await (await fetch('about.html')).text()"></section>
   <section id="people" x-data x-html="await (await fetch('people.html')).text()"></section>
   <section id="papers" x-data x-html="await (await fetch('papers.html')).text()"></section>
-  <section id="links">
-    <h2>Links</h2>
-    <p>This is the links section of the webpage.</p>
+  <!-- <section id="links" x-data x-html="await (await fetch('links.html')).text()"></section> -->
   </section>
 </article>
 </body>

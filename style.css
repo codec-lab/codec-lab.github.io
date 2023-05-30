@@ -466,3 +466,16 @@ figure img {
         display: table-cell;
     }
 }
+
+.personEntry {
+    display: flex;
+    margin-bottom: 2%;
+}
+.personEntry .profilePic {
+    max-width: 20%;
+    padding-top: 2%;
+}
+.personEntry p {
+    max-width: 75%;
+    padding-left: 3%;
+}
