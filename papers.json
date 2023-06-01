@@ -268,7 +268,10 @@
     "correa2023task":{
        "id":"correa2023task",
        "title":"Humans decompose tasks by trading off utility and computational cost",
-       "URL": "https://arxiv.org/abs/2211.03890",
+       "URL": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011087",
+       "links": {
+         "arXiv": "https://arxiv.org/abs/2211.03890"
+       },
        "author":[
           {
              "family":"Correa",
@@ -295,7 +298,7 @@
        "issued":{
           "date-parts":[
              [
-                "in press"
+                "2023"
              ]
           ]
        },
@@ -303,7 +306,10 @@
        "tags":[
           "Planning / Problem Solving",
           "Mental Effort / Resource Rationality"
-       ]
+       ],
+       "volume": "19",
+       "number": "6",
+       "page": "1-31"
     },
     "sumers2022talk":{
        "id":"sumers2022talk",
