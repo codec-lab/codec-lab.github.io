@@ -479,3 +479,16 @@ figure img {
     max-width: 75%;
     padding-left: 3%;
 }
+
+nav .logocontainer {
+    display: flex;
+    align-items: center;
+    width: 350px;
+}
+nav .logo {
+    width: 30%;
+}
+nav .logotext {
+    width: 70%;
+    font-size: 30px;
+}
