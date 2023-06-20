@@ -9,6 +9,8 @@
         min-height: 70vh;
     }
     .papersPanel .visiblePaper {
+        scroll-margin-top: 5rem;
+        scroll-snap-margin-top: 5rem; /* Safari */
         margin-bottom: 20px;
         max-height: 500px;
         transition-property: max-height, opacity, margin-bottom, visibility;
@@ -287,10 +289,12 @@
                     x-on:click="
                         selectTag(tag);
                         this_paper = document.getElementById(paper_data['id']);
-                        setTimeout(() => this_paper.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start',
-                        }), 800);
+                        setTimeout(() => {
+                            this_paper.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start',
+                            })
+                        }, 800);
                     "
                 >
                 <span x-text="tag.replace(/\s/g, '&nbsp;')">
@@ -318,7 +322,7 @@
                     :id="paper_data['id']+'_bibtex'" 
                     style="display:none" 
                 >
-                    <pre x-text="to_bibtex(paper_data)">
+                    <pre style="line-height: normal;" x-text="to_bibtex(paper_data)">
                     </pre>
                 </div>
             </div>
