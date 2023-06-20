@@ -17,23 +17,22 @@
             </div>
           </div>
         </nav>
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#people">People</a></li>
-            <li><a href="#papers">Papers</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <!-- <li><a href="#links">Links</a></li> -->
-        </ul>
-    </nav>
     </header>
+  <nav class="navbar">
+      <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#people">People</a></li>
+          <li><a href="#papers">Papers</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <!-- <li><a href="#links">Links</a></li> -->
+      </ul>
+  </nav>
   <article>
   <section id="about" x-data x-html="await (await fetch('about.html')).text()"></section>
   <section id="people" x-data x-html="await (await fetch('people.html')).text()"></section>
   <section id="papers" x-data x-html="await (await fetch('papers.html')).text()"></section>
   <section id="contact" x-data x-html="await (await fetch('contact.html')).text()"></section>
   <!-- <section id="links" x-data x-html="await (await fetch('links.html')).text()"></section> -->
-  </section>
 </article>
 </body>
 </html>
