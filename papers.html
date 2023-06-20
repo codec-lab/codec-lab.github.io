@@ -283,8 +283,7 @@
                 <span 
                     class="tag noselect"
                     :class="{'inactiveTag': !active_tags.includes(tag)}"
-                    x-show="tag_list.includes(tag)" 
-                    x-text="tag" 
+                    x-show="tag_list.includes(tag)"  
                     x-on:click="
                         selectTag(tag);
                         this_paper = document.getElementById(paper_data['id']);
@@ -293,7 +292,10 @@
                             block: 'start',
                         }), 800);
                     "
-                ></span> 
+                >
+                <span x-text="tag.replace(/\s/g, '&nbsp;')">
+                </span>
+            </span> 
             </template>
             <div>
             <template x-for="(url, name) in paper_data['links']">

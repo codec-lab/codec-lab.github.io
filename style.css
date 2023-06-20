@@ -468,19 +468,6 @@ figure img {
     }
 }
 
-.personEntry {
-    display: flex;
-    margin-bottom: 2%;
-}
-.personEntry .profilePic {
-    max-width: 20%;
-    padding-top: 2%;
-}
-.personEntry p {
-    max-width: 75%;
-    padding-left: 3%;
-}
-
 nav .logocontainer {
     display: flex;
     align-items: center;
@@ -492,4 +479,43 @@ nav .logo {
 nav .logotext {
     width: 70%;
     font-size: 30px;
+}
+
+.personEntry {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+/* Desktop styles */
+@media screen and (min-width: 768px) {
+    .personEntry {
+        flex-direction: row;
+        align-items: top;
+    }
+    .personEntry .profilePic {
+        max-width: 20%;
+        margin-top: .5rem;
+    }
+    .personEntry p {
+        max-width: 75%;
+        padding-left: .5rem;
+    }
+}
+
+/* Mobile styles */
+@media screen and (max-width: 767px) {
+    .personEntry {
+        flex-direction: column;
+        text-align: left;
+        align-items: center;
+    }
+    .personEntry .profilePic {
+        width: 80%;
+        max-width: 300px;
+    }
+    .personEntry p {
+        width: 100%;
+        max-width: 450px;
+        padding-left: 0rem;
+    }
 }
