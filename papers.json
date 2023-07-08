@@ -1,6 +1,6 @@
 {
     "ho0000rational":{
-       "id":"ho0000rational",
+       "id":"ho2023rational",
        "title":"Rational simplification and rigidity in human planning",
        "author":[
           {
@@ -19,11 +19,12 @@
        "issued":{
           "date-parts":[
              [
-                "under review"
+                "in press"
              ]
           ]
        },
        "type":"article-journal",
+       "journal":"Psychological Science",
        "links":{
        },
        "tags":[
