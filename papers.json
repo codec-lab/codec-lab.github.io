@@ -1,5 +1,5 @@
 {
-    "ho0000rational":{
+    "ho2023rational":{
        "id":"ho2023rational",
        "title":"Rational simplification and rigidity in human planning",
        "author":[
@@ -836,7 +836,8 @@
           ]
        },
        "type":"paper-conference",
-       "publisher":"PMLR"
+       "publisher":"PMLR",
+       "acceptance_note":"<28% acceptance rate"
     },
     "sarin2021punishment":{
        "id":"sarin2021punishment",
