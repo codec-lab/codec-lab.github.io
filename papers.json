@@ -837,7 +837,7 @@
        },
        "type":"paper-conference",
        "publisher":"PMLR",
-       "acceptance_note":"<28% acceptance rate"
+       "acceptance_note":"Less than 28% of submissions accepted"
     },
     "sarin2021punishment":{
        "id":"sarin2021punishment",
