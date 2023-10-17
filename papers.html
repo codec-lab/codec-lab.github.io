@@ -199,8 +199,8 @@
                 document.body.removeChild(anchor);
             }
             to_bibtex = (paper_data) => {
-                let author_list = (paper_data['author'] || []).map((a) => a['family'] + ', ' + a['given']).join(' AND ')
-                let editors_list = (paper_data['editor'] || []).map((a) => a['family'] + ', ' + a['given']).join(' AND ')
+                let author_list = (paper_data['author'] || []).map((a) => a['family'] + ', ' + a['given']).join(' and ')
+                let editors_list = (paper_data['editor'] || []).map((a) => a['family'] + ', ' + a['given']).join(' and ')
                 let entry = {
                     'title': paper_data['title'] || '',
                     'author': author_list,
