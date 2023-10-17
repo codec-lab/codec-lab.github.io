@@ -1,4 +1,52 @@
 {
+    "chater2023probabilities":{
+       "id":"chater2023probabilities",
+       "title":"From probabilities to actions",
+       "tags":[
+          "Reinforcement Learning",
+          "Planning / Problem Solving"
+       ],
+       "author":[
+          {
+             "family":"Chater",
+             "given":"Nick"
+          },
+          {
+             "family":"Griffiths",
+             "given":"Thomas L."
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          }
+       ],
+       "container-title":"Bayesian Models of Cognition: Reverse Engineering the Mind",
+       "publisher-place":"Cambridge",
+       "issued":{
+          "date-parts":[
+             [
+                "forthcoming"
+             ]
+          ]
+       },
+       "type":"chapter",
+       "editor":[
+          {
+             "family":"Griffiths",
+             "given":"Thomas L."
+          },
+          {
+             "family":"Chater",
+             "given":"Nick"
+          },
+          {
+             "family":"Tenenbaum",
+             "given":"Joshua"
+          }
+       ],
+       "publisher":"MIT Press",
+       "URL":"./documents/Bayesian_Models_of_Cognition-Ch7.pdf"
+    },
     "ho2023rational":{
        "id":"ho2023rational",
        "title":"Rational simplification and rigidity in human planning",
