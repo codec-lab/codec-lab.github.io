@@ -145,23 +145,29 @@
         }"
         x-init="
             active_tags = tag_list;
-            papers = await (await fetch('./papers.json')).json();
+            papers = await (await fetch(`./papers.json?timestamp=${Date.now()}`)).json();
             papers = Object.fromEntries(
-                paper_order.map(key => [
-                    key, 
-                    {
-                        ...papers[key],
-                        title: papers[key].title,
-                        authors: papers[key].author.map(a => `${a['given']} ${a['family']}`).join(', '),
-                        year: 
-                            papers[key].hasOwnProperty('issued') ?
-                            papers[key]['issued']['date-parts'][0][0] :
-                            '',
-                        'URL': papers[key].hasOwnProperty('URL') ? papers[key]['URL'] : undefined,
-                        'acceptance_note': papers[key].hasOwnProperty('acceptance_note') ? papers[key]['acceptance_note'] : '',
-                        'tags': papers[key]['tags'].filter(t => tag_list.includes(t))
+                paper_order.map(key => {
+                    if (!(key in papers)) {
+                        console.log(`Missing paper: ${key}`)
+                        return [key, {}]
                     }
-                ])
+                    return [
+                        key, 
+                        {
+                            ...papers[key],
+                            title: papers[key].title,
+                            authors: papers[key].author.map(a => `${a['given']} ${a['family']}`).join(', '),
+                            year: 
+                                papers[key].hasOwnProperty('issued') ?
+                                papers[key]['issued']['date-parts'][0][0] :
+                                '',
+                            'URL': papers[key].hasOwnProperty('URL') ? papers[key]['URL'] : undefined,
+                            'acceptance_note': papers[key].hasOwnProperty('acceptance_note') ? papers[key]['acceptance_note'] : '',
+                            'tags': papers[key]['tags'].filter(t => tag_list.includes(t))
+                        }
+                    ]
+                })
             )
             selectTag = (tag) => {
                 active_tags = [tag]
