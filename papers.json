@@ -79,7 +79,7 @@
     },
     "chater2023probabilities":{
        "id":"chater2023probabilities",
-       "title":"From probabilities to actions",
+       "title":"Chapter 7: From probabilities to actions",
        "tags":[
           "Reinforcement Learning",
           "Planning / Problem Solving"
@@ -154,7 +154,8 @@
        "links":{
          "Code and Data": "https://github.com/markkho/functional-fixedness",
          "OSF": "https://osf.io/yuta6/",
-         "PsyArXiv": "https://psyarxiv.com/aqxws"
+         "PsyArXiv": "https://psyarxiv.com/aqxws",
+         "SPSP Blog Post": "https://spsp.org/news/character-and-context-blog/ho-functional-fixedness"
        },
        "tags":[
           "Planning / Problem Solving",
@@ -970,7 +971,8 @@
        },
        "type":"paper-conference",
        "publisher":"PMLR",
-       "acceptance_note":"Less than 28% of submissions accepted"
+       "acceptance_note":"Less than 28% of submissions accepted",
+       "URL": "https://arxiv.org/abs/2307.06333"
     },
     "sarin2021punishment":{
        "id":"sarin2021punishment",
