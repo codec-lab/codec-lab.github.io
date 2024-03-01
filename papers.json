@@ -1,4 +1,47 @@
 {
+   "wu0000visual": {
+      "id": "wu0000visual",
+      "title": "Visual-spatial dynamics drive adaptive social learning in immersive environments",
+      "author":[
+         {
+            "family":"Wu",
+            "given":"Charley M"
+         },
+         {
+            "family":"Deffner",
+            "given":"Dominik"
+         },
+         {
+            "family":"Kahl",
+            "given":"Benjamin"
+         },
+         {
+            "family":"Meder",
+            "given":"Bj\u00f6rn"
+         },
+         {
+            "family":"Ho",
+            "given":"Mark K"
+         },
+         {
+            "family":"Kurvers",
+            "given":"Ralf HJM"
+         }
+      ],
+       "issued":{
+          "date-parts":[
+             [
+                "under review"
+             ]
+          ]
+       },
+       "type":"article-journal",
+       "tags":[
+          "Cooperation",
+          "Planning / Problem Solving"
+       ],
+      "URL": "https://www.biorxiv.org/content/10.1101/2023.06.28.546887v3.abstract"
+   },
     "correa0000exploring": {
       "id": "correa0000exploring",
       "title": "Exploring the hierarchical structure of human plans via program generation",
