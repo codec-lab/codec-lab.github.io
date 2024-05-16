@@ -1,4 +1,71 @@
 {
+    "pennisi2024investigating":{
+       "id":"pennisi2024investigating",
+       "title":"Investigating Flexible Role Binding in AI Agents",
+       "author":[
+          {
+             "family":"Pennisi",
+             "given":"Brian"
+          },
+          {
+             "family":"Budiono",
+             "given":"Rheza"
+          },
+          {
+             "family":"Gureckis",
+             "given":"Todd M"
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K"
+          }
+       ],
+       "container-title":"Proceedings of the 46rd Annual Conference of the Cognitive Science Society",
+       "issued":{
+          "date-parts":[
+             [
+                2024
+             ]
+          ]
+       },
+       "type":"paper-conference",
+       "tags":[
+          "Reinforcement Learning",
+          "Language"
+       ],
+       "URL": "./documents/baba_is_rl_cogsci-2024.pdf"
+    },
+   "kuperwajs0000heuristics": {
+      "id": "kuperwajs0000heuristics",
+      "title": "Heuristics for meta-planning from a normative model of information search",
+      "author":[
+         {
+            "family":"Kuperwajs",
+            "given":"Ionatan"
+         },
+         {
+            "family":"Ho",
+            "given":"Mark K"
+         },
+         {
+            "family":"Ma",
+            "given":"Wei Ji"
+         }
+      ],
+       "issued":{
+          "date-parts":[
+             [
+                "under review"
+             ]
+          ]
+       },
+       "type":"article-journal",
+       "tags":[
+          "Planning / Problem Solving",
+          "Mental Effort / Resource Rationality"
+       ],
+      "URL": "https://osf.io/preprints/psyarxiv/qtk9j"
+   },
    "wu0000visual": {
       "id": "wu0000visual",
       "title": "Visual-spatial dynamics drive adaptive social learning in immersive environments",
@@ -85,8 +152,8 @@
        ],
        "URL": "https://arxiv.org/abs/2311.18644"
     },
-    "rane0000concept":{
-       "id":"rane0000concept",
+    "rane2024concept":{
+       "id":"rane2024concept",
        "title":"Concept Alignment as a Prerequisite for Value Alignment",
        "author":[
           {
@@ -106,14 +173,15 @@
              "given":"Thomas L."
           }
        ],
+       "container-title":"Proceedings of the 46rd Annual Conference of the Cognitive Science Society",
        "issued":{
           "date-parts":[
              [
-                "under review"
+                2024
              ]
           ]
        },
-       "type":"article-journal",
+       "type":"paper-conference",
        "tags":[
           "Theory of Mind",
           "Interactive Machine Learning"
@@ -367,8 +435,8 @@
           "Reinforcement Learning"
        ]
     },
-    "arumugam0000bayesian":{
-       "id":"arumugam0000bayesian",
+    "arumugam2024bayesian":{
+       "id":"arumugam2024bayesian",
        "title":"Bayesian reinforcement learning with limited cognitive load",
        "author":[
           {
@@ -388,19 +456,25 @@
              "given":"Benjamin"
           }
        ],
+       "container-title":"Open Mind",
+       "ISSN":"2470-2986",
        "issued":{
           "date-parts":[
              [
-                "under review"
+                2024
              ]
           ]
        },
+       "page": "395-438",
        "type":"article-journal",
        "tags":[
           "Reinforcement Learning",
           "Mental Effort / Resource Rationality"
        ],
-       "URL": "https://arxiv.org/abs/2305.03263"
+       "URL": "https://doi.org/10.1162/opmi_a_00132",
+       "links": {
+         "arXiv": "https://arxiv.org/abs/2305.03263"
+       }
     },
     "sumers2023reconciling":{
        "id":"sumers2023reconciling",
