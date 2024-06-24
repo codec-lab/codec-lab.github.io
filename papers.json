@@ -1,5 +1,79 @@
 {
-    "pennisi2024investigating":{
+   "sucholutsky0000representational": {
+      "id": "sucholutsky0000representational",
+      "title": "Representational Alignment Supports Effective Machine Teaching",
+      "author": [
+        {
+          "family": "Sucholutsky",
+          "given": "Ilia"
+        },
+        {
+          "family": "Collins",
+          "given": "Katherine M."
+        },
+        {
+          "family": "Malaviya",
+          "given": "Maya"
+        },
+         {
+            "family": "Jacoby",
+            "given": "Nori"
+         },
+         {
+            "family": "Liu",
+            "given": "Weiyang"
+         },
+         {
+            "family": "Sumers",
+            "given": "Theodore R."
+         },
+         {
+            "family": "Korakakis",
+            "given": "Michalis"
+         },
+         {
+            "family": "Bhatt",
+            "given": "Umang"
+         },
+         {
+            "family": "Ho",
+            "given": "Mark K."
+         },
+         {
+            "family": "Tenenbaum",
+            "given": "Joshua B."
+         },
+         {
+            "family": "Love",
+            "given": "Brad"
+         },
+         {
+            "family": "Pardos",
+            "given": "Zachary A."
+         },
+         {
+            "family": "Weller",
+            "given": "Adrian"
+         },
+         {
+            "family": "Griffiths",
+            "given": "Thomas L."
+         }
+      ],
+      "issued":{
+         "date-parts":[
+            [
+               "under review"
+            ]
+         ]
+      },
+      "type":"article-journal",
+      "tags":[
+         "Interactive Machine Learning"
+      ],
+      "URL": "https://arxiv.org/abs/2406.04302"
+   },
+   "pennisi2024investigating":{
        "id":"pennisi2024investigating",
        "title":"Investigating Flexible Role Binding in AI Agents",
        "author":[
@@ -337,8 +411,8 @@
           "Reinforcement Learning"
        ]
     },
-    "allen0000games":{
-       "id":"allen0000games",
+    "allen2024games":{
+       "id":"allen2024games",
        "title":"Using games to understand the mind",
        "author":[
           {
@@ -389,15 +463,19 @@
        "issued":{
           "date-parts":[
              [
-                "under review"
+                "2024"
              ]
           ]
        },
        "type":"article-journal",
+       "container-title":"Nature Human Behavior",
        "tags":[
           "Planning / Problem Solving"
        ],
-       "URL": "https://psyarxiv.com/hbsvj"
+       "URL": "https://www.nature.com/articles/s41562-024-01878-9",
+       "links": {
+         "OSF": "https://psyarxiv.com/hbsvj"
+       }
     },
     "arumugam2022rate":{
        "id":"arumugam2022rate",
