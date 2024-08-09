@@ -1,4 +1,35 @@
 {
+   "abel2024three": {
+      "id": "abel2024three",
+      "title": "Three Dogmas of Reinforcement Learning",
+      "author":[
+         {
+            "family":"Abel",
+            "given":"David"
+         },
+         {
+            "family":"Ho",
+            "given":"Mark K."
+         },
+         {
+            "family":"Harutyunyan",
+            "given":"Anna"
+         }
+      ],
+      "container-title":"Proceedings of the Reinforcement Learning Conference",
+      "issued":{
+         "date-parts":[
+            [
+               2024
+            ]
+         ]
+      },
+      "type":"paper-conference",
+      "tags":[
+         "Reinforcement Learning"
+      ],
+      "URL": "https://arxiv.org/abs/2407.10583"
+   },
    "collins0000building": {
       "id": "collins0000building",
       "title": "Building Machines that Learn and Think with People",
