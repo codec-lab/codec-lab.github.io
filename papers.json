@@ -1,4 +1,74 @@
 {
+   "collins0000building": {
+      "id": "collins0000building",
+      "title": "Building Machines that Learn and Think with People",
+      "author":[
+         {
+            "family":"Collins",
+            "given":"Katherine M."
+         },
+         {
+            "family":"Sucholutsky",
+            "given":"Ilia"
+         },
+         {
+            "family":"Bhatt",
+            "given":"Umang"
+         },
+         {
+            "family":"Chandra",
+            "given":"Kartik"
+         },
+         {
+            "family":"Wong",
+            "given":"Lionel"
+         },
+         {
+            "family":"Lee",
+            "given":"Mina"
+         },
+         {
+            "family":"Zhang",
+            "given":"Cedegao E."
+         },
+         {
+            "family":"Zhi-Xuan",
+            "given":"Tan"
+         },
+         {
+            "family":"Ho",
+            "given":"Mark"
+         },
+         {
+            "family":"Mansinghka",
+            "given":"Vikash"
+         },
+         {
+            "family":"Weller",
+            "given":"Adrian"
+         },
+         {
+            "family":"Tenenbaum",
+            "given":"Joshua B."
+         },
+         {
+            "family":"Griffiths",
+            "given":"Thomas L."
+         }
+      ],
+      "issued":{
+         "date-parts":[
+            [
+               "under review"
+            ]
+         ]
+      },
+      "type":"article-journal",
+      "tags":[
+         "Interactive Machine Learning"
+      ],
+      "URL": "https://arxiv.org/abs/2408.03943"
+   },
    "sucholutsky0000representational": {
       "id": "sucholutsky0000representational",
       "title": "Representational Alignment Supports Effective Machine Teaching",
