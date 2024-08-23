@@ -278,7 +278,7 @@
             </span>
         </div>
     </div>
-    <ol>
+    <ol reversed>
         <template x-for="(paper_data, key) in papers">
             <li 
             :class=" paper_is_visible(paper_data) ? 'visiblePaper' : 'hiddenPaper' "
