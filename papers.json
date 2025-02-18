@@ -1,4 +1,49 @@
 {
+   "correa2025exploring": {
+      "id": "correa2025exploring",
+      "title": "Exploring the hierarchical structure of human plans via program generation",
+      "author": [
+      {
+         "family": "Correa",
+         "given": "Carlos G."
+      },
+      {
+         "family": "Sanborn",
+         "given": "Sophia"
+      },
+      {
+         "family": "Ho",
+         "given": "Mark K."
+      },
+      {
+         "family": "Callaway",
+         "given": "Frederick"
+      },
+      {
+         "family": "Daw",
+         "given": "Nathaniel D."
+      },
+      {
+         "family": "Griffiths",
+         "given": "Thomas L."
+      }
+      ],
+      "issued": {
+      "date-parts": [
+            [
+               2025
+            ]
+         ]
+      },
+      "page": "105990",
+      "type": "article-journal",
+      "tags": [
+         "Reinforcement Learning",
+         "Mental Effort / Resource Rationality"
+      ],
+       "container-title":"Cognition",
+       "URL":"https://www.sciencedirect.com/science/article/pii/S0010027724002762"
+    },
    "abel2024three": {
       "id": "abel2024three",
       "title": "Three Dogmas of Reinforcement Learning",
@@ -30,8 +75,8 @@
       ],
       "URL": "https://arxiv.org/abs/2407.10583"
    },
-   "collins0000building": {
-      "id": "collins0000building",
+   "collins2024building": {
+      "id": "collins2024building",
       "title": "Building Machines that Learn and Think with People",
       "author":[
          {
@@ -90,7 +135,7 @@
       "issued":{
          "date-parts":[
             [
-               "under review"
+               "2024"
             ]
          ]
       },
@@ -98,7 +143,11 @@
       "tags":[
          "Interactive Machine Learning"
       ],
-      "URL": "https://arxiv.org/abs/2408.03943"
+      "container-title":"Nature Human Behavior",
+      "URL": "https://www.nature.com/articles/s41562-024-01991-9",
+       "links": {
+         "arXiv": "https://arxiv.org/abs/2408.03943"
+       }
    },
    "sucholutsky0000representational": {
       "id": "sucholutsky0000representational",
