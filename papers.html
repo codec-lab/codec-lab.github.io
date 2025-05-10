@@ -1,0 +1,350 @@
+<style>
+    .noselect {
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none; /* Standard syntax */
+    }
+
+    .papersPanel {
+        min-height: 70vh;
+    }
+    .papersPanel .visiblePaper {
+        scroll-margin-top: 5rem;
+        margin-bottom: 20px;
+        max-height: 500px;
+        transition-property: max-height, opacity, margin-bottom, visibility;
+        transition-duration: 0.4s, 0.5s, 0.4s, 0.5s;
+        transition-timing-function: ease;
+        transition-delay: 0s, 0.2s, 0s, 0.2s;
+
+    }
+    .papersPanel .visiblePaper a {
+        color: black;
+        cursor: pointer;
+    }
+    .papersPanel .hiddenPaper {
+        max-height: 0px;
+        opacity:0;
+        visibility: hidden;
+        transition-property: max-height, opacity, margin-bottom, visibility;
+        transition-duration: 0.4s, 0.4s, 0.4s, 0.4s;
+        transition-timing-function: ease;
+        transition-delay: .2s, 0s, .2s, 0s;
+    }
+    .papersPanel .tag {
+        margin-right: 5px;
+        padding : 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 85%;
+        color: black;
+        background-color: #3cbaff;
+    }
+    .papersPanel .allTag {
+        background-color: black;
+        color: white;
+    }
+    .papersPanel .inactiveTag {
+        background-color: gainsboro;
+    }
+    .papersPanel .acceptanceNote {
+        color: rgb(197, 0, 0);
+    }
+    .papersPanel .sideLink {
+        margin-right: 4px;
+        padding : 4px;
+        padding-left: 8px;
+        padding-right: 8px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 75%;
+        color: white;
+        background-color: gray;
+    }
+    .papersPanel .sideLink a {
+        color: inherit;
+        user-select: inherit;
+        -webkit-user-select: inherit; /* Safari */
+        -ms-user-select: inherit; /* IE 10 and IE 11 */
+        cursor: inherit;
+    }
+    .papersPanel .sideLink a:hover {
+        text-decoration: none;
+    }
+</style>
+
+<h2>Papers</h2>
+    <div
+        class="papersPanel"
+        x-data="{
+            papers: [],
+            tag_list: [
+                'Planning / Problem Solving',
+                'Reinforcement Learning',
+                'Interactive Machine Learning',
+                'Theory of Mind',
+                'Language', 
+                'Cooperation',
+                'Mental Effort / Resource Rationality'
+            ],
+            active_tags: [],
+            paper_order: [
+                'correa2025exploring',
+                'arumugam2024bayesian',
+                'abel2024three',
+                'collins2024building',
+                'allen2024games',
+                'rane2024concept',
+                'pennisi2024investigating',
+
+                'sucholutsky0000representational',
+                'kuperwajs0000heuristics',
+
+                'chater2023probabilities',
+                'ho2023rational',
+                'correa2023task',
+                'sumers2023reconciling',
+
+                'wu0000visual',
+                'correa0000exploring',
+
+                'peng2023diagnosis',
+                'sumers2023show',
+
+                'dubey0000aha',
+
+                'ho2022people',
+                'ho2022planning',
+                'ho2022cognitive',
+                'abel2022express',
+                'arumugam2022rate',
+                'sumers2022talk',
+
+                'ho2021communication',
+                'abel2021expressivity',
+                'correa2020resource',
+                'sarin2021punishment',
+                'gates2021rational',
+                'sumers2021extending',
+                'sumers2021learning',
+                'cushman2021punishment',
+                'wu2021specialization',
+
+                'ho2020efficiency',
+                'sumers2020show',
+                'wang2020teaching',
+
+                'ho2019value',
+                'ho2019people',
+                'ho2019computational',
+                'carroll2019utility',
+
+                'vazquez2018learning',
+                'ho_effectively_2018',
+
+                'ho_teaching_2017',
+                'ho2017social',
+                'macglashan2017interactive',
+
+                'ho2016showing',
+                'ho_feature-based_2016',
+                'kleimanweiner2016coordinate',
+                'ho_teaching_2015',
+            ]
+        }"
+        x-init="
+            active_tags = tag_list;
+            papers = await (await fetch(`./papers.json?timestamp=${Date.now()}`)).json();
+            papers = Object.fromEntries(
+                paper_order.map(key => {
+                    if (!(key in papers)) {
+                        console.log(`Missing paper: ${key}`)
+                        return [key, {}]
+                    }
+                    return [
+                        key, 
+                        {
+                            ...papers[key],
+                            title: papers[key].title,
+                            authors: papers[key].author.map(a => `${a['given']} ${a['family']}`).join(', '),
+                            year: 
+                                papers[key].hasOwnProperty('issued') ?
+                                papers[key]['issued']['date-parts'][0][0] :
+                                '',
+                            'URL': papers[key].hasOwnProperty('URL') ? papers[key]['URL'] : undefined,
+                            'acceptance_note': papers[key].hasOwnProperty('acceptance_note') ? papers[key]['acceptance_note'] : '',
+                            'tags': papers[key]['tags'].filter(t => tag_list.includes(t))
+                        }
+                    ]
+                })
+            )
+            selectTag = (tag) => {
+                active_tags = [tag]
+            }
+            paper_is_visible = (paper_data) =>
+                (
+                    paper_data.hasOwnProperty('tags') && 
+                    (
+                        (
+                            paper_data['tags'].length == 0 &&
+                            active_tags.length === tag_list.length
+                        ) ||
+                        paper_data['tags'].filter(
+                            t => tag_list.includes(t)
+                        ).some(t => active_tags.includes(t))
+                    )
+                )
+            download_bibtex_list = () => {
+                const bib_string = Object.keys(papers).map(
+                    k => to_bibtex(papers[k])
+                ).join('\n\n')
+                const dataURI = 'data:text/plain;charset=utf-8,' + encodeURIComponent(bib_string);
+                const anchor = document.createElement('a');
+                anchor.href = dataURI;
+                anchor.download = 'references.bib';
+                anchor.style.display = 'none';
+                document.body.appendChild(anchor);
+                anchor.click();
+                document.body.removeChild(anchor);
+            }
+            to_bibtex = (paper_data) => {
+                let author_list = (paper_data['author'] || []).map((a) => a['family'] + ', ' + a['given']).join(' and ')
+                let editors_list = (paper_data['editor'] || []).map((a) => a['family'] + ', ' + a['given']).join(' and ')
+                let entry = {
+                    'title': paper_data['title'] || '',
+                    'author': author_list,
+                    'year': paper_data['year'] || '',
+                    'volume': paper_data['volume'] || '',
+                    'pages': paper_data['page'] || '',
+                    'publisher': paper_data['publisher'] || '',
+                    'address': paper_data['publisher-place'] || '',
+                }
+
+                if (paper_data['type'] === 'article-journal') {
+                    entry['journal'] = paper_data['container-title'] || ''
+                    return [
+                        `@article{${paper_data['id']}`,
+                        ...Object.keys(entry).map((k) => `${k}={ ${entry[k]} }`),
+                        `}`
+                    ].join(',\n  ')
+                }
+                if (paper_data['type'] === 'paper-conference') {
+                    entry['booktitle'] = paper_data['container-title']
+                    entry['editor'] = editors_list 
+                    return [
+                        `@inproceedings{${paper_data['id']}`,
+                        ...Object.keys(entry).map((k) => `${k}={ ${entry[k]} }`),
+                        `}`
+                    ].join(',\n  ')
+                }
+                if (paper_data['type'] === 'chapter') {
+                    entry['booktitle'] = paper_data['container-title']
+                    entry['editor'] = editors_list 
+                    return [
+                        `@incollection{${paper_data['id']}`,
+                        ...Object.keys(entry).map((k) => `${k}={ ${entry[k]} }`),
+                        `}`
+                    ].join(',\n  ')
+                }
+            }
+        "
+    >
+    <div style="margin-bottom: 20px;">
+        <div style="max-width: 90%">
+        <span 
+            class="tag allTag noselect"
+            :class="{'inactiveTag': active_tags.length != tag_list.length}"
+            x-on:click="active_tags = tag_list"
+        >
+            All Topics
+        </span>
+        <template x-for="tag in tag_list">
+            <span
+                class="tag noselect"
+                :class="{'inactiveTag': !active_tags.includes(tag)}"
+                x-on:click="selectTag(tag)"
+            >
+                <span x-text="tag.replace(/\s/g, '&nbsp;')"></span>
+        </span>
+        </template>
+        </div>
+        <div style="text-align: right;">
+            <span 
+                x-on:click="download_bibtex_list()"
+                class="sideLink noselect"
+            >
+            Download as .bib file 
+            </span>
+        </div>
+    </div>
+    <ol reversed>
+        <template x-for="(paper_data, key) in papers">
+            <li 
+            :class=" paper_is_visible(paper_data) ? 'visiblePaper' : 'hiddenPaper' "
+            x-bind:id="key"
+            >
+            <a 
+                x-bind:href="paper_data['URL']" 
+                target="_blank" 
+            >
+                <b><div x-text="paper_data['title']"></div></b>
+                <div x-text="paper_data['authors']"></div>
+                <div>
+                    <i><span x-text="paper_data['container-title']"></span></i>
+                    <span>(<span x-text="paper_data['year']"></span>)</span>
+                </div>
+            </a>
+            <div>
+                <b><span class="acceptanceNote" x-text="paper_data['acceptance_note']"></span></b>
+            </div>
+            <template x-for="tag in paper_data['tags']">
+                <span 
+                    class="tag noselect"
+                    :class="{'inactiveTag': !active_tags.includes(tag)}"
+                    x-show="tag_list.includes(tag)"  
+                    x-on:click="
+                        selectTag(tag);
+                        this_paper = document.getElementById(paper_data['id']);
+                        setTimeout(() => {
+                            this_paper.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start',
+                            })
+                        }, 800);
+                    "
+                >
+                <span x-text="tag.replace(/\s/g, '&nbsp;')">
+                </span>
+            </span> 
+            </template>
+            <div>
+            <template x-for="(url, name) in paper_data['links']">
+                <span class="sideLink noselect">
+                    <a x-bind:href="url" x-text="name" target="_blank"></a>
+                </span>
+            </template>
+                <span 
+                    class="sideLink noselect"
+                    x-on:click="
+                        (e) => {
+                            bibtex = document.getElementById(paper_data['id']+'_bibtex')
+                            bibtex.style.display = bibtex.style.display === 'block' ? 'none' : 'block'
+                        }
+                    "
+                >
+                BibTex
+                </span>
+                <div
+                    :id="paper_data['id']+'_bibtex'" 
+                    style="display:none" 
+                >
+                    <pre style="line-height: normal;" x-text="to_bibtex(paper_data)">
+                    </pre>
+                </div>
+            </div>
+            </li>
+        </template>
+    </ol>
+</div>

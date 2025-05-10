@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>codec lab</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="./style.css"/>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>
+        <nav style="display: flex; align-items: center; text-align: center; justify-content: center;">
+          <div class="logocontainer">
+            <div class="logo" x-data x-html="await (await fetch('necker.html')).text()"></div>
+            <div class="logotext" style="text-align: left; padding-left: .5%;">
+                Computation and<br>Decision-Making<br>Lab
+            </div>
+          </div>
+        </nav>
+    </header>
+  <nav class="navbar">
+      <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#people">People</a></li>
+          <li><a href="#papers">Papers</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <!-- <li><a href="#links">Links</a></li> -->
+      </ul>
+  </nav>
+  <article>
+  <section id="about" x-data x-html="await (await fetch('about.html')).text()"></section>
+  <section id="people" x-data x-html="await (await fetch('people.html')).text()"></section>
+  <section id="papers" x-data x-html="await (await fetch('papers.html')).text()"></section>
+  <section id="contact" x-data x-html="await (await fetch('contact.html')).text()"></section>
+  <!-- <section id="links" x-data x-html="await (await fetch('links.html')).text()"></section> -->
+</article>
+</body>
+</html>

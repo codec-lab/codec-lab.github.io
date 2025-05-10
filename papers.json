@@ -1,0 +1,2380 @@
+{
+   "correa2025exploring": {
+      "id": "correa2025exploring",
+      "title": "Exploring the hierarchical structure of human plans via program generation",
+      "author": [
+      {
+         "family": "Correa",
+         "given": "Carlos G."
+      },
+      {
+         "family": "Sanborn",
+         "given": "Sophia"
+      },
+      {
+         "family": "Ho",
+         "given": "Mark K."
+      },
+      {
+         "family": "Callaway",
+         "given": "Frederick"
+      },
+      {
+         "family": "Daw",
+         "given": "Nathaniel D."
+      },
+      {
+         "family": "Griffiths",
+         "given": "Thomas L."
+      }
+      ],
+      "issued": {
+      "date-parts": [
+            [
+               2025
+            ]
+         ]
+      },
+      "page": "105990",
+      "type": "article-journal",
+      "tags": [
+         "Reinforcement Learning",
+         "Mental Effort / Resource Rationality"
+      ],
+       "container-title":"Cognition",
+       "URL":"https://www.sciencedirect.com/science/article/pii/S0010027724002762"
+    },
+   "abel2024three": {
+      "id": "abel2024three",
+      "title": "Three Dogmas of Reinforcement Learning",
+      "author":[
+         {
+            "family":"Abel",
+            "given":"David"
+         },
+         {
+            "family":"Ho",
+            "given":"Mark K."
+         },
+         {
+            "family":"Harutyunyan",
+            "given":"Anna"
+         }
+      ],
+      "container-title":"Proceedings of the Reinforcement Learning Conference",
+      "issued":{
+         "date-parts":[
+            [
+               2024
+            ]
+         ]
+      },
+      "type":"paper-conference",
+      "tags":[
+         "Reinforcement Learning"
+      ],
+      "URL": "https://arxiv.org/abs/2407.10583"
+   },
+   "collins2024building": {
+      "id": "collins2024building",
+      "title": "Building Machines that Learn and Think with People",
+      "author":[
+         {
+            "family":"Collins",
+            "given":"Katherine M."
+         },
+         {
+            "family":"Sucholutsky",
+            "given":"Ilia"
+         },
+         {
+            "family":"Bhatt",
+            "given":"Umang"
+         },
+         {
+            "family":"Chandra",
+            "given":"Kartik"
+         },
+         {
+            "family":"Wong",
+            "given":"Lionel"
+         },
+         {
+            "family":"Lee",
+            "given":"Mina"
+         },
+         {
+            "family":"Zhang",
+            "given":"Cedegao E."
+         },
+         {
+            "family":"Zhi-Xuan",
+            "given":"Tan"
+         },
+         {
+            "family":"Ho",
+            "given":"Mark"
+         },
+         {
+            "family":"Mansinghka",
+            "given":"Vikash"
+         },
+         {
+            "family":"Weller",
+            "given":"Adrian"
+         },
+         {
+            "family":"Tenenbaum",
+            "given":"Joshua B."
+         },
+         {
+            "family":"Griffiths",
+            "given":"Thomas L."
+         }
+      ],
+      "issued":{
+         "date-parts":[
+            [
+               "2024"
+            ]
+         ]
+      },
+      "type":"article-journal",
+      "tags":[
+         "Interactive Machine Learning"
+      ],
+      "container-title":"Nature Human Behavior",
+      "URL": "https://www.nature.com/articles/s41562-024-01991-9",
+       "links": {
+         "arXiv": "https://arxiv.org/abs/2408.03943"
+       }
+   },
+   "sucholutsky0000representational": {
+      "id": "sucholutsky0000representational",
+      "title": "Representational Alignment Supports Effective Machine Teaching",
+      "author": [
+        {
+          "family": "Sucholutsky",
+          "given": "Ilia"
+        },
+        {
+          "family": "Collins",
+          "given": "Katherine M."
+        },
+        {
+          "family": "Malaviya",
+          "given": "Maya"
+        },
+         {
+            "family": "Jacoby",
+            "given": "Nori"
+         },
+         {
+            "family": "Liu",
+            "given": "Weiyang"
+         },
+         {
+            "family": "Sumers",
+            "given": "Theodore R."
+         },
+         {
+            "family": "Korakakis",
+            "given": "Michalis"
+         },
+         {
+            "family": "Bhatt",
+            "given": "Umang"
+         },
+         {
+            "family": "Ho",
+            "given": "Mark K."
+         },
+         {
+            "family": "Tenenbaum",
+            "given": "Joshua B."
+         },
+         {
+            "family": "Love",
+            "given": "Brad"
+         },
+         {
+            "family": "Pardos",
+            "given": "Zachary A."
+         },
+         {
+            "family": "Weller",
+            "given": "Adrian"
+         },
+         {
+            "family": "Griffiths",
+            "given": "Thomas L."
+         }
+      ],
+      "issued":{
+         "date-parts":[
+            [
+               "under review"
+            ]
+         ]
+      },
+      "type":"article-journal",
+      "tags":[
+         "Interactive Machine Learning"
+      ],
+      "URL": "https://arxiv.org/abs/2406.04302"
+   },
+   "pennisi2024investigating":{
+       "id":"pennisi2024investigating",
+       "title":"Investigating Flexible Role Binding in AI Agents",
+       "author":[
+          {
+             "family":"Pennisi",
+             "given":"Brian"
+          },
+          {
+             "family":"Budiono",
+             "given":"Rheza"
+          },
+          {
+             "family":"Gureckis",
+             "given":"Todd M"
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K"
+          }
+       ],
+       "container-title":"Proceedings of the 46rd Annual Conference of the Cognitive Science Society",
+       "issued":{
+          "date-parts":[
+             [
+                2024
+             ]
+          ]
+       },
+       "type":"paper-conference",
+       "tags":[
+          "Reinforcement Learning",
+          "Language"
+       ],
+       "URL": "./documents/baba_is_rl_cogsci-2024.pdf"
+    },
+   "kuperwajs0000heuristics": {
+      "id": "kuperwajs0000heuristics",
+      "title": "Heuristics for meta-planning from a normative model of information search",
+      "author":[
+         {
+            "family":"Kuperwajs",
+            "given":"Ionatan"
+         },
+         {
+            "family":"Ho",
+            "given":"Mark K"
+         },
+         {
+            "family":"Ma",
+            "given":"Wei Ji"
+         }
+      ],
+       "issued":{
+          "date-parts":[
+             [
+                "under review"
+             ]
+          ]
+       },
+       "type":"article-journal",
+       "tags":[
+          "Planning / Problem Solving",
+          "Mental Effort / Resource Rationality"
+       ],
+      "URL": "https://osf.io/preprints/psyarxiv/qtk9j"
+   },
+   "wu0000visual": {
+      "id": "wu0000visual",
+      "title": "Visual-spatial dynamics drive adaptive social learning in immersive environments",
+      "author":[
+         {
+            "family":"Wu",
+            "given":"Charley M"
+         },
+         {
+            "family":"Deffner",
+            "given":"Dominik"
+         },
+         {
+            "family":"Kahl",
+            "given":"Benjamin"
+         },
+         {
+            "family":"Meder",
+            "given":"Bj\u00f6rn"
+         },
+         {
+            "family":"Ho",
+            "given":"Mark K"
+         },
+         {
+            "family":"Kurvers",
+            "given":"Ralf HJM"
+         }
+      ],
+       "issued":{
+          "date-parts":[
+             [
+                "under review"
+             ]
+          ]
+       },
+       "type":"article-journal",
+       "tags":[
+          "Reinforcement Learning",
+          "Cooperation"
+       ],
+      "URL": "https://www.biorxiv.org/content/10.1101/2023.06.28.546887v3.abstract"
+   },
+    "correa0000exploring": {
+      "id": "correa0000exploring",
+      "title": "Exploring the hierarchical structure of human plans via program generation",
+      "author":[
+         {
+            "family":"Correa",
+            "given":"Carlos G."
+         },
+         {
+            "family": "Sanborn",
+            "given": "Sophia"
+         },
+         {
+            "family": "Ho",
+            "given": "Mark K."
+         },
+         {
+            "family": "Callaway",
+            "given": "Frederick"
+         },
+         {
+            "family": "Daw",
+            "given": "Nathaniel D."
+         },
+         {
+            "family": "Griffiths",
+            "given": "Thomas L."
+         }
+      ],
+       "issued":{
+          "date-parts":[
+             [
+                "under review"
+             ]
+          ]
+       },
+       "type":"article-journal",
+       "tags":[
+          "Reinforcement Learning",
+          "Mental Effort / Resource Rationality"
+       ],
+       "URL": "https://arxiv.org/abs/2311.18644"
+    },
+    "rane2024concept":{
+       "id":"rane2024concept",
+       "title":"Concept Alignment as a Prerequisite for Value Alignment",
+       "author":[
+          {
+             "family":"Rane",
+             "given":"Sunayana"
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Sucholutsky",
+             "given":"Ilia"
+          },
+          {
+             "family":"Griffiths",
+             "given":"Thomas L."
+          }
+       ],
+       "container-title":"Proceedings of the 46rd Annual Conference of the Cognitive Science Society",
+       "issued":{
+          "date-parts":[
+             [
+                2024
+             ]
+          ]
+       },
+       "type":"paper-conference",
+       "tags":[
+          "Theory of Mind",
+          "Interactive Machine Learning"
+       ],
+       "URL": "https://arxiv.org/abs/2310.20059"
+    },
+    "chater2023probabilities":{
+       "id":"chater2023probabilities",
+       "title":"Chapter 7: From probabilities to actions",
+       "tags":[
+          "Reinforcement Learning",
+          "Planning / Problem Solving"
+       ],
+       "author":[
+          {
+             "family":"Chater",
+             "given":"Nick"
+          },
+          {
+             "family":"Griffiths",
+             "given":"Thomas L."
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          }
+       ],
+       "container-title":"Bayesian Models of Cognition: Reverse Engineering the Mind",
+       "publisher-place":"Cambridge",
+       "issued":{
+          "date-parts":[
+             [
+                "forthcoming"
+             ]
+          ]
+       },
+       "type":"chapter",
+       "editor":[
+          {
+             "family":"Griffiths",
+             "given":"Thomas L."
+          },
+          {
+             "family":"Chater",
+             "given":"Nick"
+          },
+          {
+             "family":"Tenenbaum",
+             "given":"Joshua"
+          }
+       ],
+       "publisher":"MIT Press",
+       "URL":"./documents/Bayesian_Models_of_Cognition-Ch7.pdf"
+    },
+    "ho2023rational":{
+       "id":"ho2023rational",
+       "title":"Rational simplification and rigidity in human planning",
+       "author":[
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Cohen",
+             "given":"Jonathan D."
+          },
+          {
+             "family":"Griffiths",
+             "given":"Thomas L."
+          }
+       ],
+       "issued":{
+          "date-parts":[
+             [
+                "2023"
+             ]
+          ]
+       },
+       "type":"article-journal",
+       "container-title":"Psychological Science",
+       "links":{
+         "Code and Data": "https://github.com/markkho/functional-fixedness",
+         "OSF": "https://osf.io/yuta6/",
+         "PsyArXiv": "https://psyarxiv.com/aqxws",
+         "SPSP Blog Post": "https://spsp.org/news/character-and-context-blog/ho-functional-fixedness"
+       },
+       "tags":[
+          "Planning / Problem Solving",
+          "Mental Effort / Resource Rationality"
+       ],
+       "URL":"https://doi.org/10.1177/09567976231200547"
+    },
+    "abel2022express":{
+       "id":"abel2022express",
+       "title":"Expressing non-markov reward to a markov agent",
+       "author":[
+          {
+             "family":"Abel",
+             "given":"D."
+          },
+          {
+             "family":"Barreto",
+             "given":"A."
+          },
+          {
+             "family":"Bowling",
+             "given":"M."
+          },
+          {
+             "family":"Dabney",
+             "given":"W."
+          },
+          {
+             "family":"Hansen",
+             "given":"S."
+          },
+          {
+             "family":"Harutyunyan",
+             "given":"A."
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Kumar",
+             "given":"R."
+          },
+          {
+             "family":"Littman",
+             "given":"M. L."
+          },
+          {
+             "family":"Precup",
+             "given":"D."
+          },
+          {
+             "family":"Singh",
+             "given":"S."
+          }
+       ],
+       "container-title":"Proceedings of the conference on reinforcement learning and decision making",
+       "issued":{
+          "date-parts":[
+             [
+                2022
+             ]
+          ]
+       },
+       "type":"paper-conference",
+       "URL":"https://david-abel.github.io/papers/rldm2022_markov.pdf",
+       "tags":[
+          "Reinforcement Learning"
+       ]
+    },
+    "allen2024games":{
+       "id":"allen2024games",
+       "title":"Using games to understand the mind",
+       "author":[
+          {
+             "family":"Allen",
+             "given":"Kelsey R"
+          },
+          {
+             "family":"Br\u00e4ndle",
+             "given":"Franziska"
+          },
+          {
+             "family":"Botvinick",
+             "given":"Matthew M"
+          },
+          {
+             "family":"Fan",
+             "given":"Judith"
+          },
+          {
+             "family":"Gershman",
+             "given":"Samuel J"
+          },
+          {
+             "family":"Gopnik",
+             "given":"A"
+          },
+          {
+             "family":"Griffiths",
+             "given":"Thomas L."
+          },
+          {
+             "family":"Hartshorne",
+             "given":"Joshua K"
+          },
+          {
+             "family":"Hauser",
+             "given":"Tobias U"
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "given":"et al.",
+             "family":""
+          }
+       ],
+       "issued":{
+          "date-parts":[
+             [
+                "2024"
+             ]
+          ]
+       },
+       "type":"article-journal",
+       "container-title":"Nature Human Behavior",
+       "tags":[
+          "Planning / Problem Solving"
+       ],
+       "URL": "https://www.nature.com/articles/s41562-024-01878-9",
+       "links": {
+         "OSF": "https://psyarxiv.com/hbsvj"
+       }
+    },
+    "arumugam2022rate":{
+       "id":"arumugam2022rate",
+       "title":"On rate-distortion theory in capacity-limited cognition and reinforcement learning",
+       "author":[
+          {
+             "family":"Arumugam",
+             "given":"Dilip"
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Goodman",
+             "given":"Noah D."
+          },
+          {
+             "family":"Van Roy",
+             "given":"Benjamin"
+          }
+       ],
+       "container-title":"NeurIPS workshop on information-theoretic principles in cognitive systems (infocog)",
+       "issued":{
+          "date-parts":[
+             [
+                2022
+             ]
+          ]
+       },
+       "type":"paper-conference",
+       "URL":"https://arxiv.org/abs/2210.16877",
+       "tags":[
+          "Review",
+          "Reinforcement Learning"
+       ]
+    },
+    "arumugam2024bayesian":{
+       "id":"arumugam2024bayesian",
+       "title":"Bayesian reinforcement learning with limited cognitive load",
+       "author":[
+          {
+             "family":"Arumugam*",
+             "given":"Dilip"
+          },
+          {
+             "family":"Ho*",
+             "given":"Mark K."
+          },
+          {
+             "family":"Goodman",
+             "given":"Noah D."
+          },
+          {
+             "family":"Van Roy",
+             "given":"Benjamin"
+          }
+       ],
+       "container-title":"Open Mind",
+       "ISSN":"2470-2986",
+       "issued":{
+          "date-parts":[
+             [
+                2024
+             ]
+          ]
+       },
+       "page": "395-438",
+       "type":"article-journal",
+       "tags":[
+          "Reinforcement Learning",
+          "Mental Effort / Resource Rationality"
+       ],
+       "URL": "https://doi.org/10.1162/opmi_a_00132",
+       "links": {
+         "arXiv": "https://arxiv.org/abs/2305.03263"
+       }
+    },
+    "sumers2023reconciling":{
+       "id":"sumers2023reconciling",
+       "title":"Reconciling truthfulness and relevance via decision-theoretic utility",
+       "author":[
+          {
+             "family":"Sumers",
+             "given":"Theodore"
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Griffiths",
+             "given":"Thomas L."
+          },
+          {
+             "family":"Hawkins",
+             "given":"Robert"
+          }
+       ],
+       "issued":{
+          "date-parts":[
+             [
+                "2023"
+             ]
+          ]
+       },
+       "type":"article-journal",
+       "container-title": "Psychological Review",
+       "publisher":"PsyArXiv",
+       "URL":"https://doi.org/10.1037/rev0000437",
+       "tags":[
+          "Language",
+          "Reinforcement Learning"
+       ],
+       "links": {
+         "PsyArXiv": "https://osf.io/preprints/psyarxiv/e9m3j",
+         "Code": "https://github.com/tsumers/relevance"
+       }
+    },
+    "correa2023task":{
+       "id":"correa2023task",
+       "title":"Humans decompose tasks by trading off utility and computational cost",
+       "URL": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011087",
+       "links": {
+         "arXiv": "https://arxiv.org/abs/2211.03890"
+       },
+       "author":[
+          {
+             "family":"Correa",
+             "given":"Carlos G."
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Callaway",
+             "given":"Frederick"
+          },
+          {
+             "family":"Daw",
+             "given":"Nathaniel D."
+          },
+          {
+             "family":"Griffiths",
+             "given":"Thomas L."
+          }
+       ],
+       "container-title":"PLOS Computational Biology",
+       "issued":{
+          "date-parts":[
+             [
+                "2023"
+             ]
+          ]
+       },
+       "type":"article-journal",
+       "tags":[
+          "Planning / Problem Solving",
+          "Mental Effort / Resource Rationality"
+       ],
+       "volume": "19",
+       "number": "6",
+       "page": "1-31"
+    },
+    "sumers2022talk":{
+       "id":"sumers2022talk",
+       "title":"How to talk so your robot will learn: Instructions, descriptions, and pragmatics",
+       "URL": "https://arxiv.org/abs/2206.07870",
+       "author":[
+          {
+             "family":"Sumers",
+             "given":"Theodore R"
+          },
+          {
+             "family":"Hawkins",
+             "given":"Robert D"
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Griffiths",
+             "given":"Thomas L."
+          },
+          {
+             "family":"Hadfield-Menell",
+             "given":"Dylan"
+          }
+       ],
+       "container-title":"Advances in Neural Information Processing Systems 35",
+       "issued":{
+          "date-parts":[
+             [
+                2022
+             ]
+          ]
+       },
+       "page":"XX-XX",
+       "type":"paper-conference",
+       "publisher":"Curran Associates, Inc.",
+       "tags":[
+          "Language",
+          "Reinforcement Learning"
+       ]
+    },
+    "sumers2023show":{
+       "id":"sumers2023show",
+       "title":"Show or Tell? Teaching with language outperforms demonstration but only when context is shared",
+       "author":[
+          {
+             "family":"Sumers",
+             "given":"Theodore R."
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Hawkins",
+             "given":"R D"
+          },
+          {
+             "family":"Griffiths",
+             "given":"Thomas L."
+          }
+       ],
+       "container-title":"Cognition",
+       "issued":{
+          "date-parts":[
+             [
+                2023
+             ]
+          ]
+       },
+       "type":"article-journal",
+       "URL":"https://www.sciencedirect.com/science/article/pii/S0010027722003158",
+       "tags":[
+          "Language",
+          "Theory of Mind"
+       ],
+       "links": {
+         "PsyArXiv": "https://psyarxiv.com/aurb6/"
+       }
+    },
+    "abel2021expressivity":{
+       "id":"abel2021expressivity",
+       "title":"On the Expressivity of Markov Reward",
+       "URL": "https://arxiv.org/abs/2111.00876",
+       "tags":[
+          "Reinforcement Learning"
+       ],
+       "author":[
+          {
+             "family":"Abel",
+             "given":"David"
+          },
+          {
+             "family":"Dabney",
+             "given":"Will"
+          },
+          {
+             "family":"Harutyunyan",
+             "given":"Anna"
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Littman",
+             "given":"Michael"
+          },
+          {
+             "family":"Precup",
+             "given":"Doina"
+          },
+          {
+             "family":"Singh",
+             "given":"Satinder"
+          }
+       ],
+       "container-title":"Advances in Neural Information Processing Systems 34",
+       "issued":{
+          "date-parts":[
+             [
+                2021
+             ]
+          ]
+       },
+       "page":"XX-XX",
+       "type":"paper-conference",
+       "publisher":"Curran Associates, Inc.",
+       "acceptance_note": "**Outstanding paper award** (6 out of 9122 full paper submissions)"
+    },
+    "ho2022people":{
+       "id":"ho2022people",
+       "title":"People construct simplified mental representations to plan",
+       "tags":[
+          "Planning / Problem Solving",
+          "Mental Effort / Resource Rationality"
+       ],
+       "author":[
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Abel",
+             "given":"David"
+          },
+          {
+             "family":"Correa",
+             "given":"Carlos G."
+          },
+          {
+             "family":"Littman",
+             "given":"Michael L."
+          },
+          {
+             "family":"Cohen",
+             "given":"Jonathan D."
+          },
+          {
+             "family":"Griffiths",
+             "given":"Thomas L."
+          }
+       ],
+       "container-title":"Nature",
+       "issued":{
+          "date-parts":[
+             [
+                2022
+             ]
+          ]
+       },
+       "type":"article-journal",
+       "URL":"https://www.nature.com/articles/s41586-022-04743-9",
+       "links": {
+         "Code and Data": "https://github.com/markkho/value-guided-construal",
+         "arXiv": "https://arxiv.org/abs/2105.06948"
+       }
+    },
+    "ho2022planning":{
+       "id":"ho2022planning",
+       "title":"Planning with Theory of Mind",
+       "tags":[
+          "Review",
+          "Planning / Problem Solving",
+          "Theory of Mind"
+       ],
+       "author":[
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Saxe",
+             "given":"Rebecca"
+          },
+          {
+             "family":"Cushman",
+             "given":"Fiery"
+          }
+       ],
+       "container-title":"Trends in Cognitive Sciences",
+       "ISSN":"1364-6613",
+       "issued":{
+          "date-parts":[
+             [
+                2022
+             ]
+          ]
+       },
+       "type":"article-journal",
+       "keyword":"Theory of Mind, planning, causal reasoning, social cognition, goal-directed behavior",
+       "URL":"./documents/HoSaxeCushman2022.pdf"
+    },
+    "dubey0000aha":{
+       "id":"dubey0000aha",
+       "title":"Aha! Moments correspond to meta-cognitive prediction errors",
+       "URL": "https://psyarxiv.com/c5v42/",
+       "tags":[
+          "Reinforcement Learning",
+          "Meta-cognition"
+       ],
+       "author":[
+          {
+             "family":"Dubey",
+             "given":"Rachit"
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Mehta",
+             "given":"Hermish"
+          },
+          {
+             "family":"Griffiths",
+             "given":"Tom"
+          }
+       ],
+       "issued":{
+          "date-parts":[
+             [
+                "under review"
+             ]
+          ]
+       },
+       "type":"article-journal"
+    },
+    "gates2021rational":{
+       "id":"gates2021rational",
+       "title":"A rational model of people\u2019s inferences about others\u2019 preferences based on response times",
+       "tags":[
+          "Theory of Mind"
+       ],
+       "author":[
+          {
+             "family":"Gates",
+             "given":"Vael"
+          },
+          {
+             "family":"Callaway",
+             "given":"Frederick"
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Griffiths",
+             "given":"Tom"
+          }
+       ],
+       "container-title":"Cognition",
+       "issued":{
+          "date-parts":[
+             [
+                2021
+             ]
+          ]
+       },
+       "page":"104885",
+       "type":"article-journal",
+       "volume":"217",
+       "URL":"./documents/gates_callaway_ho_griffiths_2021.pdf"
+    },
+    "ho2022cognitive":{
+       "id":"ho2022cognitive",
+       "title":"Cognitive science as a source of forward and inverse models of human decisions for robotics and control",
+       "URL": "./documents/ho_griffiths_annual_review_2022.pdf",
+       "tags":[
+          "Review",
+          "Interactive Machine Learning",
+          "Theory of Mind"
+       ],
+       "author":[
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Griffiths",
+             "given":"Thomas L."
+          }
+       ],
+       "container-title":"Annual review of Control, Robotics, and Autonomous Systems",
+       "issued":{
+          "date-parts":[
+             [
+                2022
+             ]
+          ]
+       },
+       "type":"article-journal"
+    },
+    "ho2021communication":{
+       "id":"ho2021communication",
+       "title":"Communication in action: Planning and interpreting communicative demonstrations",
+       "URL": "https://psyarxiv.com/a8sxk/",
+       "tags":[
+          "Planning / Problem Solving",
+          "Theory of Mind",
+          "Communication"
+       ],
+       "author":[
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Cushman",
+             "given":"Fiery"
+          },
+          {
+             "family":"Littman",
+             "given":"Michael L"
+          },
+          {
+             "family":"Austerweil",
+             "given":"Joseph L"
+          }
+       ],
+       "container-title":"Journal of Experimental Psychology: General",
+       "issued":{
+          "date-parts":[
+             [
+                2021
+             ]
+          ]
+       },
+       "type":"article-journal",
+       "links": {
+         "Code": "https://github.com/markkho/comdem-data-code"
+       }
+    },
+    "wu2021specialization":{
+       "id":"wu2021specialization",
+       "title":"Specialization and selective social attention establishes the balance between individual and social learning",
+       "URL": "https://www.biorxiv.org/content/10.1101/2021.02.03.429553v1",
+       "tags":[
+          "Reinforcement Learning",
+          "Social Learning",
+          "Cooperation"
+       ],
+       "author":[
+          {
+             "family":"Wu",
+             "given":"Charley M"
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Kahl",
+             "given":"Benjamin"
+          },
+          {
+             "family":"Leuker",
+             "given":"Christina"
+          },
+          {
+             "family":"Meder",
+             "given":"Bj\u00f6rn"
+          },
+          {
+             "family":"Kurvers",
+             "given":"Ralf HJM"
+          }
+       ],
+       "container-title":"Proceedings of the 43rd Annual Conference of the Cognitive Science Society",
+       "issued":{
+          "date-parts":[
+             [
+                2021
+             ]
+          ]
+       },
+       "type":"paper-conference"
+    },
+    "sumers2021extending":{
+       "id":"sumers2021extending",
+       "title":"Extending rational models of communication from beliefs to actions",
+       "URL": "https://arxiv.org/abs/2105.11950",
+       "tags":[
+          "Language",
+          "Reinforcement Learning"
+       ],
+       "author":[
+          {
+             "family":"Sumers",
+             "given":"Theodore R."
+          },
+          {
+             "family":"Hawkins",
+             "given":"Robert D."
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "dropping-particle":"and",
+             "family":"Griffiths",
+             "given":"Thomas L."
+          }
+       ],
+       "container-title":"Proceedings of the 43rd Annual Conference of the Cognitive Science Society",
+       "issued":{
+          "date-parts":[
+             [
+                2021
+             ]
+          ]
+       },
+       "type":"paper-conference"
+    },
+    "sumers2021learning":{
+       "id":"sumers2021learning",
+       "title":"Learning rewards from linguistic feedback",
+       "URL": "https://arxiv.org/abs/2009.14715",
+       "tags":[
+          "Language",
+          "Reinforcement Learning"
+       ],
+       "author":[
+          {
+             "family":"Sumers",
+             "given":"Theodore R."
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Hawkins",
+             "given":"Robert D."
+          },
+          {
+             "family":"Narasimhan",
+             "given":"Karthik"
+          },
+          {
+             "family":"Griffiths",
+             "given":"Thomas L."
+          }
+       ],
+       "container-title":"Proceedings of the aaai conference on artificial intelligence",
+       "issued":{
+          "date-parts":[
+             [
+                2021
+             ]
+          ]
+       },
+       "type":"paper-conference",
+       "volume":"35"
+    },
+    "peng2023diagnosis":{
+       "id":"peng2023diagnosis",
+       "title":"Diagnosis, feedback, adaptation: A human-in-the-loop framework for test-time policy adaptation",
+       "tags":[
+          "Reinforcement Learning",
+          "Interactive Machine Learning"
+       ],
+       "author":[
+          {
+             "family":"Peng",
+             "given":"Andi"
+          },
+          {
+             "family":"Netanyahu",
+             "given":"Aviv"
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Shu",
+             "given":"Tianmin"
+          },
+          {
+             "family":"Bobu",
+             "given":"Andreea"
+          },
+          {
+             "family":"Shah",
+             "given":"Julie"
+          },
+          {
+             "family":"Agrawal",
+             "given":"Pulkit"
+          }
+       ],
+       "container-title":"International conference on machine learning",
+       "issued":{
+          "date-parts":[
+             [
+                2023
+             ]
+          ]
+       },
+       "type":"paper-conference",
+       "publisher":"PMLR",
+       "acceptance_note":"Less than 28% of submissions accepted",
+       "URL": "https://arxiv.org/abs/2307.06333"
+    },
+    "sarin2021punishment":{
+       "id":"sarin2021punishment",
+       "title":"Punishment is organized around principles of communicative inference",
+       "tags":[
+          "Theory of Mind",
+          "Communication",
+          "Reinforcement Learning",
+          "Social Learning"
+       ],
+       "author":[
+          {
+             "family":"Sarin",
+             "given":"Arunima"
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Martin",
+             "given":"Justin W"
+          },
+          {
+             "family":"Cushman",
+             "given":"Fiery A"
+          }
+       ],
+       "container-title":"Cognition",
+       "issued":{
+          "date-parts":[
+             [
+                2021
+             ]
+          ]
+       },
+       "page":"104544",
+       "type":"article-journal",
+       "volume":"208",
+       "publisher":"Elsevier",
+       "URL":"https://doi.org/10.1016/j.cognition.2020.104544",
+       "links": {
+         "PsyArXiv": "https://psyarxiv.com/2cyf7/"
+       }
+    },
+    "ho2017social":{
+       "id":"ho2017social",
+       "title":"Social is special: A normative framework for teaching with and learning from evaluative feedback",
+       "tags":[
+          "Review",
+          "Reinforcement Learning",
+          "Theory of Mind"
+       ],
+       "links": {
+         "PsyArXiv": "https://psyarxiv.com/2dba4"
+       },
+       "author":[
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"MacGlashan",
+             "given":"James"
+          },
+          {
+             "family":"Littman",
+             "given":"Michael L."
+          },
+          {
+             "family":"Cushman",
+             "given":"Fiery"
+          }
+       ],
+       "container-title":"Cognition",
+       "ISSN":"0010-0277",
+       "issued":{
+          "date-parts":[
+             [
+                2017
+             ]
+          ]
+       },
+       "page":"91-106",
+       "type":"article-journal",
+       "volume":"167",
+       "URL":"https://www.sciencedirect.com/science/article/pii/S0010027717300719"
+    },
+    "ho2019people":{
+       "id":"ho2019people",
+       "title":"People teach with rewards and punishments as communication, not reinforcements",
+       "links": {
+         "PsyArXiv": "https://psyarxiv.com/3cd7r/",
+         "Code": "https://github.com/markkho/dog-training-task"
+       },
+       "tags":[
+          "Communication",
+          "Social Learning",
+          "Theory of Mind",
+          "Reinforcement Learning"
+       ],
+       "author":[
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Cushman",
+             "given":"Fiery"
+          },
+          {
+             "family":"Littman",
+             "given":"Michael L"
+          },
+          {
+             "family":"Austerweil",
+             "given":"Joseph L"
+          }
+       ],
+       "container-title":"Journal of Experimental Psychology: General",
+       "issue":"3",
+       "issued":{
+          "date-parts":[
+             [
+                2019
+             ]
+          ]
+       },
+       "page":"520-549",
+       "type":"article-journal",
+       "volume":"148",
+       "publisher":"American Psychological Association",
+       "URL":"https://doi.org/10.1037/xge0000569"
+    },
+    "ho2019value":{
+       "id":"ho2019value",
+       "title":"The Value of Abstraction",
+       "tags":[
+          "Review",
+          "Reinforcement Learning",
+          "Planning / Problem Solving"
+       ],
+       "author":[
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Abel",
+             "given":"David"
+          },
+          {
+             "family":"Griffiths",
+             "given":"Thomas L."
+          },
+          {
+             "family":"Littman",
+             "given":"Michael L"
+          }
+       ],
+       "container-title":"Current Opinion in Behavioral Sciences",
+       "issued":{
+          "date-parts":[
+             [
+                2019
+             ]
+          ]
+       },
+       "page":"111-116",
+       "type":"article-journal",
+       "volume":"29",
+       "publisher":"Elsevier Limited",
+       "URL":"./documents/cobs2019_value_of_abstr.pdf"
+    },
+    "correa2020resource":{
+       "id":"correa2020resource",
+       "title":"Resource-rational task decomposition to minimize planning costs",
+       "URL": "https://arxiv.org/abs/2007.13862",
+       "tags":[
+          "Planning / Problem Solving",
+          "Mental Effort / Resource Rationality"
+       ],
+       "author":[
+          {
+             "family":"Correa*",
+             "given":"Carlos G"
+          },
+          {
+             "family":"Ho*",
+             "given":"Mark K."
+          },
+          {
+             "family":"Callaway",
+             "given":"Fred"
+          },
+          {
+             "family":"Griffiths",
+             "given":"Thomas L."
+          }
+       ],
+       "container-title":"Proceedings of the 42nd Annual Conference of the Cognitive Science Society",
+       "issued":{
+          "date-parts":[
+             [
+                2020
+             ]
+          ]
+       },
+       "page":"2974-2980",
+       "type":"paper-conference",
+       "editor":[
+          {
+             "family":"Denison.",
+             "given":"S."
+          },
+          {
+             "family":"Mack",
+             "given":"M."
+          },
+          {
+             "family":"Xu",
+             "given":"Y."
+          },
+          {
+             "family":"Armstrong",
+             "given":"B.C."
+          }
+       ],
+       "publisher":"Cognitive Science Society"
+    },
+    "sumers2020show":{
+       "id":"sumers2020show",
+       "URL": "https://arxiv.org/abs/2012.09035",
+       "tags":[
+          "Communication",
+          "Language",
+          "Theory of Mind"
+       ],
+       "title":"Show or tell? Demonstration is more robust to changes in shared perception than explanation",
+       "author":[
+          {
+             "family":"Sumers",
+             "given":"Theodore R."
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Griffiths",
+             "given":"Thomas L."
+          }
+       ],
+       "container-title":"Proceedings of the 42nd Annual Conference of the Cognitive Science Society",
+       "issued":{
+          "date-parts":[
+             [
+                2020
+             ]
+          ]
+       },
+       "page":"3073-3079",
+       "type":"paper-conference",
+       "editor":[
+          {
+             "family":"Denison.",
+             "given":"S."
+          },
+          {
+             "family":"Mack",
+             "given":"M."
+          },
+          {
+             "family":"Xu",
+             "given":"Y."
+          },
+          {
+             "family":"Armstrong",
+             "given":"B.C."
+          }
+       ],
+       "publisher":"Cognitive Science Society"
+    },
+    "ho2020efficiency":{
+       "id":"ho2020efficiency",
+       "title":"The efficiency of human cognition reflects planned information processing",
+       "links": {
+         "arXiv": "https://arxiv.org/abs/2002.05769"
+       },
+       "tags":[
+          "Planning / Problem Solving",
+          "Mental Effort / Resource Rationality"
+       ],
+       "author":[
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Abel",
+             "given":"David"
+          },
+          {
+             "family":"Cohen",
+             "given":"Jonathan"
+          },
+          {
+             "family":"Littman",
+             "given":"Michael"
+          },
+          {
+             "family":"Griffiths",
+             "given":"Thomas"
+          }
+       ],
+       "container-title":"Proceedings of the aaai conference on artificial intelligence",
+       "issued":{
+          "date-parts":[
+             [
+                2020
+             ]
+          ]
+       },
+       "page":"1300-1307",
+       "type":"paper-conference",
+       "volume":"34",
+       "collection-number":"02",
+       "URL":"https://arxiv.org/abs/2002.05769",
+       "acceptance_note": "**Selected for oral presentation** (less than 5% of papers)"
+    },
+    "wang2020teaching":{
+       "id":"wang2020teaching",
+       "title":"Teaching a robot tasks of arbitrary complexity via human feedback",
+       "tags":[
+          "Reinforcement Learning",
+          "Interactive Machine Learning"
+       ],
+       "author":[
+          {
+             "family":"Wang",
+             "given":"Guan"
+          },
+          {
+             "family":"Trimbach",
+             "given":"Carl"
+          },
+          {
+             "family":"Lee",
+             "given":"Jun Ki"
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Littman",
+             "given":"Michael L"
+          }
+       ],
+       "container-title":"Proceedings of the 2020 acm/ieee international conference on human-robot interaction",
+       "issued":{
+          "date-parts":[
+             [
+                2020
+             ]
+          ]
+       },
+       "page":"649-657",
+       "type":"paper-conference"
+    },
+    "carroll2019utility":{
+       "id":"carroll2019utility",
+       "title":"On the utility of learning about humans for human-ai coordination",
+       "URL": "https://arxiv.org/abs/1910.05789",
+       "tags":[
+          "Cooperation",
+          "Interactive Machine Learning"
+       ],
+       "author":[
+          {
+             "family":"Carroll",
+             "given":"Micah"
+          },
+          {
+             "family":"Shah",
+             "given":"Rohin"
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Griffiths",
+             "given":"Tom"
+          },
+          {
+             "family":"Seshia",
+             "given":"Sanjit"
+          },
+          {
+             "family":"Abbeel",
+             "given":"Pieter"
+          },
+          {
+             "family":"Dragan",
+             "given":"Anca"
+          }
+       ],
+       "container-title":"Advances in neural information processing systems",
+       "issued":{
+          "date-parts":[
+             [
+                2019
+             ]
+          ]
+       },
+       "type":"paper-conference",
+       "editor":[
+          {
+             "family":"Wallach",
+             "given":"H."
+          },
+          {
+             "family":"Larochelle",
+             "given":"H."
+          },
+          {
+             "family":"Beygelzimer",
+             "given":"A."
+          },
+          {
+             "family":"d\u2019Alch\u00e9-Buc",
+             "given":"F."
+          },
+          {
+             "family":"Fox",
+             "given":"E."
+          },
+          {
+             "family":"Garnett",
+             "given":"R."
+          }
+       ],
+       "volume":"32",
+       "publisher":"Curran Associates, Inc."
+    },
+    "ho2019computational":{
+       "id":"ho2019computational",
+       "title":"The computational structure of unintentional meaning",
+       "URL": "https://arxiv.org/abs/1906.01983",
+       "links": {
+         "Materials": "https://bit.ly/2MI8tWu"
+       },
+       "tags":[
+          "Theory of Mind",
+          "Language"
+       ],
+       "author":[
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Korman",
+             "given":"Joanna"
+          },
+          {
+             "family":"Griffiths",
+             "given":"Thomas L."
+          }
+       ],
+       "container-title":"Proceedings of the 41st Annual Conference of the Cognitive Science Society",
+       "issued":{
+          "date-parts":[
+             [
+                2019
+             ]
+          ]
+       },
+       "page":"1915-1921",
+       "type":"paper-conference",
+       "editor":[
+          {
+             "family":"Goel",
+             "given":"A.K."
+          },
+          {
+             "family":"Seifert",
+             "given":"C.M."
+          },
+          {
+             "family":"Freksa",
+             "given":"C."
+          }
+       ],
+       "publisher":"Cognitive Science Society"
+    },
+    "vazquez2018learning":{
+       "id":"vazquez2018learning",
+       "title":"Learning task specifications from demonstrations",
+       "tags":[
+          "Reinforcement Learning"
+       ],
+       "author":[
+          {
+             "family":"Vazquez-Chanlatte",
+             "given":"Marcell"
+          },
+          {
+             "family":"Jha",
+             "given":"Susmit"
+          },
+          {
+             "family":"Tiwari",
+             "given":"Ashish"
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Seshia",
+             "given":"Sanjit"
+          }
+       ],
+       "container-title":"Advances in neural information processing systems",
+       "issued":{
+          "date-parts":[
+             [
+                2018
+             ]
+          ]
+       },
+       "type":"paper-conference",
+       "editor":[
+          {
+             "family":"Bengio",
+             "given":"S."
+          },
+          {
+             "family":"Wallach",
+             "given":"H."
+          },
+          {
+             "family":"Larochelle",
+             "given":"H."
+          },
+          {
+             "family":"Grauman",
+             "given":"K."
+          },
+          {
+             "family":"Cesa-Bianchi",
+             "given":"N."
+          },
+          {
+             "family":"Garnett",
+             "given":"R."
+          }
+       ],
+       "volume":"31",
+       "publisher":"Curran Associates, Inc.",
+       "URL":"https://arxiv.org/abs/1710.03875"
+    },
+    "ho_effectively_2018":{
+       "id":"ho_effectively_2018",
+       "title":"Effectively learning from pedagogical demonstrations",
+       "tags":[
+          "Communication",
+          "Planning / Problem Solving",
+          "Theory of Mind",
+          "Inverse RL"
+       ],
+       "author":[
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Littman",
+             "given":"Michael L."
+          },
+          {
+             "family":"Cushman",
+             "given":"Fiery"
+          },
+          {
+             "family":"Austerweil",
+             "given":"Joseph L."
+          }
+       ],
+       "container-title":"Proceedings of the 40th Annual Conference of the Cognitive Science Society",
+       "publisher-place":"Austin, TX",
+       "issued":{
+          "date-parts":[
+             [
+                2018
+             ]
+          ]
+       },
+       "page":"505-510",
+       "type":"paper-conference",
+       "editor":[
+          {
+             "family":"Kalish",
+             "given":"Chuck"
+          },
+          {
+             "family":"Rau",
+             "given":"Martina"
+          },
+          {
+             "family":"Rogers",
+             "given":"Tim"
+          },
+          {
+             "family":"Zhu",
+             "given":"Jerry"
+          }
+       ],
+       "publisher":"Cognitive Science Society",
+       "URL":"./documents/cogsci2018_learningfromdemonstration.pdf"
+    },
+    "ho_teaching_2017":{
+       "id":"ho_teaching_2017",
+       "title":"Teaching by Intervention: Working Backwards, Undoing Mistakes, or Correcting Mistakes?",
+       "tags":[
+          "Reinforcement Learning",
+          "Communication",
+          "Interactive Machine Learning"
+       ],
+       "author":[
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Littman",
+             "given":"Michael L."
+          },
+          {
+             "family":"Austerweil",
+             "given":"Joseph L."
+          }
+       ],
+       "container-title":"Proceedings of the 39th Annual Conference of the Cognitive Science Society",
+       "publisher-place":"Austin, TX",
+       "issued":{
+          "date-parts":[
+             [
+                2017
+             ]
+          ]
+       },
+       "page":"526-531",
+       "type":"paper-conference",
+       "editor":[
+          {
+             "family":"Gunzelmann",
+             "given":"G."
+          },
+          {
+             "family":"Howes",
+             "given":"A."
+          },
+          {
+             "family":"Tenbrink",
+             "given":"T."
+          },
+          {
+             "family":"Davelaar",
+             "given":"J."
+          }
+       ],
+       "publisher":"Cognitive Science Society",
+       "URL":"./documents/teaching_by_intervention_cogsci.pdf"
+    },
+    "macglashan2017interactive":{
+       "id":"macglashan2017interactive",
+       "title":"Interactive learning from policy-dependent human feedback",
+       "tags":[
+          "Interactive Machine Learning",
+          "Reinforcement Learning"
+       ],
+       "author":[
+          {
+             "family":"MacGlashan",
+             "given":"James"
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Loftin",
+             "given":"Robert"
+          },
+          {
+             "family":"Peng",
+             "given":"Bei"
+          },
+          {
+             "family":"Wang",
+             "given":"Guan"
+          },
+          {
+             "family":"Roberts",
+             "given":"David L"
+          },
+          {
+             "family":"Taylor",
+             "given":"Matthew E"
+          },
+          {
+             "family":"Littman",
+             "given":"Michael L"
+          }
+       ],
+       "container-title":"International conference on machine learning",
+       "issued":{
+          "date-parts":[
+             [
+                2017
+             ]
+          ]
+       },
+       "page":"2285-2294",
+       "type":"paper-conference",
+       "publisher":"PMLR",
+       "URL":"https://arxiv.org/abs/1701.06049"
+    },
+    "ho2016showing":{
+       "id":"ho2016showing",
+       "title":"Showing versus doing: Teaching by demonstration",
+       "tags":[
+          "Theory of Mind",
+          "Planning / Problem Solving"
+       ],
+       "author":[
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Littman",
+             "given":"Michael"
+          },
+          {
+             "family":"MacGlashan",
+             "given":"James"
+          },
+          {
+             "family":"Cushman",
+             "given":"Fiery"
+          },
+          {
+             "family":"Austerweil",
+             "given":"Joseph L"
+          }
+       ],
+       "container-title":"Advances in Neural Information Processing Systems 29",
+       "issued":{
+          "date-parts":[
+             [
+                2016
+             ]
+          ]
+       },
+       "page":"3027-3035",
+       "type":"paper-conference",
+       "editor":[
+          {
+             "family":"Lee",
+             "given":"D. D."
+          },
+          {
+             "family":"Sugiyama",
+             "given":"M."
+          },
+          {
+             "family":"Luxburg",
+             "given":"U. V."
+          },
+          {
+             "family":"Guyon",
+             "given":"I."
+          },
+          {
+             "family":"Garnett",
+             "given":"R."
+          }
+       ],
+       "publisher":"Curran Associates, Inc.",
+       "URL":"./documents/NIPS_2016_Teaching_by_demonstration.pdf",
+       "acceptance_note": "**Selected for oral presentation** (less than 2% of papers)",
+       "links": {
+         "Supplement": "./documents/NIPS_2016_Supplementary_Materials.pdf"
+       }
+    },
+    "ho_feature-based_2016":{
+       "id":"ho_feature-based_2016",
+       "title":"Feature-based Joint Planning and Norm Learning in Collaborative Games",
+       "tags":[
+          "Cooperation",
+          "Planning / Problem Solving"
+       ],
+       "links": {
+         "Code": "https://github.com/markkho/norms-cogsci2016"
+       },
+       "author":[
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"MacGlashan",
+             "given":"James"
+          },
+          {
+             "family":"Greenwald",
+             "given":"Amy"
+          },
+          {
+             "family":"Littman",
+             "given":"Michael L."
+          },
+          {
+             "family":"Hilliard",
+             "given":"Elizabeth"
+          },
+          {
+             "family":"Trimbach",
+             "given":"Carl"
+          },
+          {
+             "family":"Brawner",
+             "given":"Stephen"
+          },
+          {
+             "family":"Tenenbaum",
+             "given":"Joshua B."
+          },
+          {
+             "family":"Kleiman-Weiner",
+             "given":"Max"
+          },
+          {
+             "family":"Austerweil",
+             "given":"Joseph L."
+          }
+       ],
+       "container-title":"Proceedings of the 38th Annual Conference of the Cognitive Science Society",
+       "publisher-place":"Austin, TX",
+       "issued":{
+          "date-parts":[
+             [
+                2016
+             ]
+          ]
+       },
+       "page":"1158-1163",
+       "type":"paper-conference",
+       "editor":[
+          {
+             "family":"Papafragou",
+             "given":"Anna"
+          },
+          {
+             "family":"Grodner",
+             "given":"Daniel"
+          },
+          {
+             "family":"Mirman",
+             "given":"Daniel"
+          },
+          {
+             "family":"Trueswell",
+             "given":"John C."
+          }
+       ],
+       "publisher":"Cognitive Science Society",
+       "URL":"./documents/ho_et_al_normlearning_2016.pdf"
+    },
+    "kleimanweiner2016coordinate":{
+       "id":"kleimanweiner2016coordinate",
+       "title":"Coordinate to cooperate or compete: Abstract goals and joint intentions in social interaction",
+       "tags":[
+          "Cooperation",
+          "Planning / Problem Solving"
+       ],
+       "author":[
+          {
+             "family":"Kleiman-Weiner",
+             "given":"Max"
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Austerweil",
+             "given":"Joseph L."
+          },
+          {
+             "family":"Littman",
+             "given":"Michael L."
+          },
+          {
+             "family":"Tenenbaum",
+             "given":"Joshua B."
+          }
+       ],
+       "container-title":"Proceedings of the 38th Annual Conference of the Cognitive Science Society",
+       "publisher-place":"Austin, TX",
+       "issued":{
+          "date-parts":[
+             [
+                2016
+             ]
+          ]
+       },
+       "page":"1679-1684",
+       "type":"paper-conference",
+       "editor":[
+          {
+             "family":"Papafragou",
+             "given":"Anna"
+          },
+          {
+             "family":"Grodner",
+             "given":"Daniel"
+          },
+          {
+             "family":"Mirman",
+             "given":"Daniel"
+          },
+          {
+             "family":"Trueswell",
+             "given":"John C."
+          }
+       ],
+       "publisher":"Cognitive Science Society",
+       "URL":"./documents/kleiman2016coordinate.pdf"
+    },
+    "ho_teaching_2015":{
+       "id":"ho_teaching_2015",
+       "title":"Teaching with Rewards and Punishments: Reinforcement or Communication?",
+       "tags":[
+          "Communication",
+          "Theory of Mind",
+          "Reinforcement Learning"
+       ],
+       "author":[
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+          {
+             "family":"Littman",
+             "given":"Michael L."
+          },
+          {
+             "family":"Cushman",
+             "given":"Fiery"
+          },
+          {
+             "family":"Austerweil",
+             "given":"Joseph L."
+          }
+       ],
+       "container-title":"Proceedings of the 37th Annual Conference of the Cognitive Science Society",
+       "publisher-place":"Austin, TX",
+       "issued":{
+          "date-parts":[
+             [
+                2015
+             ]
+          ]
+       },
+       "page":"920-925",
+       "type":"paper-conference",
+       "editor":[
+          {
+             "family":"Noelle",
+             "given":"D.C."
+          },
+          {
+             "family":"Dale",
+             "given":"R."
+          },
+          {
+             "family":"Warlaumont",
+             "given":"A. S."
+          },
+          {
+             "family":"Yoshimi",
+             "given":"J."
+          },
+          {
+             "family":"Matlock",
+             "given":"T."
+          },
+          {
+             "family":"Jennings",
+             "given":"C. D."
+          },
+          {
+             "family":"Maglio",
+             "given":"P. P."
+          }
+       ],
+       "publisher":"Cognitive Science Society",
+       "URL":"./documents/hoetal_teaching_reward_cogsci2015.pdf"
+    },
+    "cushman2021punishment":{
+       "id":"cushman2021punishment",
+       "title":"Punishment as communication",
+       "tags":[
+          "Communication",
+          "Theory of Mind",
+          "Reinforcement Learning"
+       ],
+       "author":[
+          {
+             "family":"Cushman",
+             "given":"Fiery A"
+          },
+          {
+             "family":"Sarin",
+             "given":"Arunima"
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          }
+       ],
+       "container-title":"Oxford handbook of moral psychology",
+       "publisher-place":"Oxford",
+       "issued":{
+          "date-parts":[
+             [
+                2021
+             ]
+          ]
+       },
+       "type":"chapter",
+       "editor":[
+          {
+             "family":"Doris",
+             "given":"J."
+          },
+          {
+             "family":"Vargas",
+             "given":"M."
+          }
+       ],
+       "publisher":"Oxford University Press",
+       "URL":"https://psyarxiv.com/wf3tz"
+    }
+ }
