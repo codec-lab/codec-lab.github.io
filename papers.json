@@ -324,9 +324,9 @@
        ],
       "URL": "https://osf.io/preprints/psyarxiv/qtk9j"
    },
-   "wu0000visual": {
-      "id": "wu0000visual",
-      "title": "Visual-spatial dynamics drive adaptive social learning in immersive environments",
+   "wu2025adaptive": {
+      "id": "wu2025adaptive",
+      "title": "Adaptive mechanisms of social and asocial learning in immersive collective foraging",
       "author":[
          {
             "family":"Wu",
@@ -356,61 +356,26 @@
        "issued":{
           "date-parts":[
              [
-                "under review"
+               2025
              ]
           ]
        },
        "type":"article-journal",
+       "container-title":"Nature Communications",
+       "publisher":"Nature Publishing Group UK London",
+       "volume": "16",
+       "number": "1",
+       "pages": "3539",
        "tags":[
           "Reinforcement Learning",
           "Cooperation"
        ],
-      "URL": "https://www.biorxiv.org/content/10.1101/2023.06.28.546887v3.abstract"
-   },
-    "correa0000exploring": {
-      "id": "correa0000exploring",
-      "title": "Exploring the hierarchical structure of human plans via program generation",
-      "author":[
-         {
-            "family":"Correa",
-            "given":"Carlos G."
-         },
-         {
-            "family": "Sanborn",
-            "given": "Sophia"
-         },
-         {
-            "family": "Ho",
-            "given": "Mark K."
-         },
-         {
-            "family": "Callaway",
-            "given": "Frederick"
-         },
-         {
-            "family": "Daw",
-            "given": "Nathaniel D."
-         },
-         {
-            "family": "Griffiths",
-            "given": "Thomas L."
-         }
-      ],
-       "issued":{
-          "date-parts":[
-             [
-                "under review"
-             ]
-          ]
+       "links": {
+         "biorxiv": "https://www.biorxiv.org/content/10.1101/2023.06.28.546887v3.abstract"
        },
-       "type":"article-journal",
-       "tags":[
-          "Reinforcement Learning",
-          "Mental Effort / Resource Rationality"
-       ],
-       "URL": "https://arxiv.org/abs/2311.18644"
-    },
-    "rane2024concept":{
+      "URL": "https://www.nature.com/articles/s41467-025-58365-6"
+   },
+   "rane2024concept":{
        "id":"rane2024concept",
        "title":"Concept Alignment as a Prerequisite for Value Alignment",
        "author":[
@@ -472,7 +437,7 @@
        "issued":{
           "date-parts":[
              [
-                "forthcoming"
+                2024
              ]
           ]
        },
