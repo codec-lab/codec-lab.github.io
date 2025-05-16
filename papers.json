@@ -1,4 +1,38 @@
 {
+   "harootonian0000mentalizing": {
+      "id": "harootonian0000mentalizing",
+      "title": "Mentalizing and heuristics as distinct cognitive strategies in human teaching",
+      "author": [
+      {
+         "family": "Harootonian",
+         "given": "Sevan"
+      },
+      {
+         "family": "Griffiths",
+         "given": "Thomas L."
+      },
+      {
+         "family": "Niv†",
+         "given": "Yael"
+      },
+      {
+         "family": "Ho†",
+         "given": "Mark K."
+      }
+      ],
+      "issued": {
+      "date-parts": [
+            [
+               "under review"
+            ]
+         ]
+      },
+      "tags": [
+         "Theory of Mind",
+         "Mental Effort / Resource Rationality"
+      ],
+       "URL":"https://osf.io/preprints/osf/ys49u_v1"
+    },
    "correa2025exploring": {
       "id": "correa2025exploring",
       "title": "Exploring the hierarchical structure of human plans via program generation",
