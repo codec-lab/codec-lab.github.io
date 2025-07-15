@@ -1,4 +1,61 @@
 {
+  "schulze2025timeline": {
+      "id": "schulze2025timeline",
+      "title": "A timeline of cognitive costs in decision-making",
+      "author": [
+         {
+            "family": "Schulze",
+            "given": "Christin"
+         },
+         {
+            "family": "Aka",
+            "given": "Ada"
+         },
+         {
+            "family": "Bartels",
+            "given": "Daniel M"
+         },
+         {
+            "family": "Bucher",
+            "given": "Stefan F"
+         },
+         {
+            "family": "Embrey",
+            "given": "Jake R"
+         },
+         {
+            "family": "Gureckis",
+            "given": "Todd M"
+         },
+         {
+            "family": "Häubl",
+            "given": "Gerald"
+         },
+         {
+            "family": "Ho",
+            "given": "Mark K"
+         },
+         {
+            "family": "Krajbich",
+            "given": "Ian"
+         },
+         {
+            "family": "Moore",
+            "given": "Alexander K"
+         }
+      ],
+      "issued": {
+         "date-parts": [
+            [2025]
+         ]
+      },
+      "tags": [
+         "Mental Effort / Resource Rationality"
+      ],
+      "container-title": "Trends in Cognitive Sciences",
+      "publisher": "Elsevier",
+      "URL":"https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(25)00083-X"
+   },
    "harootonian0000mentalizing": {
       "id": "harootonian0000mentalizing",
       "title": "Mentalizing and heuristics as distinct cognitive strategies in human teaching",
