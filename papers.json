@@ -1,4 +1,72 @@
 {
+  "zhang2025learning":{
+       "id":"zhang2025learning",
+       "title":"Learning about Inductive Potential from Generic Statements",
+       "author":[
+          {
+             "family":"Zhang",
+             "given":"Marianna Y."
+          },
+          {
+             "family":"Leslie",
+             "given":"Sarah-Jane"
+          },
+          {
+             "family":"Rhodes",
+             "given":"Marjorie"
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          }
+       ],
+       "container-title":"Proceedings of the 47th Annual Conference of the Cognitive Science Society",
+       "issued":{
+          "date-parts":[
+             [
+                2025
+             ]
+          ]
+       },
+       "type":"paper-conference",
+       "tags":[
+          "Theory of Mind",
+          "Language"
+       ],
+       "URL": "./documents/zhang-cogsci-2025.pdf"
+    },
+  "su2025integration":{
+       "id":"su2025integration",
+       "title":"Integration of Language and Experience via the Instructed Bandit Task",
+       "author":[
+          {
+             "family":"Su",
+             "given":"Ellen"
+          },
+          {
+             "family":"Ho",
+             "given":"Mark K."
+          },
+         {
+            "family": "Gureckis",
+            "given": "Todd M"
+         }
+       ],
+       "container-title":"Proceedings of the 47th Annual Conference of the Cognitive Science Society",
+       "issued":{
+          "date-parts":[
+             [
+                2025
+             ]
+          ]
+       },
+       "type":"paper-conference",
+       "tags":[
+          "Reinforcement Learning",
+          "Language"
+       ],
+       "URL": "https://gureckislab.org/publications/SuHoGureckis-2025-instructedbandits.cogsci.pdf"
+    },
   "schulze2025timeline": {
       "id": "schulze2025timeline",
       "title": "A timeline of cognitive costs in decision-making",
@@ -33,7 +101,7 @@
          },
          {
             "family": "Ho",
-            "given": "Mark K"
+            "given": "Mark K."
          },
          {
             "family": "Krajbich",
@@ -54,6 +122,7 @@
       ],
       "container-title": "Trends in Cognitive Sciences",
       "publisher": "Elsevier",
+      "type": "article-journal",
       "URL":"https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(25)00083-X"
    },
    "harootonian0000mentalizing": {
@@ -69,11 +138,11 @@
          "given": "Thomas L."
       },
       {
-         "family": "Niv†",
+         "family": "Niv",
          "given": "Yael"
       },
       {
-         "family": "Ho†",
+         "family": "Ho",
          "given": "Mark K."
       }
       ],
@@ -88,6 +157,7 @@
          "Theory of Mind",
          "Mental Effort / Resource Rationality"
       ],
+      "type": "article-journal",
        "URL":"https://osf.io/preprints/osf/ys49u_v1"
     },
    "correa2025exploring": {
@@ -332,7 +402,7 @@
           },
           {
              "family":"Ho",
-             "given":"Mark K"
+             "given":"Mark K."
           }
        ],
        "container-title":"Proceedings of the 46rd Annual Conference of the Cognitive Science Society",
@@ -360,7 +430,7 @@
          },
          {
             "family":"Ho",
-            "given":"Mark K"
+            "given":"Mark K."
          },
          {
             "family":"Ma",
@@ -403,7 +473,7 @@
          },
          {
             "family":"Ho",
-            "given":"Mark K"
+            "given":"Mark K."
          },
          {
             "family":"Kurvers",

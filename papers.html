@@ -91,6 +91,9 @@
             ],
             active_tags: [],
             paper_order: [
+                'zhang2025learning',
+                'su2025integration',
+
                 'harootonian0000mentalizing',
                 'schulze2025timeline',
                 'wu2025adaptive',
@@ -231,7 +234,7 @@
                         `}`
                     ].join(',\n  ')
                 }
-                if (paper_data['type'] === 'paper-conference') {
+                else if (paper_data['type'] === 'paper-conference') {
                     entry['booktitle'] = paper_data['container-title']
                     entry['editor'] = editors_list 
                     return [
@@ -240,11 +243,19 @@
                         `}`
                     ].join(',\n  ')
                 }
-                if (paper_data['type'] === 'chapter') {
+                else if (paper_data['type'] === 'chapter') {
                     entry['booktitle'] = paper_data['container-title']
                     entry['editor'] = editors_list 
                     return [
                         `@incollection{${paper_data['id']}`,
+                        ...Object.keys(entry).map((k) => `${k}={ ${entry[k]} }`),
+                        `}`
+                    ].join(',\n  ')
+                }
+                else {
+                    console.warn(`Unknown type for ${paper_data['id']}: ${paper_data['type']}`);
+                    return [
+                        `@misc{${paper_data['id']}`,
                         ...Object.keys(entry).map((k) => `${k}={ ${entry[k]} }`),
                         `}`
                     ].join(',\n  ')
