@@ -1,4 +1,61 @@
 {
+   "banerjee2025estimating":{
+      "id":"banerjee2025estimating",
+      "title": "Estimating cognitive biases with attention-aware inverse planning",
+      "author": [
+         {
+            "family": "Banerjee",
+            "given": "Sounak"
+         },
+         {
+            "family": "Cornelisse",
+            "given": "Daphne"
+         },
+         {
+            "family": "Gopinath",
+            "given": "Deepak"
+         },
+         {
+            "family": "Sumner",
+            "given": "Emily"
+         },
+         {
+            "family": "DeCastro",
+            "given": "Jonathan"
+         },
+         {
+            "family": "Rosman",
+            "given": "Guy"
+         },
+         {
+            "family": "Vinitsky",
+            "given": "Eugene"
+         },
+         {
+            "family": "Ho",
+            "given": "Mark K."
+         }
+      ],
+       "URL": "https://arxiv.org/abs/2510.25951",
+       "container-title":"Advances in Neural Information Processing Systems 38",
+       "issued":{
+          "date-parts":[
+             [
+                2025
+             ]
+          ]
+       },
+       "page":"XX-XX",
+       "type":"paper-conference",
+       "publisher":"Curran Associates, Inc.",
+       "tags":[
+         "Reinforcement Learning",
+         "Mental Effort / Resource Rationality"
+       ],
+       "links":{
+         "Code and Data": "https://github.com/sounakban/gpudrive-CoDec/tree/NeurIPS-2025"
+       }
+    },
   "zhang2025learning":{
        "id":"zhang2025learning",
        "title":"Learning about Inductive Potential from Generic Statements",
