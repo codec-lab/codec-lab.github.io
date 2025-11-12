@@ -54,7 +54,8 @@
        ],
        "links":{
          "Code and Data": "https://github.com/sounakban/gpudrive-CoDec/tree/NeurIPS-2025"
-       }
+       },
+       "acceptance_note": "**Selected for spotlight presentation** (688 out of 21575 full paper submissions)"
     },
   "zhang2025learning":{
        "id":"zhang2025learning",
