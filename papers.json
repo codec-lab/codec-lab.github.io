@@ -55,7 +55,7 @@
        "links":{
          "Code and Data": "https://github.com/sounakban/gpudrive-CoDec/tree/NeurIPS-2025"
        },
-       "acceptance_note": "**Selected for spotlight presentation** (688 out of 21575 full paper submissions)"
+       "acceptance_note": "**Selected for spotlight presentation** (688 out of 21,575 full paper submissions)"
     },
   "zhang2025learning":{
        "id":"zhang2025learning",
@@ -1104,7 +1104,7 @@
        "page":"XX-XX",
        "type":"paper-conference",
        "publisher":"Curran Associates, Inc.",
-       "acceptance_note": "**Outstanding paper award** (6 out of 9122 full paper submissions)"
+       "acceptance_note": "**Outstanding paper award** (6 out of 9,122 full paper submissions)"
     },
     "ho2022people":{
        "id":"ho2022people",
