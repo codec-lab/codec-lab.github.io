@@ -1,4 +1,44 @@
 {
+   "harootonian2026large":{
+      "id":"harootonian2026large",
+      "title":"Do Large Language Models Mentalize When They Teach?",
+      "author":[
+         {
+            "family":"Harootonian",
+            "given":"Sevan K."
+         },
+         {
+            "family":"Ho",
+            "given":"Mark K."
+         },
+         {
+            "family":"Griffiths",
+            "given":"Thomas L."
+         },
+         {
+            "family":"Niv",
+            "given":"Yael"
+         },
+         {
+            "family":"Sucholutsky",
+            "given":"Ilia"
+         }
+      ],
+      "container-title":"ICLR 2026 Workshop - From Human Cognition to AI Reasoning: Models, Methods, and Applications",
+      "issued":{
+         "date-parts":[
+            [
+               2026
+            ]
+         ]
+      },
+      "type":"paper-conference",
+      "URL":"https://openreview.net/forum?id=0dKNDFRJBe",
+      "tags":[
+         "Theory of Mind",
+         "Language"
+      ]
+   },
    "banerjee2025estimating":{
       "id":"banerjee2025estimating",
       "title": "Estimating cognitive biases with attention-aware inverse planning",
@@ -183,8 +223,8 @@
       "type": "article-journal",
       "URL":"https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(25)00083-X"
    },
-   "harootonian0000mentalizing": {
-      "id": "harootonian0000mentalizing",
+   "harootonian2026mentalizing": {
+      "id": "harootonian2026mentalizing",
       "title": "Mentalizing and heuristics as distinct cognitive strategies in human teaching",
       "author": [
       {
@@ -207,7 +247,7 @@
       "issued": {
       "date-parts": [
             [
-               "under review"
+               "in press"
             ]
          ]
       },
@@ -216,6 +256,7 @@
          "Mental Effort / Resource Rationality"
       ],
       "type": "article-journal",
+      "container-title":"Nature Human Behavior",
        "URL":"https://osf.io/preprints/osf/ys49u_v1"
     },
    "correa2025exploring": {
@@ -1189,8 +1230,8 @@
        "keyword":"Theory of Mind, planning, causal reasoning, social cognition, goal-directed behavior",
        "URL":"./documents/HoSaxeCushman2022.pdf"
     },
-    "dubey0000aha":{
-       "id":"dubey0000aha",
+    "dubey2026aha":{
+       "id":"dubey2026aha",
        "title":"Aha! Moments correspond to meta-cognitive prediction errors",
        "URL": "https://psyarxiv.com/c5v42/",
        "tags":[
@@ -1218,11 +1259,12 @@
        "issued":{
           "date-parts":[
              [
-                "in revision"
+                "in press"
              ]
           ]
        },
-       "type":"article-journal"
+       "type":"article-journal",
+       "container-title":"Cognition"
     },
     "gates2021rational":{
        "id":"gates2021rational",
