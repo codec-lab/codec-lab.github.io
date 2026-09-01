@@ -1,4 +1,116 @@
 {
+  "li2026badplans": {
+      "id": "li2026badplans",
+      "title": "Why LLMs Choose Bad Plans: Miscalibrated Capability Beliefs and Their Cost for Planning",
+      "author": [
+         {"family": "Li", "given": "Jing"},
+         {"family": "Robinson", "given": "Sasha"},
+         {"family": "Gruver", "given": "Nate"},
+         {"family": "Allen", "given": "Kelsey R."},
+         {"family": "Radulescu", "given": "Angela"},
+         {"family": "Ho", "given": "Mark K."},
+         {"family": "Sucholutsky", "given": "Ilia"}
+      ],
+      "container-title": "COLM 2026 Workshop on Agent Behavior",
+      "issued": {"date-parts": [[2026]]},
+      "type": "paper-conference",
+      "tags": ["Meta-cognition", "Interactive Machine Learning"],
+      "URL": "https://openreview.net/forum?id=rqNof4myyN"
+  },
+  "olieslagers0000treesearch": {
+     "id": "olieslagers0000treesearch",
+     "title": "Interactions between tree search and task simplification in planning",
+     "author": [
+         {"family": "Olieslagers", "given": "Jeroen"},
+         {"family": "Ho", "given": "Mark K."}
+     ],
+     "issued": {"date-parts": [["in prep"]]},
+     "type": "article-journal",
+     "tags": ["Planning / Problem Solving", "Mental Effort / Resource Rationality"]
+  },
+  "abel2026goals": {
+     "id": "abel2026goals",
+     "title": "The syntax and semantics of goals",
+     "author": [
+         {"family": "Abel", "given": "David"},
+         {"family": "Ho", "given": "Mark K."}
+      ],
+     "container-title": "Topics in Cognitive Science",
+     "issued": {"date-parts": [["in press"]]},
+     "type": "article-journal",
+     "tags": ["Planning / Problem Solving", "Review"]
+  },
+   "btesh2026lets": {
+      "id": "btesh2026lets",
+      "title": "Let's be friends! People work together even when there is no incentive to do so",
+      "author": [
+         {"family": "Btesh", "given": "Victor"},
+         {"family": "Ho", "given": "Mark K."}
+      ],
+      "container-title": "Proceedings of the 48th Annual Conference of the Cognitive Science Society",
+      "issued": {"date-parts": [[2026]]},
+      "type": "paper-conference",
+      "tags": ["Cooperation", "Theory of Mind"],
+      "URL": "./documents/cogsci2026/btesh2026lets.pdf"
+   },
+    "cao2026abstraction": {
+      "id": "cao2026abstraction",
+      "title": "Abstraction Modulates Judgments of Intentional Action",
+      "author": [
+        {"family": "Cao", "given": "Angela"},
+        {"family": "Ho", "given": "Mark K."},
+        {"family": "Rehder", "given": "Robert"}
+      ],
+      "container-title": "Proceedings of the 48th Annual Conference of the Cognitive Science Society",
+      "issued": {"date-parts": [[2026]]},
+      "type": "paper-conference",
+      "tags": ["Theory of Mind"],
+      "URL": "./documents/cogsci2026/cao2026abstraction.pdf"
+   },
+    "malaviya2026optimal": {
+      "id": "malaviya2026optimal",
+      "title": "Optimal and heuristic teaching in vast concept spaces",
+      "author": [
+        {"family": "Malaviya", "given": "Maya"},
+        {"family": "Ho", "given": "Mark K."}
+      ],
+      "container-title": "Proceedings of the 48th Annual Conference of the Cognitive Science Society",
+      "issued": {"date-parts": [[2026]]},
+      "type": "paper-conference",
+      "tags": ["Social Learning", "Theory of Mind"],
+      "URL": "./documents/cogsci2026/malaviya2026optimal.pdf"
+   },
+    "malaviya2026thinking": {
+      "id": "malaviya2026thinking",
+      "title": "Thinking time increases perceived trustworthiness of human but not AI advice",
+      "author": [
+        {"family": "Malaviya", "given": "Maya"},
+        {"family": "Srinivasan", "given": "Divya"},
+        {"family": "Collins", "given": "Katherine M."},
+        {"family": "Sucholutsky", "given": "Ilia"},
+        {"family": "Ho", "given": "Mark K."}
+      ],
+      "container-title": "Proceedings of the 48th Annual Conference of the Cognitive Science Society",
+      "issued": {"date-parts": [[2026]]},
+      "type": "paper-conference",
+      "tags": ["Theory of Mind"],
+      "URL": "./documents/cogsci2026/malaviya2026thinking.pdf",
+      "acceptance_note": "Sucholutsky and Ho contributed equally as senior authors"
+   },
+    "yang2026spontaneous": {
+      "id": "yang2026spontaneous",
+      "title": "Spontaneous meta-learning of efficient problem-solving algorithms",
+      "author": [
+        {"family": "Yang", "given": "Huiwen Alex"},
+        {"family": "Ho", "given": "Mark K."},
+        {"family": "Thompson", "given": "Bill D."}
+      ],
+      "container-title": "Proceedings of the 48th Annual Conference of the Cognitive Science Society",
+      "issued": {"date-parts": [[2026]]},
+      "type": "paper-conference",
+      "tags": ["Planning / Problem Solving"],
+      "URL": "./documents/cogsci2026/yang2026spontaneous.pdf"
+   },
    "harootonian2026large":{
       "id":"harootonian2026large",
       "title":"Do Large Language Models Mentalize When They Teach?",
@@ -85,7 +197,6 @@
              ]
           ]
        },
-       "page":"XX-XX",
        "type":"paper-conference",
        "publisher":"Curran Associates, Inc.",
        "tags":[
@@ -247,7 +358,7 @@
       "issued": {
       "date-parts": [
             [
-               "in press"
+               2026
             ]
          ]
       },
@@ -256,8 +367,11 @@
          "Mental Effort / Resource Rationality"
       ],
       "type": "article-journal",
-      "container-title":"Nature Human Behavior",
-       "URL":"https://osf.io/preprints/osf/ys49u_v1"
+      "container-title":"Nature Human Behaviour",
+      "URL": "https://www.nature.com/articles/s41562-026-02540-2",
+      "links":{
+         "Preprint": "https://osf.io/preprints/osf/ys49u_v1"
+       }
     },
    "correa2025exploring": {
       "id": "correa2025exploring",
@@ -403,7 +517,7 @@
       "tags":[
          "Interactive Machine Learning"
       ],
-      "container-title":"Nature Human Behavior",
+      "container-title":"Nature Human Behaviour",
       "URL": "https://www.nature.com/articles/s41562-024-01991-9",
        "links": {
          "arXiv": "https://arxiv.org/abs/2408.03943"
