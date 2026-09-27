@@ -1,37 +1,1319 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>codec lab</title>
-  <link rel="stylesheet" href="./style.css"/>
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>codec lab</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Papers fade and collapse when filtered out (timings from the old site). */
+    .papers { min-height: 70vh; }
+    .papers li {
+      scroll-margin-top: 5rem; margin-bottom: 20px; max-height: 500px;
+      transition-property: max-height, opacity, margin-bottom, visibility;
+      transition-duration: 0.4s, 0.5s, 0.4s, 0.5s; transition-timing-function: ease; transition-delay: 0s, 0.2s, 0s, 0.2s;
+    }
+    .papers li.filtered {
+      max-height: 0; opacity: 0; margin-bottom: 0; visibility: hidden;
+      transition-duration: 0.4s; transition-delay: 0.2s, 0s, 0.2s, 0s;
+    }
+    .papers a.entry { display: block; color: black; }
+    .papers a.entry:hover div { text-decoration: underline; }
+    .papers .note { color: rgb(197, 0, 0); font-weight: 600; }
+    .tag, .tag:hover {
+      display: inline-block; margin: 0 5px 6px 0; padding: 2px 10px; border-radius: 10px;
+      font: inherit; font-size: 85%; line-height: 1.4; color: black; background-color: #3cbaff; cursor: pointer; user-select: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .tag:focus:not(:focus-visible) { outline: none; }
+    .tag.all, .tag.all:hover { background-color: black; color: white; }
+    .tag.off, .tag.off:hover { background-color: gainsboro; color: black; }
+    .sideLink { margin-right: 4px; padding: 4px 8px; border-radius: 8px; font-size: 75%; background-color: gray; user-select: none; }
+    .sideLink a { color: white; }
+    .topics { margin-bottom: 20px; }
+    .bibAll { text-align: right; font-size: 85%; }
+    /* Cite chip: a <details> whose summary looks like the grey link chips; opens the BibTeX below */
+    details.cite { display: inline; }
+    details.cite summary { display: inline; color: white; cursor: pointer; list-style: none; }
+    details.cite summary::-webkit-details-marker { display: none; }
+    details.cite[open] summary { background-color: #444; }
+    details.cite pre { position: relative; margin: 8px 0 0; padding: 10px 12px; background: #f4f4f4; border-radius: 6px;
+                       font-size: 0.75rem; line-height: 1.4; white-space: pre-wrap; }
+    details.cite .copy { position: absolute; top: 6px; right: 6px; padding: 1px 8px; margin: 0; font-size: 0.75rem;
+                         border-radius: 6px; background: white; border: 1px solid #ccc; }
+  </style>
 </head>
 <body>
-    <header>
-        <nav style="display: flex; align-items: center; text-align: center; justify-content: center;">
-          <div class="logocontainer">
-            <div class="logo" x-data x-html="await (await fetch('necker.html')).text()"></div>
-            <div class="logotext" style="text-align: left; padding-left: .5%;">
-                Computation and<br>Decision-Making<br>Lab
-            </div>
-          </div>
-        </nav>
-    </header>
+  <header>
+    <nav style="display: flex; align-items: center; justify-content: center;">
+      <div class="logocontainer">
+        <div class="logo">
+          <svg width="100%" height="100%" viewBox="0 0 100 100" aria-hidden="true">
+            <g stroke="#333333" vector-effect="non-scaling-stroke" stroke-width="3" fill="none"
+               stroke-linejoin="miter" stroke-miterlimit="0" stroke-linecap="round">
+              <rect x="8%" y="8%" width="60%" height="60%"/>
+              <rect x="25%" y="35%" width="60%" height="60%"/>
+            </g>
+          </svg>
+        </div>
+        <div class="logotext" style="text-align: left; padding-left: .5%;">Computation and<br>Decision-Making<br>Lab</div>
+      </div>
+    </nav>
+  </header>
   <nav class="navbar">
-      <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#people">People</a></li>
-          <li><a href="#papers">Papers</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <!-- <li><a href="#links">Links</a></li> -->
-      </ul>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#people">People</a></li>
+      <li><a href="#papers">Papers</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </nav>
   <article>
-  <section id="about" x-data x-html="await (await fetch('about.html')).text()"></section>
-  <section id="people" x-data x-html="await (await fetch('people.html')).text()"></section>
-  <section id="papers" x-data x-html="await (await fetch('papers.html')).text()"></section>
-  <section id="contact" x-data x-html="await (await fetch('contact.html')).text()"></section>
-  <!-- <section id="links" x-data x-html="await (await fetch('links.html')).text()"></section> -->
-</article>
+
+<section id="about">
+<h2>About</h2>
+<p>
+  The <b>Computation and Decision-Making Lab</b>, led by Dr. Mark Ho,
+  investigates the computational principles that underlie
+  cognition, decision-making, and social interaction in humans and intelligent
+  machines. We take an interdisciplinary approach, drawing on ideas and methods from
+  cognitive science, social psychology, neuroscience, and artificial intelligence
+  to answer questions such as:
+</p>
+<ul>
+  <li>How do people teach and communicate?</li>
+  <li>How do groups coordinate their thoughts, plans, and actions to achieve joint goals?</li>
+  <li>How do people plan and learn in complex, uncertain environments?</li>
+  <li>How do cognitive biases emerge from the avoidance of mental effort?</li>
+  <li>How can we align interactive machine learning systems with human cognition and values?</li>
+</ul>
+
+<h3>Representative Papers</h3>
+<p><small>For a complete list, see <a href="#papers">Papers</a>.</small></p>
+<div>
+  <a href="https://doi.org/10.1038/s41586-022-04743-9" style="color: black">
+    <div><b>People construct simplified mental representations to plan</b></div>
+    <div>Mark K. Ho, David Abel, Carlos G. Correa, Michael L. Littman, Jonathan D. Cohen, Thomas L. Griffiths</div>
+    <div><i>Nature</i> (2022).</div>
+  </a>
+  <p style="margin-left: 5%">
+    This paper proposes a theory of <i>value-guided construals</i>: simplified but useful representations that people construct when planning.
+    Also see the <a href="https://socialsciences.nature.com/posts/people-construct-simplified-mental-representations-to-plan">Nature's Behind the Paper blog post</a> and
+    <a href="https://arxiv.org/abs/2105.06948">arXiv version</a>.
+  </p>
+</div>
+<div>
+  <a href="https://doi.org/10.1016/j.tics.2022.08.003" style="color: black">
+    <div><b>Planning with Theory of Mind</b></div>
+    <div>Mark K. Ho, Rebecca Saxe, Fiery Cushman</div>
+    <div><i>Trends in Cognitive Sciences</i> (2022).</div>
+  </a>
+  <p style="margin-left: 5%">
+    This paper examines how planning processes shape Theory of Mind, the human capacity to reason about others' mental states.
+  </p>
+</div>
+<div>
+  <a href="https://doi.org/10.1146/annurev-control-042920-015547" style="color: black">
+    <div><b>Cognitive science as a source of forward and inverse models of human decisions for robotics and control</b></div>
+    <div>Mark K. Ho, Thomas L. Griffiths</div>
+    <div><i>Annual Review of Control, Robotics, and Autonomous Systems</i> (2022).</div>
+  </a>
+  <p style="margin-left: 5%">
+    This paper provides an overview of computational cognitive science for artificial intelligence, control, and robotics.
+  </p>
+</div>
+</section>
+
+<section id="people">
+<h2>People</h2>
+<h3>Mark Ho (Principal Investigator)</h3>
+<div class="personEntry"><span class="profilePic"><img src="images/mark-ho.jpg" alt="Mark Ho"></span>
+<p>My research examines the cognitive, motivational, and social processes that
+underpin human problem solving. I am especially interested in questions surrounding
+the structure and interpretation of intentional action, such as:
+How do people organize their thoughts and actions when pursuing individual or shared goals?
+How do people interpret and influence the intentional behavior of others using theory of mind?
+How do complex social phenomena emerge from the interplay of individual intentions?
+I am also interested in how approaches from computational cognitive science can
+inform the development of intelligent machines that interact with people.<br><a href="documents/mark_ho_cv.pdf">CV</a> - <a href="https://markkho.github.io">Personal webpage</a> - <a href="https://bsky.app/profile/markkho.bsky.social">Bluesky</a> - <a href="https://twitter.com/mark_ho_">Twitter</a> - <a href="https://scholar.google.com/citations?hl=en&amp;user=yK7yTiwAAAAJ">Google Scholar</a> - <a href="https://github.com/markkho/">GitHub</a></p>
+</div>
+
+<h3>Marianna Zhang (Postdoc)</h3>
+<div class="personEntry"><span class="profilePic"><img src="images/MariannaZhang.jpg" alt="Marianna Zhang"></span>
+<p>I'm a developmental cognitive scientist studying how children learn about social categories.
+How do children form beliefs about social groups?
+How do children think about social structures?
+I'm currently a postdoctoral fellow in psychology advised by Marjorie Rhodes.
+I received my PhD in psychology from Stanford University, advised by Ellen Markman,
+and my BA in psychology with a minor in philosophy from the University of Chicago.<br><a href="https://mariannazhang.github.io/">Personal webpage</a></p>
+</div>
+
+<h3>Sounak Banerjee (Postdoc)</h3>
+<div class="personEntry"><span class="profilePic"><img src="images/sounak-banerjee.jpg" alt="Sounak Banerjee"></span>
+<p>My research interests lie in human behavior in complex tasks,
+specifically where humans need to process large amounts of information in limited time,
+to make decisions. I primarily rely on statistical and computational modeling to
+identify how individuals filter and integrate complex information and adapt to
+dynamic task contexts. I am particularly focused on skill acquisition and expert
+strategies for optimal behavior in complex paradigms. I completed my PhD in
+Cognitive Science from Rensselaer Polytechnic Institute under my advisors Dr.
+Wayne Gray and Dr. Chris Sims, studying team coordination in complex tasks.
+As postdoctoral associate at the Computation and Decision-Making Lab,
+I will be conducting research on optimal strategies for teaching people how to drive.<br><a href="https://sites.google.com/view/sounakbanerjee/home">Personal webpage</a></p>
+</div>
+
+<h3>Sev Harootonian (Postdoc)</h3>
+<div class="personEntry"><span class="profilePic"><img src="images/sev-harootonian.jpg" alt="Sevan Harootonian"></span>
+<p>Hello! I'm Sevan Harootonian, but I go by Sev. I'm interested in studying
+mentorship and understanding the cognitive mechanisms that contribute to
+its success. One project I've been working on examines how people infer
+others' knowledge to determine the best way to teach them. I use
+Reinforcement Learning and Bayesian models to figure out what mental
+strategies people apply in teaching situations. Teaching is just one aspect
+of mentorship, and I'm also interested in other important factors,
+such as inspiration and motivation.<br><a href="https://sharootonian.github.io/">Personal webpage</a></p>
+</div>
+
+<h3>Wasita Mahaphanit (Postdoc)</h3>
+<div class="personEntry"><span class="profilePic"><img src="images/wasita.png" alt="Wasita Mahaphanit"></span>
+<p>My research focuses on how people infer and evaluate what is shared between minds
+through conversation, and how the depth of shared understanding shapes feelings of
+social connection. As a postdoctoral researcher jointly advised by Mark Ho and
+Shawn Rhoads (Mt. Sinai), I am extending this work to how people construct and
+act on models of other minds during joint planning and coordination, and what
+happens when this process breaks down. I use custom multiplayer web experiments,
+natural language processing, and computational cognitive modeling to achieve my
+research aims. I received my PhD in Cognitive Neuroscience from Dartmouth College,
+co-advised by Luke Chang and Robert Hawkins, and my B.S. from Brown University,
+where I was a lab manager in Michael J. Frank’s lab.<br><a href="https://wasita.space/">Personal webpage</a></p>
+</div>
+
+<h3>Maya Malaviya (Ph.D. Student)</h3>
+<div class="personEntry"><span class="profilePic"><img src="images/maya-headshot-square.jpg" alt="Maya Malaviya"></span>
+<p>In my PhD, I am excited to explore decision-theoretic and program synthesis
+models of human cognition and behavior. For instance, how do we represent
+the tasks we want to accomplish, and when do different representations
+elicit different attitudes and behaviors? How do we decide what representations
+to prioritize and communicate?
+In the past, I have worked as a lab manager in the
+<a href="https://cocosci.princeton.edu/">Computational Cognitive Science</a> &amp;
+<a href="https://cognition.princeton.edu/">Concepts and Cognition</a>
+Labs at <a href="https://psych.princeton.edu/">Princeton</a>,
+earned my B.A. in Cognitive Science from
+<a href="https://cogsci.berkeley.edu/undergraduate">UC Berkeley</a>,
+and worked as a computer science educator at the
+<a href="https://lawrencehallofscience.org/">Lawrence Hall of Science</a>.<br><a href="https://maya-malaviya.github.io/">Personal webpage</a></p>
+</div>
+
+<h3>Bonnie Yang (Ph.D. Student)</h3>
+<div class="personEntry"><span class="profilePic"><img src="images/bonnie-yang.jpg" alt="Bonnie Yang"></span>
+<p>I am interested in how people create abstract representations during planning
+and problem-solving, particularly in the social domain. Before NYU, I received
+my B.A.s in Mathematics and Cognitive Science at Barnard College.</p>
+</div>
+
+<h3>Miguel Aaron Torres Adame (Ph.D. Student)</h3>
+<div class="personEntry"><span class="profilePic"><img src="images/miguel.jpg" alt="Miguel Aaron Torres Adame"></span>
+<p>I am interested in how humans and artificial agents learn, explore, and make
+decisions under uncertainty. My work combines psychology, artificial intelligence,
+and computational modeling to study how internal representations are formed,
+updated, and used to guide behavior, especially in active learning contexts.
+Previously, I worked on projects involving autonomous navigation,
+active concept learning, contextual learning, and risk modeling at the
+Laboratory 25 of Adaptive Behavior at the National Autonomous University of
+Mexico (UNAM), where I received my B.S. in Psychology.</p>
+</div>
+
+<h3>Junxi Chen (Ph.D. Student)</h3>
+<div class="personEntry"><span class="profilePic"><img src="images/junxi_chen.jpg" alt="Junxi Chen"></span>
+<p>I’m interested in understanding the computational mechanisms underlying
+human meta-learning and planning through reinforcement learning and
+Bayesian models. Previously, I worked as a postgraduate associate at Yale,
+advised by Robb Rutledge. I received my B.S. in Computational Neuroscience
+and Mathematics from the University of Southern California, where I was
+advised by Payam Piray.</p>
+</div>
+
+<h3>Jing Li (Graduate Student Collaborator)</h3>
+<div class="personEntry"><span class="profilePic"><img src="images/jing-li.png" alt="Jing Li"></span>
+<p>I am a Ph.D. candidate at the Icahn School of Medicine at Mount Sinai,
+advised by Angela Radulescu. Motivated by a broad interest in how
+self-efficacy beliefs arise, update, and steer behavior, I formalize
+self-efficacy within reinforcement-learning frameworks and test these models
+in both computational agents and human participants.
+My work bridges reinforcement learning and computational psychiatry to
+understand how fluctuations in self-efficacy shape decision making and
+contribute to manic risk in bipolar disorder.
+I build self-efficacy models in RL, design behavioral tasks, and ultimately
+aim to translate these insights into digital diagnostics and adaptive
+interventions for mood disorders.</p>
+</div>
+
+<h3>Ryan Fayyazi (Graduate Student Collaborator)</h3>
+<div class="personEntry"><span class="profilePic"><img src="images/ryan-fayyazi.jpg" alt="Ryan Fayyazi"></span>
+<p>Ryan is a PhD student in the Cognition & Perception program, advised
+by Cate Hartley. At the Ho Lab, Ryan is working on goal-directed
+exploration, task decomposition, and abstraction for reinforcement learning.
+Broadly, Ryan is interested in modeling the cognitive algorithms underlying
+open-ended autotelic decision-making in animals, and building similarly
+capable artificial agents.</p>
+</div>
+
+<h3>Divya Srinivasan (Lab Manager)</h3>
+<div class="personEntry"><span class="profilePic"><img src="images/divya_srinivasan.jpg" alt="Divya Srinivasan"></span>
+<p>Hi! I’m Divya, graduate student majoring in Computer Science at NYU.
+I’m interested in language and decision making in humans and machines.
+I’m fascinated by how humans update their beliefs by combining prior knowledge
+with new information, and the condition under which this breaks down.
+I am also interested in learner modeling and diagnostic inference,
+particularly how observers reason about the underlying cognitive processes
+that produced a given behavior. Outside the lab, I love crocheting and hiking!</p>
+</div>
+
+<h3>Collaborators, alumni, friends of the lab</h3>
+<ul>
+<li><a href="https://www.angelaradulescu.com/">Angela Radulescu (Icahn School of Medicine at Mount Sinai)</a></li>
+<li><a href="https://sinclab.github.io/members/shawn-rhoads.html">Shawn Rhoads (Icahn School of Medicine at Mount Sinai)</a></li>
+<li><a href="https://david-abel.github.io/">David Abel (Deepmind)</a></li>
+<li><a href="https://www.jeroen.science/">Jeroen Olieslagers (Wajo)</a></li>
+<li><a href="https://carlos.correa.me/">Carlos Correa (NYU)</a></li>
+<li><a href="https://dilipa.github.io/">Dilip Arumugam (Princeton)</a></li>
+<li><a href="https://scholar.google.com/citations?user=wUto7LoAAAAJ&amp;hl=en">Ruiqi He (Max Planck Institute of Intelligent Systems)</a></li>
+<li><a href="https://andipeng.com/">Andi Peng (MIT)</a></li>
+</ul>
+</section>
+
+<section id="papers">
+<h2>Papers</h2>
+<div class="bibAll"><a href="papers.bib" download>Download all (.bib)</a></div>
+<div class="topics" hidden>
+<button class="tag all">All Topics</button>
+<button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<button class="tag" data-topic="Planning / Problem Solving">Planning / Problem Solving</button>
+<button class="tag" data-topic="Mental Effort / Resource Rationality">Mental Effort / Resource Rationality</button>
+<button class="tag" data-topic="Language">Language</button>
+<button class="tag" data-topic="Interactive Machine Learning">Interactive Machine Learning</button>
+<button class="tag" data-topic="Cooperation">Cooperation</button>
+</div>
+<ol reversed class="papers">
+<li id="harootonian2026mentalizing" data-topics="Mental Effort / Resource Rationality|Theory of Mind">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/NDTKPGPC/file/view"><div><b>Mentalizing and heuristics as distinct cognitive strategies in human teaching</b></div>
+<div>Sevan Harootonian, Thomas L. Griffiths, Yael Niv, Mark K. Ho</div>
+<div><i>Nature Human Behaviour</i> (2026)</div></a>
+<button class="tag" data-topic="Mental Effort / Resource Rationality">Mental Effort / Resource Rationality</button> <button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1038/s41562-026-02540-2">DOI</a></span> <span class="sideLink"><a href="https://osf.io/preprints/osf/ys49u_v1">Preprint</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@article{harootonian2026mentalizing,
+  title = {Mentalizing and Heuristics as Distinct Cognitive Strategies in Human Teaching},
+  author = {Harootonian, Sevan and Griffiths, Thomas L. and Niv, Yael and Ho, Mark K.},
+  year = 2026,
+  month = aug,
+  journal = {Nature Human Behaviour},
+  doi = {10.1038/s41562-026-02540-2}
+}</pre></details></div>
+</li>
+<li id="abel2026syntax" data-topics="Planning / Problem Solving">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/V44XFYJS/file/view"><div><b>The syntax and semantics of goals</b></div>
+<div>David Abel, Mark K. Ho</div>
+<div><i>Topics in Cognitive Science</i> (2026)</div></a>
+<button class="tag" data-topic="Planning / Problem Solving">Planning / Problem Solving</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1111/tops.70082">DOI</a></span> <span class="sideLink"><a href="https://arxiv.org/abs/2609.19448">arXiv</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@article{abel2026syntax,
+  title = {The Syntax and Semantics of Goals},
+  author = {Abel, David and Ho, Mark K.},
+  year = 2026,
+  journal = {Topics in Cognitive Science},
+  pages = {e70082},
+  doi = {10.1111/tops.70082}
+}</pre></details></div>
+</li>
+<li id="dubey2026aha" data-topics="Reinforcement Learning">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/DZ9LV2QD/file/view"><div><b>Aha! moments correspond to metacognitive prediction errors</b></div>
+<div>Rachit Dubey, Mark K. Ho, Hermish Mehta, Tom Griffiths</div>
+<div><i>Cognition</i> (2026)</div></a>
+<button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1016/j.cognition.2026.106537">DOI</a></span> <span class="sideLink"><a href="https://psyarxiv.com/c5v42/">PsyArXiv</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@article{dubey2026aha,
+  title = {Aha! Moments Correspond to Metacognitive Prediction Errors},
+  author = {Dubey, Rachit and Ho, Mark K. and Mehta, Hermish and Griffiths, Tom},
+  year = 2026,
+  month = sep,
+  journal = {Cognition},
+  volume = {274},
+  pages = {106537},
+  doi = {10.1016/j.cognition.2026.106537}
+}</pre></details></div>
+</li>
+<li id="kuperwajs0000heuristics" data-topics="Mental Effort / Resource Rationality|Planning / Problem Solving">
+<a class="entry" href="https://osf.io/preprints/psyarxiv/qtk9j"><div><b>Heuristics for meta-planning from a normative model of information search</b></div>
+<div>Ionatan Kuperwajs, Mark K. Ho, Wei Ji Ma</div>
+<div>(under review)</div></a>
+<button class="tag" data-topic="Mental Effort / Resource Rationality">Mental Effort / Resource Rationality</button> <button class="tag" data-topic="Planning / Problem Solving">Planning / Problem Solving</button>
+<div><details class="cite"><summary class="sideLink">Cite</summary><pre>@unpublished{kuperwajs0000heuristics,
+  title = {Heuristics for Meta-Planning from a Normative Model of Information Search},
+  author = {Kuperwajs, Ionatan and Ho, Mark K. and Ma, Wei Ji},
+  year = {0000},
+  note = {Under review}
+}</pre></details></div>
+</li>
+<li id="btesh2026lets" data-topics="Cooperation|Theory of Mind">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/RNV6J9G2/file/view"><div><b>Let&#x27;s be friends! People work together even when there is no incentive to do so</b></div>
+<div>Victor Btesh, Mark K. Ho</div>
+<div><i>Proceedings of the 48th Annual Conference of the Cognitive Science Society</i> (2026)</div></a>
+<button class="tag" data-topic="Cooperation">Cooperation</button> <button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<div><span class="sideLink"><a href="https://doi.org/10.31234/osf.io/kg8de_v1">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{btesh2026lets,
+  title = {Let&#x27;s Be Friends! {{People}} Work Together Even When There Is No Incentive to Do So},
+  booktitle = {Proceedings of the 48th {{Annual Conference}} of the {{Cognitive Science Society}}},
+  author = {Btesh, Victor and Ho, Mark K.},
+  year = 2026,
+  doi = {10.31234/osf.io/kg8de_v1}
+}</pre></details></div>
+</li>
+<li id="malaviya2026optimal" data-topics="Theory of Mind">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/5TZ8ZBPN/file/view"><div><b>Optimal and heuristic teaching in vast concept spaces</b></div>
+<div>Maya Malaviya, Mark K. Ho</div>
+<div><i>Proceedings of the 48th Annual Conference of the Cognitive Science Society</i> (2026)</div></a>
+<button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<div><span class="sideLink"><a href="https://escholarship.org/uc/item/68s7b1j2">Web</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{malaviya2026optimal,
+  title = {Optimal and Heuristic Teaching in Vast Concept Spaces},
+  booktitle = {Proceedings of the 48th {{Annual Conference}} of the {{Cognitive Science Society}}},
+  author = {Malaviya, Maya and Ho, Mark K.},
+  year = 2026
+}</pre></details></div>
+</li>
+<li id="malaviya2026thinking" data-topics="Theory of Mind">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/QE4XUREJ/file/view"><div><b>Thinking time increases perceived trustworthiness of human but not AI advice</b></div>
+<div>Maya Malaviya, Divya Srinivasan, Katherine M. Collins, Ilia Sucholutsky, Mark K. Ho</div>
+<div><i>Proceedings of the 48th Annual Conference of the Cognitive Science Society</i> (2026)</div></a>
+<button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<div><span class="sideLink"><a href="https://escholarship.org/uc/item/6ds1p9rf">Web</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{malaviya2026thinking,
+  title = {Thinking Time Increases Perceived Trustworthiness of Human but Not {{AI}} Advice},
+  booktitle = {Proceedings of the 48th {{Annual Conference}} of the {{Cognitive Science Society}}},
+  author = {Malaviya, Maya and Srinivasan, Divya and Collins, Katherine M. and Sucholutsky, Ilia and Ho, Mark K.},
+  year = 2026
+}</pre></details></div>
+</li>
+<li id="cao2026abstraction" data-topics="Theory of Mind">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/DDENBGF6/file/view"><div><b>Abstraction Modulates Judgments of Intentional Action</b></div>
+<div>Angela Cao, Mark K. Ho, Robert Rehder</div>
+<div><i>Proceedings of the 48th Annual Conference of the Cognitive Science Society</i> (2026)</div></a>
+<button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<div><span class="sideLink"><a href="https://escholarship.org/uc/item/4nx7f7hc">Web</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{cao2026abstraction,
+  title = {Abstraction {{Modulates Judgments}} of {{Intentional Action}}},
+  booktitle = {Proceedings of the 48th {{Annual Conference}} of the {{Cognitive Science Society}}},
+  author = {Cao, Angela and Ho, Mark K. and Rehder, Robert},
+  year = 2026
+}</pre></details></div>
+</li>
+<li id="yang2026spontaneous" data-topics="Planning / Problem Solving">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/CYSTE6BC/file/view"><div><b>Spontaneous meta-learning of efficient problem-solving algorithms</b></div>
+<div>Huiwen Alex Yang, Mark K. Ho, Bill D. Thompson</div>
+<div><i>Proceedings of the 48th Annual Conference of the Cognitive Science Society</i> (2026)</div></a>
+<button class="tag" data-topic="Planning / Problem Solving">Planning / Problem Solving</button>
+<div><span class="sideLink"><a href="https://escholarship.org/uc/item/9sw813q0">Web</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{yang2026spontaneous,
+  title = {Spontaneous Meta-Learning of Efficient Problem-Solving Algorithms},
+  booktitle = {Proceedings of the 48th {{Annual Conference}} of the {{Cognitive Science Society}}},
+  author = {Yang, Huiwen Alex and Ho, Mark K. and Thompson, Bill D.},
+  year = 2026
+}</pre></details></div>
+</li>
+<li id="banerjee0000inferring" data-topics="Mental Effort / Resource Rationality|Reinforcement Learning">
+<div><b>Inferring Cognitive Profiles with Cognition-Conditioned Deep Inverse Planning</b></div>
+<div>Sounak Banerjee, Deepak Edakkattil Gopinath, Bonnie Yang, Emily Sumner, Guy Rosman, Eugene Vinitsky, Mark K. Ho</div>
+<div>(under review)</div>
+<button class="tag" data-topic="Mental Effort / Resource Rationality">Mental Effort / Resource Rationality</button> <button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><details class="cite"><summary class="sideLink">Cite</summary><pre>@unpublished{banerjee0000inferring,
+  title = {Inferring {{Cognitive Profiles}} with {{Cognition-Conditioned Deep Inverse Planning}}},
+  author = {Banerjee, Sounak and Gopinath, Deepak Edakkattil and Yang, Bonnie and Sumner, Emily and Rosman, Guy and Vinitsky, Eugene and Ho, Mark K.},
+  year = {0000},
+  note = {Under review}
+}</pre></details></div>
+</li>
+<li id="yang0000hypothesisguided" data-topics="Planning / Problem Solving">
+<div><b>Hypothesis-guided discovery of cognitive algorithms via program refinement</b></div>
+<div>Huiwen Alex Yang, Mark K. Ho, Bill D. Thompson</div>
+<div>(under review)</div>
+<button class="tag" data-topic="Planning / Problem Solving">Planning / Problem Solving</button>
+<div><details class="cite"><summary class="sideLink">Cite</summary><pre>@unpublished{yang0000hypothesisguided,
+  title = {Hypothesis-Guided Discovery of Cognitive Algorithms via Program Refinement},
+  author = {Yang, Huiwen Alex and Ho, Mark K. and Thompson, Bill D.},
+  year = {0000},
+  note = {Under review}
+}</pre></details></div>
+</li>
+<li id="harootonian2026large" data-topics="Language|Theory of Mind">
+<a class="entry" href="https://openreview.net/forum?id=0dKNDFRJBe"><div><b>Do Large Language Models Mentalize When They Teach?</b></div>
+<div>Sevan K. Harootonian, Mark K. Ho, Thomas L. Griffiths, Yael Niv, Ilia Sucholutsky</div>
+<div><i>ICLR 2026 Workshop - From Human Cognition to AI Reasoning: Models, Methods, and Applications</i> (2026)</div></a>
+<button class="tag" data-topic="Language">Language</button> <button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<div><span class="sideLink"><a href="https://doi.org/10.48550/arXiv.2604.01594">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{harootonian2026large,
+  title = {Do {{Large Language Models Mentalize When They Teach}}?},
+  booktitle = {{{ICLR}} 2026 {{Workshop}} - {{From Human Cognition}} to {{AI Reasoning}}: {{Models}}, {{Methods}}, and {{Applications}}},
+  author = {Harootonian, Sevan K. and Ho, Mark K. and Griffiths, Thomas L. and Niv, Yael and Sucholutsky, Ilia},
+  year = 2026,
+  doi = {10.48550/arXiv.2604.01594}
+}</pre></details></div>
+</li>
+<li id="li2026why" data-topics="Interactive Machine Learning">
+<a class="entry" href="https://openreview.net/forum?id=rqNof4myyN"><div><b>Why LLMs Choose Bad Plans: Miscalibrated Capability Beliefs and Their Cost for Planning</b></div>
+<div>Jing Li, Sasha Robinson, Nate Gruver, Kelsey R. Allen, Angela Radulescu, Mark K. Ho, Ilia Sucholutsky</div>
+<div><i>COLM 2026 Workshop on Agent Behavior</i> (2026)</div></a>
+<button class="tag" data-topic="Interactive Machine Learning">Interactive Machine Learning</button>
+<div><details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{li2026why,
+  title = {Why {{LLMs Choose Bad Plans}}: {{Miscalibrated Capability Beliefs}} and {{Their Cost}} for {{Planning}}},
+  booktitle = {{{COLM}} 2026 {{Workshop}} on {{Agent Behavior}}},
+  author = {Li, Jing and Robinson, Sasha and Gruver, Nate and Allen, Kelsey R. and Radulescu, Angela and Ho, Mark K. and Sucholutsky, Ilia},
+  year = 2026
+}</pre></details></div>
+</li>
+<li id="wu2025adaptive" data-topics="Cooperation|Reinforcement Learning">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/582R8TJZ/file/view"><div><b>Adaptive mechanisms of social and asocial learning in immersive collective foraging</b></div>
+<div>Charley M Wu, Dominik Deffner, Benjamin Kahl, Björn Meder, Mark K. Ho†, Ralf HJM Kurvers†</div>
+<div><i>Nature Communications</i> (2025)</div></a>
+<button class="tag" data-topic="Cooperation">Cooperation</button> <button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1038/s41467-025-58365-6">DOI</a></span> <span class="sideLink"><a href="https://www.biorxiv.org/content/10.1101/2023.06.28.546887v3.abstract">biorxiv</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@article{wu2025adaptive,
+  title = {Adaptive Mechanisms of Social and Asocial Learning in Immersive Collective Foraging},
+  author = {Wu, Charley M and Deffner, Dominik and Kahl, Benjamin and Meder, Bj{\&quot;o}rn and Ho, Mark K. and Kurvers, Ralf HJM},
+  year = 2025,
+  month = apr,
+  journal = {Nature Communications},
+  volume = {16},
+  pages = {3539},
+  publisher = {Nature Publishing Group UK London},
+  doi = {10.1038/s41467-025-58365-6}
+}</pre></details></div>
+</li>
+<li id="schulze2025timeline" data-topics="Mental Effort / Resource Rationality">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/JYWL8C9K/file/view"><div><b>A timeline of cognitive costs in decision-making</b></div>
+<div>Christin Schulze, Ada Aka, Daniel M Bartels, Stefan F Bucher, Jake R Embrey, Todd M Gureckis, Gerald Häubl, Mark K. Ho, Ian Krajbich, Alexander K Moore, Gabriele Oettingen, Joan D.K. Ongchoco, Ryan Oprea, Nicholas Reinholtz, Ben R. Newell</div>
+<div><i>Trends in Cognitive Sciences</i> (2025)</div></a>
+<button class="tag" data-topic="Mental Effort / Resource Rationality">Mental Effort / Resource Rationality</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1016/j.tics.2025.04.004">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@article{schulze2025timeline,
+  title = {A Timeline of Cognitive Costs in Decision-Making},
+  author = {Schulze, Christin and Aka, Ada and Bartels, Daniel M and Bucher, Stefan F and Embrey, Jake R and Gureckis, Todd M and H{\&quot;a}ubl, Gerald and Ho, Mark K. and Krajbich, Ian and Moore, Alexander K and Oettingen, Gabriele and Ongchoco, Joan D.K. and Oprea, Ryan and Reinholtz, Nicholas and Newell, Ben R.},
+  year = 2025,
+  month = sep,
+  journal = {Trends in Cognitive Sciences},
+  volume = {29},
+  number = {9},
+  pages = {827--839},
+  publisher = {Elsevier},
+  doi = {10.1016/j.tics.2025.04.004}
+}</pre></details></div>
+</li>
+<li id="correa2025exploring" data-topics="Mental Effort / Resource Rationality|Reinforcement Learning">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/HEETPDPT/file/view"><div><b>Exploring the hierarchical structure of human plans via program generation</b></div>
+<div>Carlos G. Correa, Sophia Sanborn, Mark K. Ho, Frederick Callaway, Nathaniel D. Daw, Thomas L. Griffiths</div>
+<div><i>Cognition</i> (2025)</div></a>
+<button class="tag" data-topic="Mental Effort / Resource Rationality">Mental Effort / Resource Rationality</button> <button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1016/j.cognition.2024.105990">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@article{correa2025exploring,
+  title = {Exploring the Hierarchical Structure of Human Plans via Program Generation},
+  author = {Correa, Carlos G. and Sanborn, Sophia and Ho, Mark K. and Callaway, Frederick and Daw, Nathaniel D. and Griffiths, Thomas L.},
+  year = 2025,
+  month = feb,
+  journal = {Cognition},
+  volume = {255},
+  pages = {105990},
+  doi = {10.1016/j.cognition.2024.105990}
+}</pre></details></div>
+</li>
+<li id="banerjee2025estimating" data-topics="Mental Effort / Resource Rationality|Reinforcement Learning">
+<a class="entry" href="https://arxiv.org/abs/2510.25951"><div><b>Estimating cognitive biases with attention-aware inverse planning</b></div>
+<div>Sounak Banerjee, Daphne Cornelisse, Deepak Gopinath, Emily Sumner, Jonathan DeCastro, Guy Rosman, Eugene Vinitsky, Mark K. Ho</div>
+<div><i>Advances in Neural Information Processing Systems</i> (2025)</div></a>
+<div class="note">Spotlight presentation (3.2% of 21,575 submissions)</div>
+<button class="tag" data-topic="Mental Effort / Resource Rationality">Mental Effort / Resource Rationality</button> <button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><span class="sideLink"><a href="https://doi.org/10.52202/085713-0489">DOI</a></span> <span class="sideLink"><a href="https://github.com/sounakban/gpudrive-CoDec/tree/NeurIPS-2025">Code and Data</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{banerjee2025estimating,
+  title = {Estimating Cognitive Biases with Attention-Aware Inverse Planning},
+  booktitle = {Advances in {{Neural Information Processing Systems}}},
+  author = {Banerjee, Sounak and Cornelisse, Daphne and Gopinath, Deepak and Sumner, Emily and DeCastro, Jonathan and Rosman, Guy and Vinitsky, Eugene and Ho, Mark K.},
+  year = 2025,
+  volume = {38},
+  publisher = {Curran Associates, Inc.},
+  doi = {10.52202/085713-0489}
+}</pre></details></div>
+</li>
+<li id="zhang2025learning" data-topics="Language|Theory of Mind">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/YMYXHIYW/file/view"><div><b>Learning about Inductive Potential from Generic Statements</b></div>
+<div>Marianna Y. Zhang, Sarah-Jane Leslie, Marjorie Rhodes, Mark K. Ho</div>
+<div><i>Proceedings of the 47th Annual Conference of the Cognitive Science Society</i> (2025)</div></a>
+<button class="tag" data-topic="Language">Language</button> <button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<div><span class="sideLink"><a href="https://escholarship.org/uc/item/2rs3j5vq">Web</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{zhang2025learning,
+  title = {Learning about {{Inductive Potential}} from {{Generic Statements}}},
+  booktitle = {Proceedings of the 47th {{Annual Conference}} of the {{Cognitive Science Society}}},
+  author = {Zhang, Marianna Y. and Leslie, Sarah-Jane and Rhodes, Marjorie and Ho, Mark K.},
+  year = 2025
+}</pre></details></div>
+</li>
+<li id="su2025integration" data-topics="Language|Reinforcement Learning">
+<a class="entry" href="https://escholarship.org/uc/item/1j746305"><div><b>Integration of Language and Experience via the Instructed Bandit Task</b></div>
+<div>Ellen Su, Mark K. Ho, Todd M Gureckis</div>
+<div><i>Proceedings of the 47th Annual Conference of the Cognitive Science Society</i> (2025)</div></a>
+<button class="tag" data-topic="Language">Language</button> <button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{su2025integration,
+  title = {Integration of {{Language}} and {{Experience}} via the {{Instructed Bandit Task}}},
+  booktitle = {Proceedings of the 47th {{Annual Conference}} of the {{Cognitive Science Society}}},
+  author = {Su, Ellen and Ho, Mark K. and Gureckis, Todd M},
+  year = 2025
+}</pre></details></div>
+</li>
+<li id="sucholutsky2025representational" data-topics="Interactive Machine Learning">
+<a class="entry" href="https://proceedings.mlr.press/v273/sucholutsky25a.html"><div><b>Representational Alignment Supports Effective Teaching</b></div>
+<div>Ilia Sucholutsky, Katherine M. Collins, Maya Malaviya, Nori Jacoby, Weiyang Liu, Theodore R. Sumers, Michalis Korakakis, Umang Bhatt, Mark K. Ho, Joshua B. Tenenbaum, Zachary A. Pardos, Adrian Weller, Thomas L. Griffiths</div>
+<div><i>Proceedings of the Innovation and Responsibility in AI-Supported Education Workshop</i> (2025)</div></a>
+<button class="tag" data-topic="Interactive Machine Learning">Interactive Machine Learning</button>
+<div><span class="sideLink"><a href="https://doi.org/10.48550/arXiv.2406.04302">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{sucholutsky2025representational,
+  title = {Representational {{Alignment Supports Effective Teaching}}},
+  booktitle = {Proceedings of the {{Innovation}} and {{Responsibility}} in {{AI-Supported Education Workshop}}},
+  author = {Sucholutsky, Ilia and Collins, Katherine M. and Malaviya, Maya and Jacoby, Nori and Liu, Weiyang and Sumers, Theodore R. and Korakakis, Michalis and Bhatt, Umang and Ho, Mark K. and Tenenbaum, Joshua B. and Pardos, Zachary A. and Weller, Adrian and Griffiths, Thomas L.},
+  year = 2025,
+  month = mar,
+  volume = {273},
+  pages = {146--173},
+  publisher = {PMLR},
+  address = {Philadelphia, Pennsylvania},
+  doi = {10.48550/arXiv.2406.04302}
+}</pre></details></div>
+</li>
+<li id="arumugam2024bayesian" data-topics="Mental Effort / Resource Rationality|Reinforcement Learning">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/S4TNLS5G/file/view"><div><b>Bayesian reinforcement learning with limited cognitive load</b></div>
+<div>Dilip Arumugam*, Mark K. Ho*, Noah D. Goodman, Benjamin Van Roy</div>
+<div><i>Open Mind</i> (2024)</div></a>
+<button class="tag" data-topic="Mental Effort / Resource Rationality">Mental Effort / Resource Rationality</button> <button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1162/opmi_a_00132">DOI</a></span> <span class="sideLink"><a href="https://arxiv.org/abs/2305.03263">arXiv</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@article{arumugam2024bayesian,
+  title = {Bayesian Reinforcement Learning with Limited Cognitive Load},
+  author = {Arumugam, Dilip and Ho, Mark K. and Goodman, Noah D. and Van Roy, Benjamin},
+  year = 2024,
+  journal = {Open Mind},
+  volume = {8},
+  pages = {395--438},
+  doi = {10.1162/opmi_a_00132}
+}</pre></details></div>
+</li>
+<li id="collins2024building" data-topics="Interactive Machine Learning">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/CEPUK5Q3/file/view"><div><b>Building Machines that Learn and Think with People</b></div>
+<div>Katherine M. Collins, Ilia Sucholutsky, Umang Bhatt, Kartik Chandra, Lionel Wong, Mina Lee, Cedegao E. Zhang, Tan Zhi-Xuan, Mark K. Ho, Vikash Mansinghka, Adrian Weller, Joshua B. Tenenbaum, Thomas L. Griffiths</div>
+<div><i>Nature Human Behaviour</i> (2024)</div></a>
+<button class="tag" data-topic="Interactive Machine Learning">Interactive Machine Learning</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1038/s41562-024-01991-9">DOI</a></span> <span class="sideLink"><a href="https://arxiv.org/abs/2408.03943">arXiv</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@article{collins2024building,
+  title = {Building {{Machines}} That {{Learn}} and {{Think}} with {{People}}},
+  author = {Collins, Katherine M. and Sucholutsky, Ilia and Bhatt, Umang and Chandra, Kartik and Wong, Lionel and Lee, Mina and Zhang, Cedegao E. and {Zhi-Xuan}, Tan and Ho, Mark K. and Mansinghka, Vikash and Weller, Adrian and Tenenbaum, Joshua B. and Griffiths, Thomas L.},
+  year = 2024,
+  month = oct,
+  journal = {Nature Human Behaviour},
+  volume = {8},
+  number = {10},
+  pages = {1851--1863},
+  doi = {10.1038/s41562-024-01991-9}
+}</pre></details></div>
+</li>
+<li id="allen2024using" data-topics="Planning / Problem Solving">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/YQSJCXQ6/file/view"><div><b>Using games to understand the mind</b></div>
+<div>Kelsey Allen, Franziska Brändle, Matthew Botvinick, Judith E. Fan, Samuel J. Gershman, Alison Gopnik, Thomas L. Griffiths, Joshua K. Hartshorne, Tobias U. Hauser, Mark K. Ho, Joshua R. de Leeuw, Wei Ji Ma, Kou Murayama, Jonathan D. Nelson, Bas van Opheusden, Thomas Pouncy, Janet Rafner, Iyad Rahwan, Robb B. Rutledge, Jacob Sherson, Özgür Şimşek, Hugo Spiers, Christopher Summerfield, Mirko Thalmann, Natalia Vélez, Andrew J. Watrous, Joshua B. Tenenbaum, Eric Schulz</div>
+<div><i>Nature Human Behaviour</i> (2024)</div></a>
+<button class="tag" data-topic="Planning / Problem Solving">Planning / Problem Solving</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1038/s41562-024-01878-9">DOI</a></span> <span class="sideLink"><a href="https://psyarxiv.com/hbsvj">OSF</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@article{allen2024using,
+  title = {Using Games to Understand the Mind},
+  author = {Allen, Kelsey and Br{\&quot;a}ndle, Franziska and Botvinick, Matthew and Fan, Judith E. and Gershman, Samuel J. and Gopnik, Alison and Griffiths, Thomas L. and Hartshorne, Joshua K. and Hauser, Tobias U. and Ho, Mark K. and {de Leeuw}, Joshua R. and Ma, Wei Ji and Murayama, Kou and Nelson, Jonathan D. and {van Opheusden}, Bas and Pouncy, Thomas and Rafner, Janet and Rahwan, Iyad and Rutledge, Robb B. and Sherson, Jacob and {\c S}im{\c s}ek, {\&quot;O}zg{\&quot;u}r and Spiers, Hugo and Summerfield, Christopher and Thalmann, Mirko and V{\&#x27;e}lez, Natalia and Watrous, Andrew J. and Tenenbaum, Joshua B. and Schulz, Eric},
+  year = 2024,
+  month = jun,
+  journal = {Nature Human Behaviour},
+  volume = {8},
+  number = {6},
+  pages = {1035--1043},
+  doi = {10.1038/s41562-024-01878-9}
+}</pre></details></div>
+</li>
+<li id="sumers2023reconciling" data-topics="Language|Reinforcement Learning">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/IZREUQGZ/file/view"><div><b>Reconciling truthfulness and relevance as epistemic and decision-theoretic utility</b></div>
+<div>Theodore Sumers, Mark K. Ho, Thomas L. Griffiths, Robert Hawkins</div>
+<div><i>Psychological Review</i> (2024)</div></a>
+<button class="tag" data-topic="Language">Language</button> <button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1037/rev0000437">DOI</a></span> <span class="sideLink"><a href="https://osf.io/preprints/psyarxiv/e9m3j">PsyArXiv</a></span> <span class="sideLink"><a href="https://github.com/tsumers/relevance">Code</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@article{sumers2023reconciling,
+  title = {Reconciling Truthfulness and Relevance as Epistemic and Decision-Theoretic Utility},
+  author = {Sumers, Theodore and Ho, Mark K. and Griffiths, Thomas L. and Hawkins, Robert},
+  year = 2024,
+  journal = {Psychological Review},
+  volume = {131},
+  number = {1},
+  pages = {194--230},
+  publisher = {PsyArXiv},
+  doi = {10.1037/rev0000437}
+}</pre></details></div>
+</li>
+<li id="pennisi2024investigating" data-topics="Language|Reinforcement Learning">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/M2VYRSBI/file/view"><div><b>Investigating Flexible Role Binding in AI Agents</b></div>
+<div>Brian Pennisi, Rheza Budiono, Todd M Gureckis, Mark K. Ho</div>
+<div><i>Proceedings of the 46th Annual Conference of the Cognitive Science Society</i> (2024)</div></a>
+<button class="tag" data-topic="Language">Language</button> <button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><span class="sideLink"><a href="https://escholarship.org/uc/item/72s1k52q">Web</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{pennisi2024investigating,
+  title = {Investigating {{Flexible Role Binding}} in {{AI Agents}}},
+  booktitle = {Proceedings of the 46th {{Annual Conference}} of the {{Cognitive Science Society}}},
+  author = {Pennisi, Brian and Budiono, Rheza and Gureckis, Todd M and Ho, Mark K.},
+  year = 2024
+}</pre></details></div>
+</li>
+<li id="abel2024three" data-topics="Reinforcement Learning">
+<a class="entry" href="https://arxiv.org/abs/2407.10583"><div><b>Three Dogmas of Reinforcement Learning</b></div>
+<div>David Abel, Mark K. Ho, Anna Harutyunyan</div>
+<div><i>Proceedings of the Reinforcement Learning Conference</i> (2024)</div></a>
+<button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><span class="sideLink"><a href="https://doi.org/10.48550/arXiv.2407.10583">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{abel2024three,
+  title = {Three {{Dogmas}} of {{Reinforcement Learning}}},
+  booktitle = {Proceedings of the {{Reinforcement Learning Conference}}},
+  author = {Abel, David and Ho, Mark K. and Harutyunyan, Anna},
+  year = 2024,
+  volume = {2},
+  pages = {629--644},
+  doi = {10.48550/arXiv.2407.10583}
+}</pre></details></div>
+</li>
+<li id="rane2024concept" data-topics="Interactive Machine Learning|Theory of Mind">
+<a class="entry" href="https://arxiv.org/abs/2310.20059"><div><b>Concept Alignment as a Prerequisite for Value Alignment</b></div>
+<div>Sunayana Rane, Mark K. Ho, Ilia Sucholutsky, Thomas L. Griffiths</div>
+<div><i>Proceedings of the 46th Annual Conference of the Cognitive Science Society</i> (2024)</div></a>
+<button class="tag" data-topic="Interactive Machine Learning">Interactive Machine Learning</button> <button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<div><span class="sideLink"><a href="https://doi.org/10.48550/arXiv.2310.20059">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{rane2024concept,
+  title = {Concept {{Alignment}} as a {{Prerequisite}} for {{Value Alignment}}},
+  booktitle = {Proceedings of the 46th {{Annual Conference}} of the {{Cognitive Science Society}}},
+  author = {Rane, Sunayana and Ho, Mark K. and Sucholutsky, Ilia and Griffiths, Thomas L.},
+  year = 2024,
+  doi = {10.48550/arXiv.2310.20059}
+}</pre></details></div>
+</li>
+<li id="chater2024chapter" data-topics="Planning / Problem Solving|Reinforcement Learning">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/NAE82TFQ/file/view"><div><b>From probabilities to actions</b></div>
+<div>Nick Chater, Thomas L. Griffiths, Mark K. Ho</div>
+<div><i>Bayesian Models of Cognition: Reverse Engineering the Mind</i> (2024)</div></a>
+<button class="tag" data-topic="Planning / Problem Solving">Planning / Problem Solving</button> <button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><span class="sideLink"><a href="https://doi.org/10.7551/mitpress/8765.003.0010">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@incollection{chater2024chapter,
+  title = {From Probabilities to Actions},
+  booktitle = {Bayesian {{Models}} of {{Cognition}}: {{Reverse Engineering}} the {{Mind}}},
+  author = {Chater, Nick and Griffiths, Thomas L. and Ho, Mark K.},
+  editor = {Griffiths, Thomas L. and Chater, Nick and Tenenbaum, Joshua},
+  year = 2024,
+  pages = {189--230},
+  publisher = {MIT Press},
+  address = {Cambridge},
+  doi = {10.7551/mitpress/8765.003.0010}
+}</pre></details></div>
+</li>
+<li id="ho2023rational" data-topics="Mental Effort / Resource Rationality|Planning / Problem Solving">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/6684GTIJ/file/view"><div><b>Rational Simplification and Rigidity in Human Planning</b></div>
+<div>Mark K. Ho, Jonathan D. Cohen, Thomas L. Griffiths</div>
+<div><i>Psychological Science</i> (2023)</div></a>
+<button class="tag" data-topic="Mental Effort / Resource Rationality">Mental Effort / Resource Rationality</button> <button class="tag" data-topic="Planning / Problem Solving">Planning / Problem Solving</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1177/09567976231200547">DOI</a></span> <span class="sideLink"><a href="https://github.com/markkho/functional-fixedness">Code and Data</a></span> <span class="sideLink"><a href="https://osf.io/yuta6/">OSF</a></span> <span class="sideLink"><a href="https://psyarxiv.com/aqxws">PsyArXiv</a></span> <span class="sideLink"><a href="https://spsp.org/news/character-and-context-blog/ho-functional-fixedness">SPSP Blog Post</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@article{ho2023rational,
+  title = {Rational {{Simplification}} and {{Rigidity}} in {{Human Planning}}},
+  author = {Ho, Mark K. and Cohen, Jonathan D. and Griffiths, Thomas L.},
+  year = 2023,
+  month = nov,
+  journal = {Psychological Science},
+  volume = {34},
+  number = {11},
+  pages = {1281--1292},
+  doi = {10.1177/09567976231200547}
+}</pre></details></div>
+</li>
+<li id="sumers2023show" data-topics="Language|Theory of Mind">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/WF6G75L5/file/view"><div><b>Show or tell? Exploring when (and why) teaching with language outperforms demonstration</b></div>
+<div>Theodore R. Sumers, Mark K. Ho, R D Hawkins, Thomas L. Griffiths</div>
+<div><i>Cognition</i> (2023)</div></a>
+<button class="tag" data-topic="Language">Language</button> <button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1016/j.cognition.2022.105326">DOI</a></span> <span class="sideLink"><a href="https://psyarxiv.com/aurb6/">PsyArXiv</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@article{sumers2023show,
+  title = {Show or Tell? {{Exploring}} When (and Why) Teaching with Language Outperforms Demonstration},
+  author = {Sumers, Theodore R. and Ho, Mark K. and Hawkins, R D and Griffiths, Thomas L.},
+  year = 2023,
+  month = mar,
+  journal = {Cognition},
+  volume = {232},
+  pages = {105326},
+  doi = {10.1016/j.cognition.2022.105326}
+}</pre></details></div>
+</li>
+<li id="correa2023humans" data-topics="Mental Effort / Resource Rationality|Planning / Problem Solving">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/6XYGCIKD/file/view"><div><b>Humans decompose tasks by trading off utility and computational cost</b></div>
+<div>Carlos G. Correa, Mark K. Ho, Frederick Callaway, Nathaniel D. Daw, Thomas L. Griffiths</div>
+<div><i>PLOS Computational Biology</i> (2023)</div></a>
+<button class="tag" data-topic="Mental Effort / Resource Rationality">Mental Effort / Resource Rationality</button> <button class="tag" data-topic="Planning / Problem Solving">Planning / Problem Solving</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1371/journal.pcbi.1011087">DOI</a></span> <span class="sideLink"><a href="https://arxiv.org/abs/2211.03890">arXiv</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@article{correa2023humans,
+  title = {Humans Decompose Tasks by Trading off Utility and Computational Cost},
+  author = {Correa, Carlos G. and Ho, Mark K. and Callaway, Frederick and Daw, Nathaniel D. and Griffiths, Thomas L.},
+  year = 2023,
+  month = jun,
+  journal = {PLOS Computational Biology},
+  volume = {19},
+  number = {6},
+  pages = {e1011087},
+  doi = {10.1371/journal.pcbi.1011087}
+}</pre></details></div>
+</li>
+<li id="peng2023diagnosis" data-topics="Interactive Machine Learning|Reinforcement Learning">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/LJVZD2B4/file/view"><div><b>Diagnosis, feedback, adaptation: A human-in-the-loop framework for test-time policy adaptation</b></div>
+<div>Andi Peng, Aviv Netanyahu, Mark K. Ho, Tianmin Shu, Andreea Bobu, Julie Shah, Pulkit Agrawal</div>
+<div><i>Proceedings of the 40th International Conference on Machine Learning</i> (2023)</div></a>
+<div class="note">Poster presentation (27.9% of 6,538 submissions)</div>
+<button class="tag" data-topic="Interactive Machine Learning">Interactive Machine Learning</button> <button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><span class="sideLink"><a href="https://doi.org/10.48550/arXiv.2307.06333">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{peng2023diagnosis,
+  title = {Diagnosis, Feedback, Adaptation: {{A}} Human-in-the-Loop Framework for Test-Time Policy Adaptation},
+  booktitle = {Proceedings of the 40th {{International Conference}} on {{Machine Learning}}},
+  author = {Peng, Andi and Netanyahu, Aviv and Ho, Mark K. and Shu, Tianmin and Bobu, Andreea and Shah, Julie and Agrawal, Pulkit},
+  year = 2023,
+  volume = {202},
+  pages = {27630--27641},
+  publisher = {PMLR},
+  doi = {10.48550/arXiv.2307.06333}
+}</pre></details></div>
+</li>
+<li id="ho2022people" data-topics="Mental Effort / Resource Rationality|Planning / Problem Solving">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/GB4ZIJXK/file/view"><div><b>People construct simplified mental representations to plan</b></div>
+<div>Mark K. Ho, David Abel, Carlos G. Correa, Michael L. Littman, Jonathan D. Cohen, Thomas L. Griffiths</div>
+<div><i>Nature</i> (2022)</div></a>
+<button class="tag" data-topic="Mental Effort / Resource Rationality">Mental Effort / Resource Rationality</button> <button class="tag" data-topic="Planning / Problem Solving">Planning / Problem Solving</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1038/s41586-022-04743-9">DOI</a></span> <span class="sideLink"><a href="https://github.com/markkho/value-guided-construal">Code and Data</a></span> <span class="sideLink"><a href="https://arxiv.org/abs/2105.06948">arXiv</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@article{ho2022people,
+  title = {People Construct Simplified Mental Representations to Plan},
+  author = {Ho, Mark K. and Abel, David and Correa, Carlos G. and Littman, Michael L. and Cohen, Jonathan D. and Griffiths, Thomas L.},
+  year = 2022,
+  month = may,
+  journal = {Nature},
+  volume = {606},
+  number = {7912},
+  pages = {129--136},
+  doi = {10.1038/s41586-022-04743-9}
+}</pre></details></div>
+</li>
+<li id="ho2022planning" data-topics="Planning / Problem Solving|Theory of Mind">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/D6N8CJKQ/file/view"><div><b>Planning with Theory of Mind</b></div>
+<div>Mark K. Ho, Rebecca Saxe, Fiery Cushman</div>
+<div><i>Trends in Cognitive Sciences</i> (2022)</div></a>
+<button class="tag" data-topic="Planning / Problem Solving">Planning / Problem Solving</button> <button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1016/j.tics.2022.08.003">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@article{ho2022planning,
+  title = {Planning with {{Theory}} of {{Mind}}},
+  author = {Ho, Mark K. and Saxe, Rebecca and Cushman, Fiery},
+  year = 2022,
+  month = nov,
+  journal = {Trends in Cognitive Sciences},
+  volume = {26},
+  number = {11},
+  pages = {959--971},
+  doi = {10.1016/j.tics.2022.08.003}
+}</pre></details></div>
+</li>
+<li id="ho2022cognitive" data-topics="Interactive Machine Learning|Theory of Mind">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/FYIS7S27/file/view"><div><b>Cognitive science as a source of forward and inverse models of human decisions for robotics and control</b></div>
+<div>Mark K. Ho, Thomas L. Griffiths</div>
+<div><i>Annual review of Control, Robotics, and Autonomous Systems</i> (2022)</div></a>
+<button class="tag" data-topic="Interactive Machine Learning">Interactive Machine Learning</button> <button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1146/annurev-control-042920-015547">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@article{ho2022cognitive,
+  title = {Cognitive Science as a Source of Forward and Inverse Models of Human Decisions for Robotics and Control},
+  author = {Ho, Mark K. and Griffiths, Thomas L.},
+  year = 2022,
+  month = may,
+  journal = {Annual review of Control, Robotics, and Autonomous Systems},
+  volume = {5},
+  pages = {33--53},
+  doi = {10.1146/annurev-control-042920-015547}
+}</pre></details></div>
+</li>
+<li id="sumers2022how" data-topics="Language|Reinforcement Learning">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/A5ERRFZN/file/view"><div><b>How to talk so AI will learn: Instructions, descriptions, and autonomy</b></div>
+<div>Theodore R Sumers, Robert D Hawkins, Mark K. Ho, Thomas L. Griffiths, Dylan Hadfield-Menell</div>
+<div><i>Advances in Neural Information Processing Systems</i> (2022)</div></a>
+<div class="note">Poster presentation (25.7% of 10,411 submissions)</div>
+<button class="tag" data-topic="Language">Language</button> <button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><span class="sideLink"><a href="https://doi.org/10.52202/068431-2519">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{sumers2022how,
+  title = {How to Talk so {{AI}} Will Learn: {{Instructions}}, Descriptions, and Autonomy},
+  booktitle = {Advances in {{Neural Information Processing Systems}}},
+  author = {Sumers, Theodore R and Hawkins, Robert D and Ho, Mark K. and Griffiths, Thomas L. and {Hadfield-Menell}, Dylan},
+  year = 2022,
+  volume = {35},
+  pages = {34762--34775},
+  publisher = {Curran Associates, Inc.},
+  doi = {10.52202/068431-2519}
+}</pre></details></div>
+</li>
+<li id="arumugam2022ratedistortion" data-topics="Reinforcement Learning">
+<a class="entry" href="https://arxiv.org/abs/2210.16877"><div><b>On rate-distortion theory in capacity-limited cognition and reinforcement learning</b></div>
+<div>Dilip Arumugam, Mark K. Ho, Noah D. Goodman, Benjamin Van Roy</div>
+<div><i>NeurIPS workshop on information-theoretic principles in cognitive systems (infocog)</i> (2022)</div></a>
+<button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><span class="sideLink"><a href="https://doi.org/10.48550/arXiv.2210.16877">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{arumugam2022ratedistortion,
+  title = {On Rate-Distortion Theory in Capacity-Limited Cognition and Reinforcement Learning},
+  booktitle = {{{NeurIPS}} Workshop on Information-Theoretic Principles in Cognitive Systems (Infocog)},
+  author = {Arumugam, Dilip and Ho, Mark K. and Goodman, Noah D. and Van Roy, Benjamin},
+  year = 2022,
+  doi = {10.48550/arXiv.2210.16877}
+}</pre></details></div>
+</li>
+<li id="abel2022expressing" data-topics="Reinforcement Learning">
+<a class="entry" href="https://david-abel.github.io/papers/rldm2022_markov.pdf"><div><b>Expressing non-markov reward to a markov agent</b></div>
+<div>D. Abel, A. Barreto, M. Bowling, W. Dabney, S. Hansen, A. Harutyunyan, Mark K. Ho, R. Kumar, M. L. Littman, D. Precup, S. Singh</div>
+<div><i>Proceedings of the conference on reinforcement learning and decision making</i> (2022)</div></a>
+<button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{abel2022expressing,
+  title = {Expressing Non-Markov Reward to a Markov Agent},
+  booktitle = {Proceedings of the Conference on Reinforcement Learning and Decision Making},
+  author = {Abel, D. and Barreto, A. and Bowling, M. and Dabney, W. and Hansen, S. and Harutyunyan, A. and Ho, Mark K. and Kumar, R. and Littman, M. L. and Precup, D. and Singh, S.},
+  year = 2022
+}</pre></details></div>
+</li>
+<li id="ho2021communication" data-topics="Planning / Problem Solving|Theory of Mind">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/5YK4CYNS/file/view"><div><b>Communication in action: Planning and interpreting communicative demonstrations</b></div>
+<div>Mark K. Ho, Fiery Cushman, Michael L Littman, Joseph L Austerweil</div>
+<div><i>Journal of Experimental Psychology: General</i> (2021)</div></a>
+<button class="tag" data-topic="Planning / Problem Solving">Planning / Problem Solving</button> <button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1037/xge0001035">DOI</a></span> <span class="sideLink"><a href="https://github.com/markkho/comdem-data-code">Code</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@article{ho2021communication,
+  title = {Communication in Action: {{Planning}} and Interpreting Communicative Demonstrations},
+  author = {Ho, Mark K. and Cushman, Fiery and Littman, Michael L and Austerweil, Joseph L},
+  year = 2021,
+  journal = {Journal of Experimental Psychology: General},
+  volume = {150},
+  number = {11},
+  pages = {2246--2272},
+  doi = {10.1037/xge0001035}
+}</pre></details></div>
+</li>
+<li id="gates2021rational" data-topics="Theory of Mind">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/3TETK7FR/file/view"><div><b>A rational model of people’s inferences about others’ preferences based on response times</b></div>
+<div>Vael Gates*, Frederick Callaway*, Mark K. Ho, Tom Griffiths</div>
+<div><i>Cognition</i> (2021)</div></a>
+<button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1016/j.cognition.2021.104885">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@article{gates2021rational,
+  title = {A Rational Model of People&#x27;s Inferences about Others&#x27; Preferences Based on Response Times},
+  author = {Gates, Vael and Callaway, Frederick and Ho, Mark K. and Griffiths, Tom},
+  year = 2021,
+  month = dec,
+  journal = {Cognition},
+  volume = {217},
+  pages = {104885},
+  doi = {10.1016/j.cognition.2021.104885}
+}</pre></details></div>
+</li>
+<li id="sarin2021punishment" data-topics="Reinforcement Learning|Theory of Mind">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/I3REQZDL/file/view"><div><b>Punishment is organized around principles of communicative inference</b></div>
+<div>Arunima Sarin, Mark K. Ho, Justin W Martin, Fiery A Cushman</div>
+<div><i>Cognition</i> (2021)</div></a>
+<button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button> <button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1016/j.cognition.2020.104544">DOI</a></span> <span class="sideLink"><a href="https://psyarxiv.com/2cyf7/">PsyArXiv</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@article{sarin2021punishment,
+  title = {Punishment Is Organized around Principles of Communicative Inference},
+  author = {Sarin, Arunima and Ho, Mark K. and Martin, Justin W and Cushman, Fiery A},
+  year = 2021,
+  month = mar,
+  journal = {Cognition},
+  volume = {208},
+  pages = {104544},
+  publisher = {Elsevier},
+  doi = {10.1016/j.cognition.2020.104544}
+}</pre></details></div>
+</li>
+<li id="abel2021expressivity" data-topics="Reinforcement Learning">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/NJYRGAFY/file/view"><div><b>On the Expressivity of Markov Reward</b></div>
+<div>David Abel, Will Dabney, Anna Harutyunyan, Mark K. Ho, Michael Littman, Doina Precup, Satinder Singh</div>
+<div><i>Advances in Neural Information Processing Systems</i> (2021)</div></a>
+<div class="note">Outstanding Paper Award (0.07% of 9,122 submissions)</div>
+<button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><span class="sideLink"><a href="https://doi.org/10.48550/arXiv.2111.00876">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{abel2021expressivity,
+  title = {On the {{Expressivity}} of {{Markov Reward}}},
+  booktitle = {Advances in {{Neural Information Processing Systems}}},
+  author = {Abel, David and Dabney, Will and Harutyunyan, Anna and Ho, Mark K. and Littman, Michael and Precup, Doina and Singh, Satinder},
+  year = 2021,
+  volume = {34},
+  pages = {7799--7812},
+  publisher = {Curran Associates, Inc.},
+  doi = {10.48550/arXiv.2111.00876}
+}</pre></details></div>
+</li>
+<li id="sumers2021learning" data-topics="Language|Reinforcement Learning">
+<a class="entry" href="https://arxiv.org/abs/2009.14715"><div><b>Learning rewards from linguistic feedback</b></div>
+<div>Theodore R. Sumers, Mark K. Ho, Robert D. Hawkins, Karthik Narasimhan, Thomas L. Griffiths</div>
+<div><i>Proceedings of the AAAI Conference on Artificial Intelligence</i> (2021)</div></a>
+<div class="note">Poster presentation (21.4% of 7,911 submissions)</div>
+<button class="tag" data-topic="Language">Language</button> <button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1609/aaai.v35i7.16749">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{sumers2021learning,
+  title = {Learning Rewards from Linguistic Feedback},
+  booktitle = {Proceedings of the {{AAAI Conference}} on {{Artificial Intelligence}}},
+  author = {Sumers, Theodore R. and Ho, Mark K. and Hawkins, Robert D. and Narasimhan, Karthik and Griffiths, Thomas L.},
+  year = 2021,
+  volume = {35},
+  pages = {6002--6010},
+  doi = {10.1609/aaai.v35i7.16749}
+}</pre></details></div>
+</li>
+<li id="sumers2021extending" data-topics="Language|Reinforcement Learning">
+<a class="entry" href="https://arxiv.org/abs/2105.11950"><div><b>Extending rational models of communication from beliefs to actions</b></div>
+<div>Theodore R. Sumers, Robert D. Hawkins, Mark K. Ho, Thomas L. Griffiths</div>
+<div><i>Proceedings of the 43rd Annual Conference of the Cognitive Science Society</i> (2021)</div></a>
+<button class="tag" data-topic="Language">Language</button> <button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><span class="sideLink"><a href="https://doi.org/10.48550/arXiv.2105.11950">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{sumers2021extending,
+  title = {Extending Rational Models of Communication from Beliefs to Actions},
+  booktitle = {Proceedings of the 43rd {{Annual Conference}} of the {{Cognitive Science Society}}},
+  author = {Sumers, Theodore R. and Hawkins, Robert D. and Ho, Mark K. and Griffiths, Thomas L.},
+  year = 2021,
+  doi = {10.48550/arXiv.2105.11950}
+}</pre></details></div>
+</li>
+<li id="wu2021specialization" data-topics="Cooperation|Reinforcement Learning">
+<a class="entry" href="https://www.biorxiv.org/content/10.1101/2021.02.03.429553v1"><div><b>Specialization and selective social attention establishes the balance between individual and social learning</b></div>
+<div>Charley M Wu, Mark K. Ho, Benjamin Kahl, Christina Leuker, Björn Meder, Ralf HJM Kurvers</div>
+<div><i>Proceedings of the 43rd Annual Conference of the Cognitive Science Society</i> (2021)</div></a>
+<button class="tag" data-topic="Cooperation">Cooperation</button> <button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1101/2021.02.03.429553">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{wu2021specialization,
+  title = {Specialization and Selective Social Attention Establishes the Balance between Individual and Social Learning},
+  booktitle = {Proceedings of the 43rd {{Annual Conference}} of the {{Cognitive Science Society}}},
+  author = {Wu, Charley M and Ho, Mark K. and Kahl, Benjamin and Leuker, Christina and Meder, Bj{\&quot;o}rn and Kurvers, Ralf HJM},
+  year = 2021,
+  doi = {10.1101/2021.02.03.429553}
+}</pre></details></div>
+</li>
+<li id="cushman2021punishment" data-topics="Reinforcement Learning|Theory of Mind">
+<a class="entry" href="https://psyarxiv.com/wf3tz"><div><b>Punishment as communication</b></div>
+<div>Fiery A Cushman, Arunima Sarin, Mark K. Ho</div>
+<div><i>Oxford handbook of moral psychology</i> (2021)</div></a>
+<button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button> <button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<div><span class="sideLink"><a href="https://doi.org/10.31234/osf.io/wf3tz">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@incollection{cushman2021punishment,
+  title = {Punishment as Communication},
+  booktitle = {Oxford Handbook of Moral Psychology},
+  author = {Cushman, Fiery A and Sarin, Arunima and Ho, Mark K.},
+  editor = {Doris, J. and Vargas, M.},
+  year = 2021,
+  publisher = {Oxford University Press},
+  address = {Oxford},
+  doi = {10.31234/osf.io/wf3tz}
+}</pre></details></div>
+</li>
+<li id="ho2020efficiency" data-topics="Mental Effort / Resource Rationality|Planning / Problem Solving">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/QLHSBQH3/file/view"><div><b>The efficiency of human cognition reflects planned information processing</b></div>
+<div>Mark K. Ho, David Abel, Jonathan Cohen, Michael Littman, Thomas Griffiths</div>
+<div><i>Proceedings of the AAAI Conference on Artificial Intelligence</i> (2020)</div></a>
+<div class="note">Oral presentation (5.9% of 7,737 submissions)</div>
+<button class="tag" data-topic="Mental Effort / Resource Rationality">Mental Effort / Resource Rationality</button> <button class="tag" data-topic="Planning / Problem Solving">Planning / Problem Solving</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1609/aaai.v34i02.5485">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{ho2020efficiency,
+  title = {The Efficiency of Human Cognition Reflects Planned Information Processing},
+  booktitle = {Proceedings of the {{AAAI Conference}} on {{Artificial Intelligence}}},
+  author = {Ho, Mark K. and Abel, David and Cohen, Jonathan and Littman, Michael and Griffiths, Thomas},
+  year = 2020,
+  volume = {34},
+  pages = {1300--1307},
+  doi = {10.1609/aaai.v34i02.5485}
+}</pre></details></div>
+</li>
+<li id="correa2020resourcerational" data-topics="Mental Effort / Resource Rationality|Planning / Problem Solving">
+<a class="entry" href="https://arxiv.org/abs/2007.13862"><div><b>Resource-rational task decomposition to minimize planning costs</b></div>
+<div>Carlos G Correa*, Mark K. Ho*, Fred Callaway, Thomas L. Griffiths</div>
+<div><i>Proceedings of the 42nd Annual Conference of the Cognitive Science Society</i> (2020)</div></a>
+<button class="tag" data-topic="Mental Effort / Resource Rationality">Mental Effort / Resource Rationality</button> <button class="tag" data-topic="Planning / Problem Solving">Planning / Problem Solving</button>
+<div><span class="sideLink"><a href="https://doi.org/10.48550/arXiv.2007.13862">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{correa2020resourcerational,
+  title = {Resource-Rational Task Decomposition to Minimize Planning Costs},
+  booktitle = {Proceedings of the 42nd {{Annual Conference}} of the {{Cognitive Science Society}}},
+  author = {Correa, Carlos G and Ho, Mark K. and Callaway, Fred and Griffiths, Thomas L.},
+  editor = {Denison., S. and Mack, M. and Xu, Y. and Armstrong, B.C.},
+  year = 2020,
+  pages = {2974--2980},
+  publisher = {Cognitive Science Society},
+  doi = {10.48550/arXiv.2007.13862}
+}</pre></details></div>
+</li>
+<li id="sumers2020show" data-topics="Language|Theory of Mind">
+<a class="entry" href="https://arxiv.org/abs/2012.09035"><div><b>Show or tell? Demonstration is more robust to changes in shared perception than explanation</b></div>
+<div>Theodore R. Sumers, Mark K. Ho, Thomas L. Griffiths</div>
+<div><i>Proceedings of the 42nd Annual Conference of the Cognitive Science Society</i> (2020)</div></a>
+<button class="tag" data-topic="Language">Language</button> <button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<div><span class="sideLink"><a href="https://doi.org/10.48550/arXiv.2012.09035">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{sumers2020show,
+  title = {Show or Tell? {{Demonstration}} Is More Robust to Changes in Shared Perception than Explanation},
+  booktitle = {Proceedings of the 42nd {{Annual Conference}} of the {{Cognitive Science Society}}},
+  author = {Sumers, Theodore R. and Ho, Mark K. and Griffiths, Thomas L.},
+  editor = {Denison., S. and Mack, M. and Xu, Y. and Armstrong, B.C.},
+  year = 2020,
+  pages = {3073--3079},
+  publisher = {Cognitive Science Society},
+  doi = {10.48550/arXiv.2012.09035}
+}</pre></details></div>
+</li>
+<li id="wang2020teaching" data-topics="Interactive Machine Learning|Reinforcement Learning">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/56ZHQFLX/file/view"><div><b>Teaching a robot tasks of arbitrary complexity via human feedback</b></div>
+<div>Guan Wang, Carl Trimbach, Jun Ki Lee, Mark K. Ho, Michael L Littman</div>
+<div><i>Proceedings of the 2020 ACM/IEEE International Conference on Human-Robot Interaction</i> (2020)</div></a>
+<div class="note">Oral presentation (23.6% of 279 submissions)</div>
+<button class="tag" data-topic="Interactive Machine Learning">Interactive Machine Learning</button> <button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1145/3319502.3374824">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{wang2020teaching,
+  title = {Teaching a Robot Tasks of Arbitrary Complexity via Human Feedback},
+  booktitle = {Proceedings of the 2020 {{ACM}}/{{IEEE International Conference}} on {{Human-Robot Interaction}}},
+  author = {Wang, Guan and Trimbach, Carl and Lee, Jun Ki and Ho, Mark K. and Littman, Michael L},
+  year = 2020,
+  month = mar,
+  pages = {649--657},
+  doi = {10.1145/3319502.3374824}
+}</pre></details></div>
+</li>
+<li id="ho2019people" data-topics="Reinforcement Learning|Theory of Mind">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/KJVNAZB7/file/view"><div><b>People teach with rewards and punishments as communication, not reinforcements</b></div>
+<div>Mark K. Ho, Fiery Cushman, Michael L Littman, Joseph L Austerweil</div>
+<div><i>Journal of Experimental Psychology: General</i> (2019)</div></a>
+<button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button> <button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1037/xge0000569">DOI</a></span> <span class="sideLink"><a href="https://psyarxiv.com/3cd7r/">PsyArXiv</a></span> <span class="sideLink"><a href="https://github.com/markkho/dog-training-task">Code</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@article{ho2019people,
+  title = {People Teach with Rewards and Punishments as Communication, Not Reinforcements},
+  author = {Ho, Mark K. and Cushman, Fiery and Littman, Michael L and Austerweil, Joseph L},
+  year = 2019,
+  journal = {Journal of Experimental Psychology: General},
+  volume = {148},
+  number = {3},
+  pages = {520--549},
+  publisher = {American Psychological Association},
+  doi = {10.1037/xge0000569}
+}</pre></details></div>
+</li>
+<li id="ho2019value" data-topics="Planning / Problem Solving|Reinforcement Learning">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/AWTLDS3R/file/view"><div><b>The Value of Abstraction</b></div>
+<div>Mark K. Ho, David Abel, Thomas L. Griffiths, Michael L Littman</div>
+<div><i>Current Opinion in Behavioral Sciences</i> (2019)</div></a>
+<button class="tag" data-topic="Planning / Problem Solving">Planning / Problem Solving</button> <button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1016/j.cobeha.2019.05.001">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@article{ho2019value,
+  title = {The {{Value}} of {{Abstraction}}},
+  author = {Ho, Mark K. and Abel, David and Griffiths, Thomas L. and Littman, Michael L},
+  year = 2019,
+  month = oct,
+  journal = {Current Opinion in Behavioral Sciences},
+  volume = {29},
+  pages = {111--116},
+  publisher = {Elsevier Limited},
+  doi = {10.1016/j.cobeha.2019.05.001}
+}</pre></details></div>
+</li>
+<li id="ho2019computational" data-topics="Language|Theory of Mind">
+<a class="entry" href="https://arxiv.org/abs/1906.01983"><div><b>The computational structure of unintentional meaning</b></div>
+<div>Mark K. Ho, Joanna Korman, Thomas L. Griffiths</div>
+<div><i>Proceedings of the 41st Annual Conference of the Cognitive Science Society</i> (2019)</div></a>
+<button class="tag" data-topic="Language">Language</button> <button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<div><span class="sideLink"><a href="https://doi.org/10.48550/arXiv.1906.01983">DOI</a></span> <span class="sideLink"><a href="https://bit.ly/2MI8tWu">Materials</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{ho2019computational,
+  title = {The Computational Structure of Unintentional Meaning},
+  booktitle = {Proceedings of the 41st {{Annual Conference}} of the {{Cognitive Science Society}}},
+  author = {Ho, Mark K. and Korman, Joanna and Griffiths, Thomas L.},
+  editor = {Goel, A.K. and Seifert, C.M. and Freksa, C.},
+  year = 2019,
+  pages = {1915--1921},
+  publisher = {Cognitive Science Society},
+  doi = {10.48550/arXiv.1906.01983}
+}</pre></details></div>
+</li>
+<li id="carroll2019utility" data-topics="Cooperation|Interactive Machine Learning">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/GE7ZQXYI/file/view"><div><b>On the utility of learning about humans for human-ai coordination</b></div>
+<div>Micah Carroll, Rohin Shah, Mark K. Ho, Tom Griffiths, Sanjit Seshia, Pieter Abbeel, Anca Dragan</div>
+<div><i>Advances in Neural Information Processing Systems</i> (2019)</div></a>
+<div class="note">Poster presentation (21.2% of 6,743 submissions)</div>
+<button class="tag" data-topic="Cooperation">Cooperation</button> <button class="tag" data-topic="Interactive Machine Learning">Interactive Machine Learning</button>
+<div><span class="sideLink"><a href="https://doi.org/10.48550/arXiv.1910.05789">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{carroll2019utility,
+  title = {On the Utility of Learning about Humans for Human-Ai Coordination},
+  booktitle = {Advances in {{Neural Information Processing Systems}}},
+  author = {Carroll, Micah and Shah, Rohin and Ho, Mark K. and Griffiths, Tom and Seshia, Sanjit and Abbeel, Pieter and Dragan, Anca},
+  editor = {Wallach, H. and Larochelle, H. and Beygelzimer, A. and {d&#x27;Alch{\&#x27;e}-Buc}, F. and Fox, E. and Garnett, R.},
+  year = 2019,
+  volume = {32},
+  publisher = {Curran Associates, Inc.},
+  doi = {10.48550/arXiv.1910.05789}
+}</pre></details></div>
+</li>
+<li id="ho2018effectively" data-topics="Planning / Problem Solving|Theory of Mind">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/642LQJVP/file/view"><div><b>Effectively learning from pedagogical demonstrations</b></div>
+<div>Mark K. Ho, Michael L. Littman, Fiery Cushman, Joseph L. Austerweil</div>
+<div><i>Proceedings of the 40th Annual Conference of the Cognitive Science Society</i> (2018)</div></a>
+<button class="tag" data-topic="Planning / Problem Solving">Planning / Problem Solving</button> <button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<div><span class="sideLink"><a href="https://escholarship.org/uc/item/16v54626">Web</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{ho2018effectively,
+  title = {Effectively Learning from Pedagogical Demonstrations},
+  booktitle = {Proceedings of the 40th {{Annual Conference}} of the {{Cognitive Science Society}}},
+  author = {Ho, Mark K. and Littman, Michael L. and Cushman, Fiery and Austerweil, Joseph L.},
+  editor = {Kalish, Chuck and Rau, Martina and Rogers, Tim and Zhu, Jerry},
+  year = 2018,
+  pages = {505--510},
+  publisher = {Cognitive Science Society},
+  address = {Austin, TX}
+}</pre></details></div>
+</li>
+<li id="vazquez-chanlatte2018learning" data-topics="Reinforcement Learning">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/S5NUH9M3/file/view"><div><b>Learning task specifications from demonstrations</b></div>
+<div>Marcell Vazquez-Chanlatte, Susmit Jha, Ashish Tiwari, Mark K. Ho, Sanjit Seshia</div>
+<div><i>Advances in Neural Information Processing Systems</i> (2018)</div></a>
+<div class="note">Poster presentation (20.8% of 4,856 submissions)</div>
+<button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><span class="sideLink"><a href="https://doi.org/10.48550/arXiv.1710.03875">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{vazquez-chanlatte2018learning,
+  title = {Learning Task Specifications from Demonstrations},
+  booktitle = {Advances in {{Neural Information Processing Systems}}},
+  author = {{Vazquez-Chanlatte}, Marcell and Jha, Susmit and Tiwari, Ashish and Ho, Mark K. and Seshia, Sanjit},
+  editor = {Bengio, S. and Wallach, H. and Larochelle, H. and Grauman, K. and {Cesa-Bianchi}, N. and Garnett, R.},
+  year = 2018,
+  volume = {31},
+  publisher = {Curran Associates, Inc.},
+  doi = {10.48550/arXiv.1710.03875}
+}</pre></details></div>
+</li>
+<li id="ho2017social" data-topics="Reinforcement Learning|Theory of Mind">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/PPMEWUU6/file/view"><div><b>Social is special: A normative framework for teaching with and learning from evaluative feedback</b></div>
+<div>Mark K. Ho, James MacGlashan, Michael L. Littman, Fiery Cushman</div>
+<div><i>Cognition</i> (2017)</div></a>
+<button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button> <button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<div><span class="sideLink"><a href="https://doi.org/10.1016/j.cognition.2017.03.006">DOI</a></span> <span class="sideLink"><a href="https://psyarxiv.com/2dba4">PsyArXiv</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@article{ho2017social,
+  title = {Social Is Special: {{A}} Normative Framework for Teaching with and Learning from Evaluative Feedback},
+  author = {Ho, Mark K. and MacGlashan, James and Littman, Michael L. and Cushman, Fiery},
+  year = 2017,
+  month = oct,
+  journal = {Cognition},
+  volume = {167},
+  pages = {91--106},
+  doi = {10.1016/j.cognition.2017.03.006}
+}</pre></details></div>
+</li>
+<li id="ho2017teaching" data-topics="Interactive Machine Learning|Reinforcement Learning">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/QJL6VDTF/file/view"><div><b>Teaching by Intervention: Working Backwards, Undoing Mistakes, or Correcting Mistakes?</b></div>
+<div>Mark K. Ho, Michael L. Littman, Joseph L. Austerweil</div>
+<div><i>Proceedings of the 39th Annual Conference of the Cognitive Science Society</i> (2017)</div></a>
+<button class="tag" data-topic="Interactive Machine Learning">Interactive Machine Learning</button> <button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><span class="sideLink"><a href="https://escholarship.org/uc/item/8z48f0ms">Web</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{ho2017teaching,
+  title = {Teaching by {{Intervention}}: {{Working Backwards}}, {{Undoing Mistakes}}, or {{Correcting Mistakes}}?},
+  booktitle = {Proceedings of the 39th {{Annual Conference}} of the {{Cognitive Science Society}}},
+  author = {Ho, Mark K. and Littman, Michael L. and Austerweil, Joseph L.},
+  editor = {Gunzelmann, G. and Howes, A. and Tenbrink, T. and Davelaar, J.},
+  year = 2017,
+  pages = {526--531},
+  publisher = {Cognitive Science Society},
+  address = {Austin, TX}
+}</pre></details></div>
+</li>
+<li id="macglashan2017interactive" data-topics="Interactive Machine Learning|Reinforcement Learning">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/2IE3VQK9/file/view"><div><b>Interactive learning from policy-dependent human feedback</b></div>
+<div>James MacGlashan, Mark K. Ho, Robert Loftin, Bei Peng, Guan Wang, David L Roberts, Matthew E Taylor, Michael L Littman</div>
+<div><i>Proceedings of the 34th International Conference on Machine Learning</i> (2017)</div></a>
+<div class="note">Oral presentation (25.9% of 1,676 submissions)</div>
+<button class="tag" data-topic="Interactive Machine Learning">Interactive Machine Learning</button> <button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button>
+<div><span class="sideLink"><a href="https://doi.org/10.48550/arXiv.1701.06049">DOI</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{macglashan2017interactive,
+  title = {Interactive Learning from Policy-Dependent Human Feedback},
+  booktitle = {Proceedings of the 34th {{International Conference}} on {{Machine Learning}}},
+  author = {MacGlashan, James and Ho, Mark K. and Loftin, Robert and Peng, Bei and Wang, Guan and Roberts, David L and Taylor, Matthew E and Littman, Michael L},
+  year = 2017,
+  volume = {70},
+  pages = {2285--2294},
+  publisher = {PMLR},
+  doi = {10.48550/arXiv.1701.06049}
+}</pre></details></div>
+</li>
+<li id="ho2016showing" data-topics="Planning / Problem Solving|Theory of Mind">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/C4IA8K4L/file/view"><div><b>Showing versus doing: Teaching by demonstration</b></div>
+<div>Mark K. Ho, Michael Littman, James MacGlashan, Fiery Cushman, Joseph L Austerweil</div>
+<div><i>Advances in Neural Information Processing Systems</i> (2016)</div></a>
+<div class="note">Oral presentation (1.9% of 2,425 submissions)</div>
+<button class="tag" data-topic="Planning / Problem Solving">Planning / Problem Solving</button> <button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<div><details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{ho2016showing,
+  title = {Showing versus Doing: {{Teaching}} by Demonstration},
+  booktitle = {Advances in {{Neural Information Processing Systems}}},
+  author = {Ho, Mark K. and Littman, Michael and MacGlashan, James and Cushman, Fiery and Austerweil, Joseph L},
+  editor = {Lee, D. D. and Sugiyama, M. and Luxburg, U. V. and Guyon, I. and Garnett, R.},
+  year = 2016,
+  volume = {29},
+  pages = {3027--3035},
+  publisher = {Curran Associates, Inc.}
+}</pre></details></div>
+</li>
+<li id="ho2016featurebased" data-topics="Cooperation|Planning / Problem Solving">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/3652XRZ4/file/view"><div><b>Feature-based Joint Planning and Norm Learning in Collaborative Games</b></div>
+<div>Mark K. Ho, James MacGlashan, Amy Greenwald, Michael L. Littman, Elizabeth Hilliard, Carl Trimbach, Stephen Brawner, Joshua B. Tenenbaum, Max Kleiman-Weiner, Joseph L. Austerweil</div>
+<div><i>Proceedings of the 38th Annual Conference of the Cognitive Science Society</i> (2016)</div></a>
+<button class="tag" data-topic="Cooperation">Cooperation</button> <button class="tag" data-topic="Planning / Problem Solving">Planning / Problem Solving</button>
+<div><span class="sideLink"><a href="https://escholarship.org/uc/item/6pt94203">Web</a></span> <span class="sideLink"><a href="https://github.com/markkho/norms-cogsci2016">Code</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{ho2016featurebased,
+  title = {Feature-Based {{Joint Planning}} and {{Norm Learning}} in {{Collaborative Games}}},
+  booktitle = {Proceedings of the 38th {{Annual Conference}} of the {{Cognitive Science Society}}},
+  author = {Ho, Mark K. and MacGlashan, James and Greenwald, Amy and Littman, Michael L. and Hilliard, Elizabeth and Trimbach, Carl and Brawner, Stephen and Tenenbaum, Joshua B. and {Kleiman-Weiner}, Max and Austerweil, Joseph L.},
+  editor = {Papafragou, Anna and Grodner, Daniel and Mirman, Daniel and Trueswell, John C.},
+  year = 2016,
+  pages = {1158--1163},
+  publisher = {Cognitive Science Society},
+  address = {Austin, TX}
+}</pre></details></div>
+</li>
+<li id="kleiman-weiner2016coordinate" data-topics="Cooperation|Planning / Problem Solving">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/UFW7QM2I/file/view"><div><b>Coordinate to cooperate or compete: Abstract goals and joint intentions in social interaction</b></div>
+<div>Max Kleiman-Weiner, Mark K. Ho, Joseph L. Austerweil, Michael L. Littman, Joshua B. Tenenbaum</div>
+<div><i>Proceedings of the 38th Annual Conference of the Cognitive Science Society</i> (2016)</div></a>
+<button class="tag" data-topic="Cooperation">Cooperation</button> <button class="tag" data-topic="Planning / Problem Solving">Planning / Problem Solving</button>
+<div><span class="sideLink"><a href="https://escholarship.org/uc/item/29z7r7md">Web</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{kleiman-weiner2016coordinate,
+  title = {Coordinate to Cooperate or Compete: {{Abstract}} Goals and Joint Intentions in Social Interaction},
+  booktitle = {Proceedings of the 38th {{Annual Conference}} of the {{Cognitive Science Society}}},
+  author = {{Kleiman-Weiner}, Max and Ho, Mark K. and Austerweil, Joseph L. and Littman, Michael L. and Tenenbaum, Joshua B.},
+  editor = {Papafragou, Anna and Grodner, Daniel and Mirman, Daniel and Trueswell, John C.},
+  year = 2016,
+  pages = {1679--1684},
+  publisher = {Cognitive Science Society},
+  address = {Austin, TX}
+}</pre></details></div>
+</li>
+<li id="ho2015teaching" data-topics="Reinforcement Learning|Theory of Mind">
+<a class="entry" href="https://api.zotero.org/users/1098530/publications/items/KZFIDICE/file/view"><div><b>Teaching with Rewards and Punishments: Reinforcement or Communication?</b></div>
+<div>Mark K. Ho, Michael L. Littman, Fiery Cushman, Joseph L. Austerweil</div>
+<div><i>Proceedings of the 37th Annual Conference of the Cognitive Science Society</i> (2015)</div></a>
+<button class="tag" data-topic="Reinforcement Learning">Reinforcement Learning</button> <button class="tag" data-topic="Theory of Mind">Theory of Mind</button>
+<div><span class="sideLink"><a href="https://escholarship.org/uc/item/90k992w4">Web</a></span> <details class="cite"><summary class="sideLink">Cite</summary><pre>@inproceedings{ho2015teaching,
+  title = {Teaching with {{Rewards}} and {{Punishments}}: {{Reinforcement}} or {{Communication}}?},
+  booktitle = {Proceedings of the 37th {{Annual Conference}} of the {{Cognitive Science Society}}},
+  author = {Ho, Mark K. and Littman, Michael L. and Cushman, Fiery and Austerweil, Joseph L.},
+  editor = {Noelle, D.C. and Dale, R. and Warlaumont, A. S. and Yoshimi, J. and Matlock, T. and Jennings, C. D. and Maglio, P. P.},
+  year = 2015,
+  pages = {920--925},
+  publisher = {Cognitive Science Society},
+  address = {Austin, TX}
+}</pre></details></div>
+</li>
+</ol>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<p>
+  If you are interested in joining the lab, please see
+  <a href="https://forms.gle/jnusnnA2rDywzJYa7">this form</a>
+  for more information.
+  For other questions regarding the lab, please contact Dr. Mark Ho at <a href="mailto:mark.ho@nyu.edu">mark.ho@nyu.edu</a>.
+</p>
+<p>
+  We are located in the
+  <a href="https://as.nyu.edu/departments/psychology.html">Department of Psychology at New York University</a>.
+</p>
+<div style="text-align: center;">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.4922958166158!2d-73.99922490978523!3d40.72919179762508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2599a84f278b5%3A0x8060e0484cc32905!2sMeyer%20Hall!5e0!3m2!1sen!2sus!4v1715711131398!5m2!1sen!2sus"
+    width="600" height="450" style="border:0; filter: grayscale(85%);"
+    allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Meyer Hall"></iframe>
+</div>
+</section>
+
+  </article>
+<script>
+// External links open in a new tab, as on the old site.
+document.querySelectorAll('a[href^="http"]').forEach(a => { a.target = '_blank'; a.rel = 'noopener'; });
+
+// Cite chips: a Copy button inside each opened BibTeX entry.
+document.querySelectorAll('details.cite pre').forEach(pre => {
+  const b = document.createElement('button');
+  b.className = 'copy'; b.textContent = 'Copy';
+  b.addEventListener('click', e => {
+    e.preventDefault();
+    navigator.clipboard.writeText(pre.firstChild.textContent).then(() => { b.textContent = 'Copied'; setTimeout(() => b.textContent = 'Copy', 1500); });
+  });
+  pre.appendChild(b);
+});
+
+// Topic filter. Without JavaScript the chips stay hidden and every paper shows.
+// A chip in the top row shows only that topic's papers; "All Topics" resets. A chip on a paper does the same,
+// then scrolls that paper back into view once the list has settled.
+(() => {
+  document.querySelector('.topics').hidden = false;
+  const show = topic => {
+    document.querySelectorAll('.papers li').forEach(li =>
+      li.classList.toggle('filtered', topic !== null && !li.dataset.topics.split('|').includes(topic)));
+    document.querySelectorAll('.tag').forEach(t =>
+      t.classList.toggle('off', topic !== null && t.dataset.topic !== topic));
+  };
+  document.addEventListener('click', e => {
+    const t = e.target.closest('.tag');
+    if (!t) return;
+    show(t.dataset.topic ?? null);
+    const paper = t.closest('.papers li');
+    if (paper) setTimeout(() => paper.scrollIntoView({behavior: 'smooth', block: 'start'}), 800);
+  });
+})();
+</script>
 </body>
 </html>
